@@ -1,6 +1,6 @@
 ---
 enable: true
-title: When Wisdom Matters Most
+title: When Wisdom Matters
 subtitle: >-
   **What if exited founders teamed up with companies changing the world to
   achieve their missions, faster?**
