@@ -20,16 +20,16 @@ banner:
       - 99% founders walk away with nothing
       - 70% of VC-backed startups fail
       - "9% Series A make it to Series B "
-      - 50% founding ceo's fired/forced out
       - Founders own <20% by Series C
-      - "VC's play games (growth-at-all-cost) "
-      - 93% of VCs never built a company
-      - 83% founders live with chronic stress
-      - 72% founders struggle with mental health
+      - 50% founding ceo's fired/forced out
       - 50% founders experience insomnia
-      - "40% founder divorce rate "
+      - 83% founders live with chronic stress
+      - 72% founders suffer with mental health
+      - "40% founders get divorced  "
       - "70% unicorns from repeat founders "
       - "75% founders regret selling/exiting "
+      - 93% of VCs never built a company
+      - "VC's play games (growth-at-all-cost) "
       - PE buys, strips and flips
       - "You don't have to learn the hard way "
       - Supernova exists to change the game
