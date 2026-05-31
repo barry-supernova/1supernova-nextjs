@@ -25,7 +25,7 @@ banner:
       - 50% founders experience insomnia
       - 83% founders live with chronic stress
       - 72% founders suffer with mental health
-      - "40% founders get divorced  "
+      - "40% founders who marry get divorced  "
       - "70% unicorns from repeat founders "
       - "75% founders regret selling/exiting "
       - 93% of VCs never built a company
