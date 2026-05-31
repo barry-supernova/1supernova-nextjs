@@ -1,11 +1,11 @@
 ---
 enable: true
 title: "250+ Exited Founders "
-subtitle: Built, scaled, and exited companies. Now backing founders through the
-  moments that define outcomes.
+subtitle: Built, scaled, and exited companies. Now backing companies with
+  wisdom, capital, and trusted relationships.
 quote: >-
-  Embedded operators applying battle-tested judgment where companies break,
-  stall, scale, and win.
+  Sharing lived experience and battle-tested lessons learned at the moments that
+  define outcomes. 
 group_list:
   - name: AI
     icon: /images/superstars/icons/ai.svg
