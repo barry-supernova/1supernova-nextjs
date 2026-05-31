@@ -1,11 +1,10 @@
 ---
 enable: true
 title: "250+ Exited Founders "
-subtitle: Built, scaled, and exited companies. Now backing companies with
-  wisdom, capital, and trusted relationships.
+subtitle: Built, scaled, and exited companies. Now backing startups with wisdom,
+  capital, and trusted relationships.
 quote: >-
-  Sharing lived experience and battle-tested lessons learned at the moments that
-  define outcomes. 
+  Sharing lived experience where companies break, stall, scale, and win.
 group_list:
   - name: AI
     icon: /images/superstars/icons/ai.svg
