@@ -11,7 +11,7 @@ banner:
   title: Build With Exited Founders </br>Who've Built, Scaled & Sold <br> **The AI
     Edge is Human**
   subtitle: "Capital scales companies. <br> Judgment determines outcomes. "
-  background_youtube_video_id: https://youtu.be/MPxSRyMxIuU?si=yiffDH_FhtEK9LuJ
+  background_youtube_video_id: MPxSRyMxIuU?si=yiffDH_FhtEK9LuJ
   quote:
     enable: true
     title: Why this matters now
