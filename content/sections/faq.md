@@ -16,12 +16,12 @@ lists:
       is the judgment that sits alongside the check. 90% NPS. The founders we
       back tend to stay close."
   - question: Who gets backed by Supernova?
-    answer: "We back up to a dozen scaleups each year. Typically, Series A–C
-      companies, or bootstrapped businesses doing $5M-100M in ARR. For the right
-      fit, we deploy up to $2M+ in capital alongside a hands-on tiger team of
-      exited founders who have already been where you're trying to go. For
+    answer: "We back up to a dozen scaleups each year. Typically, Seed & Series A
+      companies, or bootstrapped businesses doing $5M+ ARR. For the right fit,
+      we deploy up to $2M+ in capital alongside a hands-on tiger team of exited
+      founders who have already been where you're trying to go. For
       earlier-stage companies that stand out, we'll sometimes embed an exited
-      founders before we invest, to build the relationship and prove the fit.
+      founder before we invest, to build the relationship and prove the fit.
       We're sector-agnostic. AI, HealthTech, Fintech, SaaS, eCommerce, Impact,
       and Web3 - the industry matters less than the founder and team. We're
       drawn to: mission-driven leaders talking real problems, building
