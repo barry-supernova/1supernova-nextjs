@@ -10,8 +10,9 @@ quote:
   quote_by: Barry Stamos, CEO & Co-founder SUPERNOVA
 process:
   - name: 01 - Who we back 👩‍💻
-    content: "Our primary focus is startups ($3 to 30M+ ARR), Seed & Series A, as
-      well as growth-stage companies. 🎯 "
+    content: "Our primary focus is investing in early-stage startups (Seed & Series
+      A) and backing growth-stage companies ($5 to 30M+ ARR) with exited founder
+      talent. 🎯 "
     button:
       enable: true
       label: See If You Qualify In Minutes ⏱️
