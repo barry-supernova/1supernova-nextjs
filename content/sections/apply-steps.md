@@ -17,7 +17,7 @@ step_list:
       more valuable now than ever. "
     icon: IoDocumentTextOutline
     link: https://nova.1supernova.com/#/apply-with-ai
-  - title: "Decisions compound – or they don't "
+  - title: "Decisions compound, or they don't "
     content: Good choices compound. Bad ones cascade. At your stage, one misread on
       talent, go-to-market, or tech architecture can define your next 12-24
       months.
