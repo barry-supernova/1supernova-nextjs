@@ -7,15 +7,14 @@ subtitle: >-
 lists:
   - question: How much do you invest?
     answer: "Every portfolio company in Supernova’s fund gets a check up to $2M.
-      That's the starting point, not the whole offer. Each company is also
-      paired with 3–5 exited founders, including a Super Founder with prior
-      exits of $50M+, who gets hands-on involvement, not just a call once a
-      month. They're in the room when it matters: hiring decisions, fundraising
-      strategy, partnership negotiations, inflection points that carry
-      seven-figure consequences. Capital is table stakes. The reason Supernova
-      portfolio companies achieve unicorn and decacorn outcomes is the judgment
-      that sits alongside the check. 90% NPS. The founders we back tend to stay
-      close."
+      Each company is also paired with 3–5 exited founders, including a Super
+      Founder with prior exits of $50M+, who gets hands-on involvement, not just
+      a call once a month. They're in the room when it matters: hiring
+      decisions, fundraising strategy, partnership negotiations, inflection
+      points that carry seven-figure consequences. Capital is table stakes. The
+      reason Supernova portfolio companies achieve unicorn and decacorn outcomes
+      is the judgment that sits alongside the check. 90% NPS. The founders we
+      back tend to stay close."
   - question: Who gets backed by Supernova?
     answer: "We back up to a dozen scaleups each year. Typically, Series A–C
       companies, or bootstrapped businesses doing $5M-100M in ARR. For the right
