@@ -15,7 +15,12 @@ const VideoBG = ({ background_youtube_video_id }) => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   useEffect(() => {
-    const handleInteraction = () => {
+    const handleInteraction = (event) => {
+      // A click/tap/keypress on a link or button means the visitor is heading
+      // somewhere else, so don't start loading the video behind them.
+      if (event.type !== 'scroll' && event.target?.closest?.('a, button')) {
+        return;
+      }
       setIsVideoLoaded(true);
       removeListeners();
     };
@@ -25,10 +30,7 @@ const VideoBG = ({ background_youtube_video_id }) => {
       );
 
     INTERACTION_EVENTS.forEach((event) =>
-      window.addEventListener(event, handleInteraction, {
-        once: true,
-        passive: true,
-      })
+      window.addEventListener(event, handleInteraction, { passive: true })
     );
 
     return removeListeners;
