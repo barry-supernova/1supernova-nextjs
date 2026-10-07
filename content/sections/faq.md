@@ -92,7 +92,7 @@ lists:
       with the right exited founders, often in minutes, not months, creating
       time compression and immediate execution lift. Learn more at
       1supernova.com/pe"
-  - question: Why the name Supernova?
+  - question: Why the name 1Supernova?
     answer: "A Supernova shines hundreds of billions of times brighter than a single
       star. One sun sustains life. A Supernova reshapes galaxies. We believe
       it’s time for solo stars (successfully exited founders) to stop operating
@@ -108,4 +108,3 @@ lists:
       power they hold. Because the future won’t be shaped by those who shine
       alone, but rather by those who shine brighter, together. ✨"
 ---
-​
