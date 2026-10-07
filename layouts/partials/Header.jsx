@@ -174,10 +174,20 @@ const Header = () => {
               rel="noopener nofollow noreferrer">
               {markdownify(settings.header_cta_label, 'span', '')}
             </Link>
+            <Link
+              className="mt-5 block text-lg text-white transition hover:text-primary-200"
+              href={settings.header_login_link}>
+              {settings.header_login_label}
+            </Link>
           </li>
         </ul>
 
-        <div className="order-1 mx-5 hidden items-center lg:order-2 sm:block lg:mx-0">
+        <div className="order-1 mx-5 hidden items-center lg:order-2 sm:flex lg:mx-0">
+          <Link
+            className="mr-5 text-base text-white transition hover:text-primary-200"
+            href={settings.header_login_link}>
+            {settings.header_login_label}
+          </Link>
           <Link
             className="btn btn-sm btn-dark py-4 leading-none"
             href={settings.header_cta_link}
