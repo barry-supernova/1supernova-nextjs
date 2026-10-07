@@ -70,8 +70,8 @@
     },
     {
       "type": "file",
-      "targetPath": "content/about-us/_index.md",
-      "groupName": "About Us Section"
+      "targetPath": "content/sections/go-supernova.md",
+      "groupName": "Go Supernova: Behind The Scenes"
     },
     {
       "type": "file",
@@ -134,9 +134,16 @@
       "type": "file",
       "targetPath": "content/terms-of-service.md",
       "groupName": "Terms of service"
+    },
+    {
+      "type": "file",
+      "targetPath": "content/404.md",
+      "groupName": "404 Page"
     }
   ],
   "public": "public",
-  "configs": ["config"],
+  "configs": [
+    "config"
+  ],
   "custom-commit": false
 }

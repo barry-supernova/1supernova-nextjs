@@ -9,14 +9,14 @@
       "label": "Title",
       "type": "string",
       "value": "Apollo",
-      "defaultValue": "Apollo"
+      "defaultValue": ""
     },
     {
       "name": "description",
       "label": "Description",
       "type": "string",
       "value": "The first vibration therapy system clinically proven to reduce stress",
-      "defaultValue": "The first vibration therapy system clinically proven to reduce stress"
+      "defaultValue": ""
     },
     {
       "name": "information",
@@ -29,56 +29,56 @@
           "label": "Title",
           "type": "string",
           "value": "Scaling Good Vibes To Transform Lives",
-          "defaultValue": "Scaling Good Vibes To Transform Lives"
+          "defaultValue": ""
         },
         {
           "name": "youtubeVideoId",
           "label": "YoutubeVideoId",
           "type": "string",
           "value": "UIQc7abikzE",
-          "defaultValue": "UIQc7abikzE"
+          "defaultValue": ""
         },
         {
           "name": "youtubeVideoStartTime",
           "label": "YoutubeVideoStartTime",
           "type": "string",
           "value": "360",
-          "defaultValue": "360"
+          "defaultValue": ""
         },
         {
           "name": "image",
           "label": "Image",
           "type": "media",
           "value": "/images/Apollo Co-founders.png",
-          "defaultValue": "/images/Apollo Co-founders.png"
+          "defaultValue": ""
         },
         {
           "name": "stage",
-          "label": "Stage",
+          "label": "Company",
           "type": "string",
           "value": "Apollo Neuro",
-          "defaultValue": "Apollo Neuro"
+          "defaultValue": ""
         },
         {
           "name": "industry",
           "label": "Industry",
           "type": "string",
           "value": "HealthTech",
-          "defaultValue": "HealthTech"
+          "defaultValue": ""
         },
         {
           "name": "company",
-          "label": "Company",
+          "label": "Company Size",
           "type": "string",
           "value": "Series A ($30mm+)",
-          "defaultValue": "Series A ($30mm+)"
+          "defaultValue": ""
         },
         {
           "name": "location",
           "label": "Location",
           "type": "string",
           "value": "San Francisco",
-          "defaultValue": "San Francisco"
+          "defaultValue": ""
         }
       ]
     },
@@ -107,7 +107,7 @@
               "label": "Image",
               "type": "media",
               "value": "/images/1-apollo-hero.jpg",
-              "defaultValue": "/images/1-apollo-hero.jpg"
+              "defaultValue": ""
             }
           ]
         },
@@ -123,7 +123,7 @@
               "label": "Image",
               "type": "media",
               "value": "/images/apollo-neuro-laptop.webp",
-              "defaultValue": "/images/apollo-neuro-laptop.webp"
+              "defaultValue": ""
             }
           ]
         }
