@@ -1,25 +1,37 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
+// Events that signal a real visitor; the YouTube embed (~2MB of video + player JS)
+// is only loaded after one of these so it never competes with the initial page load.
+const INTERACTION_EVENTS = [
+  'pointermove',
+  'pointerdown',
+  'scroll',
+  'keydown',
+  'touchstart',
+];
+
 const VideoBG = ({ background_youtube_video_id }) => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   useEffect(() => {
-    const handleLoad = () => {
-      // Set a delay based on the page load time
-      setTimeout(() => {
-        setIsVideoLoaded(true);
-      }, 100);
+    const handleInteraction = () => {
+      setIsVideoLoaded(true);
+      removeListeners();
     };
+    const removeListeners = () =>
+      INTERACTION_EVENTS.forEach((event) =>
+        window.removeEventListener(event, handleInteraction)
+      );
 
-    // Check if the page is already loaded
-    if (document.readyState === 'complete') {
-      handleLoad();
-    } else {
-      window.addEventListener('load', handleLoad);
-    }
+    INTERACTION_EVENTS.forEach((event) =>
+      window.addEventListener(event, handleInteraction, {
+        once: true,
+        passive: true,
+      })
+    );
 
-    return () => window.removeEventListener('load', handleLoad);
+    return removeListeners;
   }, []);
 
   return isVideoLoaded ? (
@@ -34,6 +46,7 @@ const VideoBG = ({ background_youtube_video_id }) => {
       alt="video thumbnail"
       width={1920}
       height={1080}
+      sizes="100vw"
       fetchPriority="high"
       priority={true}
     />

@@ -1,9 +1,9 @@
 import ArrowButton from '@components/ArrowButton';
 import ImageFallback from '@components/ImageFallback';
-import ReactPlayerWrapperV2 from '@components/ReactPlayerWrapperV2';
 import config from '@config/config';
 import PortalModal from '@layouts/helpers/PortalModal';
 import { markdownify } from '@lib/utils/textConverter';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useRef, useState } from 'react';
 import { Autoplay } from 'swiper';
@@ -12,6 +12,17 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { useOnClickOutside } from 'usehooks-ts';
 import Founders from './Founders';
 import VideoBG from './VideoBG';
+
+// Links the popup player can actually play; anything else (e.g. a web page)
+// is opened as a normal link instead of an endless-loading video popup.
+const VIDEO_LINK_PATTERN =
+  /youtube\.com|youtu\.be|vimeo\.com|open\.spotify\.com|wistia\.|loom\.com|\.(mp4|webm|mov|m3u8)(\?|$)/i;
+
+// Only needed once the video popup is opened
+const ReactPlayerWrapperV2 = dynamic(
+  () => import('@components/ReactPlayerWrapperV2'),
+  { ssr: false }
+);
 
 const Banner = ({ banner, founders }) => {
   const handleOpenVideoPopup = () => {
@@ -25,6 +36,12 @@ const Banner = ({ banner, founders }) => {
   useOnClickOutside(videoPopupRef, handleCloseVideoModal);
 
   const { badge } = banner;
+  const videoLink = banner.video_button.full_link?.trim();
+  const isVideoLink = VIDEO_LINK_PATTERN.test(videoLink);
+  const VideoButtonTag = isVideoLink ? 'button' : 'a';
+  const videoButtonProps = isVideoLink
+    ? { onClick: handleOpenVideoPopup, 'aria-label': 'Play Video' }
+    : { href: videoLink, target: '_blank', rel: 'noopener noreferrer' };
 
   return (
     <section className="relative overflow-hidden pb-16 pt-12 after:absolute after:inset-0 after:z-20 after:h-full after:w-full after:bg-dark-primary/70 after:content-[''] md:pt-8">
@@ -111,12 +128,11 @@ const Banner = ({ banner, founders }) => {
               />
             )}
             {banner.video_button.enable && (
-              <button
+              <VideoButtonTag
                 data-aos="fade-up"
                 data-aos-delay="100"
                 className=" group/banner-button mx-0 flex items-center gap-2 "
-                onClick={handleOpenVideoPopup}
-                aria-label="Play Video">
+                {...videoButtonProps}>
                 <span className="group-hover/banner-button:btn-hover-scale-effect relative z-10 grid size-[54px] min-w-min place-items-center rounded-full bg-secondary-600 text-white group-hover/banner-button:bg-secondary-1000 ">
                   <svg
                     className="ml-0.5 text-3xl text-dark-primary"
@@ -156,18 +172,15 @@ const Banner = ({ banner, founders }) => {
                     'text-xs leading-[1] font-medium text-light-primary/50 text-left'
                   )}
                 </div>
-              </button>
+              </VideoButtonTag>
             )}
 
             {/* Video Popup  Modal */}
-            {isVideoPopupOpen && banner.video_button.enable && (
+            {isVideoPopupOpen && banner.video_button.enable && isVideoLink && (
               <PortalModal>
                 <PortalModal.Close handleClose={handleCloseVideoModal} />
                 <div className="mx-auto w-[800px]" ref={videoPopupRef}>
-                  <ReactPlayerWrapperV2
-                    url={banner.video_button.full_link}
-                    autoplay={true}
-                  />
+                  <ReactPlayerWrapperV2 url={videoLink} autoplay={true} />
                 </div>
               </PortalModal>
             )}

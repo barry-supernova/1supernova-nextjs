@@ -3,6 +3,7 @@ const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
 });
 
+const path = require('path');
 const config = require('./config/config.json');
 
 /**
@@ -17,6 +18,17 @@ const nextConfig = {
 
   // Control trailing slashes for URLs
   trailingSlash: config.site.trailing_slash,
+
+  webpack: (webpackConfig) => {
+    // Points straight at react-icons' CommonJS files so DynamicIcon's lazy
+    // fallback gets its own chunks instead of stopping tree-shaking of the
+    // icons that are imported normally (see layouts/components/DynamicIcon.jsx).
+    webpackConfig.resolve.alias['react-icons-lazy'] = path.join(
+      __dirname,
+      'node_modules/react-icons'
+    );
+    return webpackConfig;
+  },
 
   experimental: {
     serverActions: {
