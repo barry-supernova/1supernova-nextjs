@@ -58,9 +58,9 @@ const ApplySteps = ({ data }) => {
                   <div className="neon-icon ">
                     <DynamicIcon icon={step.icon} />
                   </div>
-                  <h4 className="text-2xl font-bold text-light-primary">
+                  <h3 className="text-2xl font-bold text-light-primary">
                     {step.title}
-                  </h4>
+                  </h3>
                   <p className="text-base-sm text-light-tertiary/80">
                     {step.content}
                   </p>

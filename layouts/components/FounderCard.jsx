@@ -19,6 +19,7 @@ const FounderCard = ({ item, index, handleOpenVideoPopup }) => {
       {item.video_link_button && item.video_link_button.enable && (
         <button
           onClick={handleOpenVideoPopup}
+          aria-label={`Play video: ${item.name}`}
           className="absolute right-4 top-4 z-10">
           <div className="group flex h-[70px] w-[70px] items-center justify-center rounded-full bg-gray-400 hover:bg-primary">
             <div className="flex h-[85%] w-[85%] items-center justify-center rounded-full bg-white text-center text-xs text-black transition duration-300 group-hover:bg-primary group-hover:text-white">
