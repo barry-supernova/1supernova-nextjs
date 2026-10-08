@@ -19,6 +19,11 @@ const nextConfig = {
   // Control trailing slashes for URLs
   trailingSlash: config.site.trailing_slash,
 
+  // Serve AVIF (smallest) where the browser supports it, otherwise WebP
+  images: {
+    formats: ['image/avif', 'image/webp'],
+  },
+
   webpack: (webpackConfig) => {
     // Points straight at react-icons' CommonJS files so DynamicIcon's lazy
     // fallback gets its own chunks instead of stopping tree-shaking of the
