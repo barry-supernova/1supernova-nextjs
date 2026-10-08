@@ -6,7 +6,7 @@ import { useRef, useState } from 'react';
 import { useOnClickOutside } from 'usehooks-ts';
 
 import FounderCard from '@components/FounderCard';
-import { Autoplay, Pagination } from 'swiper';
+import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
