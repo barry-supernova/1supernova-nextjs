@@ -6,7 +6,7 @@ import { markdownify } from '@lib/utils/textConverter';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useRef, useState } from 'react';
-import { Autoplay } from 'swiper';
+import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useOnClickOutside } from 'usehooks-ts';

@@ -83,7 +83,7 @@ leadership_team:
       image: /images/Tim_Chang.jpg
       designation: Guide
     - name: Lorenzo De Leo
-      image: /images/Screenshot 2026-02-03 at 11.18.59 AM.png
+      image: /images/screenshot-2026-02-03-11.18.59-am.png
       designation: Builder
     - name: Kyle McFadden
       image: /images/Kyle-r.jpg
