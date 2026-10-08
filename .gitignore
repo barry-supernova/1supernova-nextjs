@@ -44,3 +44,7 @@ yarn-error.log*
 node_modules
 .DS_Store
 **/.DS_Store
+# cloud service-account keys (never commit these; use Netlify env vars)
+config/gas.json
+config/google_service_auth.json
+*service-account*.json
