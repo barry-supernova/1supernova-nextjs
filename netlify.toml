@@ -10,3 +10,17 @@ included_files = ["content/**"]
 
 [[headers]]
 for = "/*" # This defines which paths this specific [[headers]] block will cover.
+
+# Send Netlify's own addresses to the real domain so Google only indexes
+# 1supernova.com (deploy previews are already noindexed by Netlify).
+[[redirects]]
+from = "https://1supernova.netlify.app/*"
+to = "https://1supernova.com/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "https://main--1supernova.netlify.app/*"
+to = "https://1supernova.com/:splat"
+status = 301
+force = true
