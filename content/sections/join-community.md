@@ -5,7 +5,7 @@ subtitle: We believe in a more collaborative world ✨
 info: >-
   Don’t fit into any of these categories, but still want to work together?
   Contact us <a
-  href="https://calendly.com/supernova-intro/supernova-intro?month=2023-05"
+  href="https://calendly.com/supernova-intro/supernova-intro"
   target="_blank">here <span class="sr-only">to contact with us</a>.
 lists:
   - title: Startups
@@ -21,13 +21,13 @@ lists:
       portfolio? "
     button:
       label: Let’s Talk
-      link: https://calendly.com/supernova-intro/supernova-intro?month=2023-05
+      link: https://calendly.com/supernova-intro/supernova-intro
   - title: Investors
     icon: /images/community/03.svg
     content: "**Are you an investor** interested in joining our fund and sharing
       upside? "
     button:
       label: Let’s Talk
-      link: https://calendly.com/supernova-intro/supernova-intro?month=2023-05
+      link: https://calendly.com/supernova-intro/supernova-intro
 ---
 ​

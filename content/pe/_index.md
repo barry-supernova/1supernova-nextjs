@@ -252,7 +252,7 @@ engagement_models:
       button:
         enable: true
         label: Get Started
-        link: https://calendly.com/supernova-intro/supernova-intro?month=2023-05
+        link: https://calendly.com/supernova-intro/supernova-intro
     - title: Tiger Teams
       price: $75k – $250k
       content: Embedded operators to drive outcomes when time and risk are
@@ -267,7 +267,7 @@ engagement_models:
       button:
         enable: true
         label: Get Started
-        link: https://calendly.com/supernova-intro/supernova-intro?month=2023-05
+        link: https://calendly.com/supernova-intro/supernova-intro
     - title: Fund Retainer
       price: Custom
       content: Portfolio-wide coverage with preferred rates, rapid matching, and
@@ -281,7 +281,7 @@ engagement_models:
       button:
         enable: true
         label: Get Started
-        link: https://calendly.com/supernova-intro/supernova-intro?month=2023-05
+        link: https://calendly.com/supernova-intro/supernova-intro
 
 # call to action
 call_to_action:
@@ -293,11 +293,11 @@ call_to_action:
   button_fill:
     enable: true
     label: Book a call
-    link: https://calendly.com/supernova-intro/supernova-intro?month=2023-05
+    link: https://calendly.com/supernova-intro/supernova-intro
   button_outline:
     enable: true
     label: Contact Us
-    link: https://calendly.com/supernova-intro/supernova-intro?month=2023-05
+    link: https://calendly.com/supernova-intro/supernova-intro
 
 # FAQ
 faq:
@@ -305,7 +305,7 @@ faq:
   title: Frequently Asked Questions
   subtitle: >-
     Can’t find answers here? <br /> Feel free to [reach
-    out](https://calendly.com/supernova-intro/supernova-intro?month=2023-05).
+    out](https://calendly.com/supernova-intro/supernova-intro).
 
   lists:
     - question: What if we already have access to top advisors, board members, or operating partners?

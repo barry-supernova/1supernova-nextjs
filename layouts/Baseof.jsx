@@ -23,6 +23,11 @@ const Base = ({
   const { base_url } = config.site;
   const { announcement } = settings;
   const router = useRouter();
+  // Canonicals identify the rendered page, without tracking queries or fragments.
+  const canonicalUrl = new URL(canonical || router.asPath.split(/[?#]/)[0], base_url);
+  canonicalUrl.search = '';
+  canonicalUrl.hash = '';
+  canonicalUrl.pathname = canonicalUrl.pathname.replace(/\/+$/, '') || '/';
 
   useEffect(() => {
     document.querySelectorAll('a[href^="http"]').forEach((link) => {
@@ -43,6 +48,7 @@ const Base = ({
   return (
     <>
       <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* title */}
         <title>
           {plainify(
@@ -61,7 +67,7 @@ const Base = ({
         {(canonical || base_url) && (
           <link
             rel="canonical"
-            href={`${canonical || base_url}/`}
+            href={canonicalUrl.href}
             itemProp="url"
           />
         )}
@@ -100,7 +106,7 @@ const Base = ({
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content={`${base_url}/${router.asPath.replace('/', '')}`}
+          content={canonicalUrl.href}
         />
 
         {/* twitter-title */}

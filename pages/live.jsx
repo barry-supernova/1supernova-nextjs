@@ -3,9 +3,15 @@ import Link from "next/link";
 
 const Live = () => {
   return (
-    <Base>
+    <Base
+      title="Supernova Three Founders Changing the World"
+      description="Supernova Three Founders Changing the World"
+    >
       <div className="container">
         <div className="lg:colo-8 mx-auto py-20 text-center">
+          <h1 className="mb-8 text-h3 md:text-h2">
+            Supernova Three Founders Changing the World
+          </h1>
           <iframe
             className="aspect-video w-full rounded-lg shadow-lg"
             src="https://www.youtube.com/embed/G2SqSljZBy4?si=-HnJcGhmEgU_XsxM"

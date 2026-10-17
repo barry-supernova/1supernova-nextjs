@@ -39,12 +39,12 @@
     },
     {
       "name": "Calendly Link",
-      "link": "https://calendly.com/supernova-intro/supernova-intro?month=2023-05",
+      "link": "https://calendly.com/supernova-intro/supernova-intro",
       "icon": "/images/social-icons/02.svg"
     },
     {
       "name": "Email Address",
-      "link": "mailto: hello@1supernova.com",
+      "link": "mailto:hello@1supernova.com",
       "icon": "/images/social-icons/03.svg"
     }
   ],

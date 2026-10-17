@@ -3,7 +3,7 @@ enable: true
 title: Frequently Asked Questions
 subtitle: >-
   Can’t find answers here? <br /> Feel free to [reach
-  out](https://calendly.com/supernova-intro/supernova-intro?month=2023-05).
+  out](https://calendly.com/supernova-intro/supernova-intro).
 lists:
   - question: How much do you invest?
     answer: "Every portfolio company in Supernova’s fund gets a check up to $2M.
