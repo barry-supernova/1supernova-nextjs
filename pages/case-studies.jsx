@@ -2,27 +2,40 @@ import Base from '@layouts/Baseof';
 import { getSinglePage } from '@lib/contentParser';
 import Link from 'next/link';
 
-const tracks = ['We invest early', 'Growth stage'];
+const tracks = [
+  {
+    title: 'We invest early',
+    intro: 'A seed fund run by exited founders. Founders make room for us because of who comes with the check.',
+  },
+  {
+    title: 'We back growth-stage companies with exited founders',
+    intro: 'Operators matched to the decision in front of you, by people who have already made it.',
+  },
+];
 
 export default function CaseStudies({ caseStudies }) {
   return (
     <Base title="Case Studies">
       <section className="section-lg pt-10 md:pt-20">
         <div className="container">
-          <h1 className="mb-16 text-center text-h3 font-medium md:text-h2">
+          <h1 className="mb-6 text-center text-h3 font-medium md:text-h2">
             Case Studies
           </h1>
+          <p className="mx-auto mb-16 max-w-3xl text-center text-light-secondary">
+            Eight companies. Two ways we work. We invest at seed. We place exited founders at scale. Find the company closest to yours.
+          </p>
           <div className="space-y-16">
-            {tracks.map((track) => {
+            {tracks.map(({ title: track, intro }) => {
               const studies = caseStudies.filter(
                 ({ frontmatter }) => frontmatter.track === track
               );
               if (!studies.length) return null;
               return (
                 <section key={track}>
-                  <h2 className="mb-8 text-h4 font-medium md:text-h3">
+                  <h2 className="mb-4 text-h4 font-medium md:text-h3">
                     {track}
                   </h2>
+                  <p className="mb-8 text-light-secondary">{intro}</p>
                   <div className="row gy-4">
                     {studies.map(({ slug, frontmatter }) => (
                       <div key={slug} className="md:col-6 lg:col-4">

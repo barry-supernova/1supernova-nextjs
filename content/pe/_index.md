@@ -13,7 +13,7 @@ banner:
   fill_button:
     enable: true
     label: Book call
-    link: https://calendly.com/supernova-intro/supernova-intro?month=2026-02
+    link: https://calendly.com/supernova-intro/supernova-intro
   outline_button:
     enable: true
     label: See the difference

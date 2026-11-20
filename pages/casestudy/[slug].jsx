@@ -20,7 +20,7 @@ export default function CaseStudySingle({ caseStudy, mdxContent }) {
     youtubeVideoStartTime,
   } = information;
   const hasMedia = Boolean(youtubeVideoId || information.image);
-  const hasDetails = Boolean(stage || industry || company || location);
+  const hasDetails = Boolean(industry || company || location);
 
   return (
     <Base title={title} description={description}>
@@ -40,6 +40,14 @@ export default function CaseStudySingle({ caseStudy, mdxContent }) {
                     __html: information.title || title,
                   }}
                 />
+                {description && (
+                  <p className="mx-auto mt-6 max-w-3xl text-center text-light-secondary">
+                    {description}
+                  </p>
+                )}
+                {stage && (
+                  <p className="mt-4 text-center text-light-secondary">{stage}</p>
+                )}
               </div>
             )}
             <div className="col-12">
@@ -74,17 +82,6 @@ export default function CaseStudySingle({ caseStudy, mdxContent }) {
                 {hasDetails && (
                   <div className={hasMedia ? 'md:col-4 lg:col-3' : 'col-12'}>
                     <div className="space-y-5 divide-y divide-white/10 rounded-xl bg-dark-quaternary p-7 md:p-10">
-                      {stage && (
-                        <div className="">
-                          <p className="mb-2 text-base-sm opacity-80">
-                            Company
-                          </p>
-                          <p
-                            className="text-h6"
-                            dangerouslySetInnerHTML={{ __html: stage }}
-                          />
-                        </div>
-                      )}
                       {industry && (
                         <div className="pt-4">
                           <p className="mb-2 text-base-sm opacity-80">

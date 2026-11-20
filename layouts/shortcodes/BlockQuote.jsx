@@ -9,13 +9,13 @@ const BlockQuote = ({ customerImage, customerName, customerRole, content }) => {
         </p>
       </blockquote>
       <div className="flex items-center gap-5">
-        <Image
+        {customerImage && <Image
           src={customerImage}
           alt={customerName}
           width={56}
           height={56}
           className="my-0 h-14 w-14 rounded-full object-cover"
-        />
+        />}
         <div className=" flex flex-col text-base-sm md:text-base">
           <p className="my-0">{customerName}</p>
           <div className="flex items-center gap-3">

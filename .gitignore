@@ -48,3 +48,5 @@ node_modules
 config/gas.json
 config/google_service_auth.json
 *service-account*.json
+
+.case-copy/
