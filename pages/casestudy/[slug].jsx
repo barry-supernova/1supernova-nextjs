@@ -8,8 +8,7 @@ import { MDXRemote } from 'next-mdx-remote';
 import Image from 'next/image';
 
 export default function CaseStudySingle({ caseStudy, mdxContent }) {
-  const { title, description, gallery, call_to_action } = caseStudy.frontmatter;
-  const information = caseStudy.frontmatter.information || {};
+  const { title, description } = caseStudy.frontmatter;
 
   const {
     stage,
@@ -18,42 +17,35 @@ export default function CaseStudySingle({ caseStudy, mdxContent }) {
     location,
     youtubeVideoId,
     youtubeVideoStartTime,
-  } = information;
+  } = caseStudy.frontmatter.information || {};
+  const information = caseStudy.frontmatter.information || {};
   const hasMedia = Boolean(youtubeVideoId || information.image);
-  const hasDetails = Boolean(industry || company || location);
+  const hasDetails = Boolean(stage || industry || location || company);
 
   return (
     <Base title={title} description={description}>
       <section
         className={
-          gallery?.enable
+          caseStudy.frontmatter.gallery?.enable
             ? ' section-lg pt-10 md:pt-20'
             : 'section-lg pb-0 pt-10 md:pt-20'
         }>
         <div className="container">
           <div className="row">
-            {(information.title || title) && (
+            {information.title && (
               <div className="mx-auto pb-10 lg:col-10">
                 <h1
                   className="text-center text-h3 font-medium md:text-h2"
                   dangerouslySetInnerHTML={{
-                    __html: information.title || title,
+                    __html: information.title,
                   }}
                 />
-                {description && (
-                  <p className="mx-auto mt-6 max-w-3xl text-center text-light-secondary">
-                    {description}
-                  </p>
-                )}
-                {stage && (
-                  <p className="mt-4 text-center text-light-secondary">{stage}</p>
-                )}
               </div>
             )}
             <div className="col-12">
               <div className="row gy-4">
                 {hasMedia && (
-                  <div className={hasDetails ? 'md:col-8 lg:col-9' : 'col-12'}>
+                  <div className="md:col-8 lg:col-9">
                     <div className="relative size-full overflow-hidden rounded-lg md:rounded-2xl">
                       {youtubeVideoId ? (
                         <iframe
@@ -65,23 +57,30 @@ export default function CaseStudySingle({ caseStudy, mdxContent }) {
                           src={`https://www.youtube.com/embed/${youtubeVideoId}?playlist=${youtubeVideoId}&autoplay=0&mute=0&loop=1&color=white&controls=1&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&start=${youtubeVideoStartTime || 0}`}></iframe>
                       ) : (
                         <Image
-                          className={
-                            hasDetails
-                              ? 'size-full object-cover object-left-top md:absolute md:inset-0'
-                              : 'h-auto w-full object-cover'
-                          }
+                          className="size-full object-cover object-left-top md:absolute md:inset-0"
                           width={850}
                           height={450}
                           src={information.image}
-                          alt={information.title || title}
+                          alt={information.title}
                         />
                       )}
                     </div>
                   </div>
                 )}
                 {hasDetails && (
-                  <div className={hasMedia ? 'md:col-4 lg:col-3' : 'col-12'}>
+                  <div className="md:col-4 lg:col-3">
                     <div className="space-y-5 divide-y divide-white/10 rounded-xl bg-dark-quaternary p-7 md:p-10">
+                      {stage && (
+                        <div className="">
+                          <p className="mb-2 text-base-sm opacity-80">
+                            Company
+                          </p>
+                          <p
+                            className="text-h6"
+                            dangerouslySetInnerHTML={{ __html: stage }}
+                          />
+                        </div>
+                      )}
                       {industry && (
                         <div className="pt-4">
                           <p className="mb-2 text-base-sm opacity-80">
@@ -130,8 +129,12 @@ export default function CaseStudySingle({ caseStudy, mdxContent }) {
           </div>
         </div>
       </section>
-      {gallery?.enable && <Gallery gallery={gallery} />}
-      {call_to_action?.enable && <CallToAction cta={call_to_action} />}
+      {caseStudy.frontmatter.gallery?.enable && (
+        <Gallery gallery={caseStudy.frontmatter.gallery} />
+      )}
+      {caseStudy.frontmatter.call_to_action && (
+        <CallToAction cta={caseStudy.frontmatter.call_to_action} />
+      )}
     </Base>
   );
 }
@@ -150,11 +153,12 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+  if (!params?.slug) return { notFound: true };
   const caseStudies = await getSinglePage('content/casestudy');
   const caseStudy = caseStudies.find(
     (study) => study.slug.toLowerCase() === params.slug.toLowerCase()
   );
-  if (!caseStudy) return { notFound: true };
+  if (!caseStudy || caseStudy.frontmatter.draft) return { notFound: true };
   const mdxContent = await parseMDX(caseStudy.content);
   return {
     props: {
