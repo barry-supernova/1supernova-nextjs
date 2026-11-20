@@ -1,21 +1,37 @@
 import config from '@config/config.json';
 import { getSinglePage } from '@lib/contentParser';
 
-// These published routes still contain placeholder/copy-of-Apollo content.
-// Keep them out until their approved case-study content is ready.
-const unfinishedCaseStudies = new Set(['colossal', 'health-young-minds']);
-const escapeXml = (value) => value.replace(/[<>&"']/g, (character) => ({
-  '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;', "'": '&apos;',
-}[character]));
+const escapeXml = (value) =>
+  value.replace(
+    /[<>&"']/g,
+    (character) =>
+      ({
+        '<': '&lt;',
+        '>': '&gt;',
+        '&': '&amp;',
+        '"': '&quot;',
+        "'": '&apos;',
+      })[character]
+  );
 
 export const getServerSideProps = ({ res }) => {
   const regularPages = getSinglePage('content')
     .filter(({ frontmatter }) => !frontmatter.noindex && !frontmatter.canonical)
     .map(({ slug }) => `/${slug}`);
   const caseStudies = getSinglePage('content/casestudy')
-    .filter(({ slug, frontmatter }) => !unfinishedCaseStudies.has(slug) && !frontmatter.noindex)
+    .filter(({ frontmatter }) => !frontmatter.noindex)
     .map(({ slug }) => `/casestudy/${slug}`);
-  const paths = [...new Set(['/', '/about-us', '/live', '/pe', ...regularPages, ...caseStudies])];
+  const paths = [
+    ...new Set([
+      '/',
+      '/about-us',
+      '/live',
+      '/pe',
+      '/case-studies',
+      ...regularPages,
+      ...caseStudies,
+    ]),
+  ];
   // Omit lastmod until genuine per-page modification dates are available.
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

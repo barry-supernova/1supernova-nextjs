@@ -1,5 +1,5 @@
 import Base from '@layouts/Baseof';
-import { getListPage, getSinglePage } from '@lib/contentParser';
+import { getSinglePage } from '@lib/contentParser';
 import parseMDX from '@lib/utils/mdxParser';
 import CallToAction from '@partials/CallToAction';
 import Gallery from '@partials/Gallery';
@@ -8,96 +8,119 @@ import { MDXRemote } from 'next-mdx-remote';
 import Image from 'next/image';
 
 export default function CaseStudySingle({ caseStudy, mdxContent }) {
-  const { title, description } = caseStudy.frontmatter;
+  const { title, description, gallery, call_to_action } = caseStudy.frontmatter;
+  const information = caseStudy.frontmatter.information || {};
 
-  const { stage, industry, company, location, youtubeVideoId, youtubeVideoStartTime } =
-    caseStudy.frontmatter.information;
+  const {
+    stage,
+    industry,
+    company,
+    location,
+    youtubeVideoId,
+    youtubeVideoStartTime,
+  } = information;
+  const hasMedia = Boolean(youtubeVideoId || information.image);
+  const hasDetails = Boolean(stage || industry || company || location);
 
   return (
     <Base title={title} description={description}>
       <section
         className={
-          caseStudy.frontmatter.gallery.enable
+          gallery?.enable
             ? ' section-lg pt-10 md:pt-20'
             : 'section-lg pb-0 pt-10 md:pt-20'
         }>
         <div className="container">
           <div className="row">
-            {caseStudy.frontmatter.information.title && (
+            {(information.title || title) && (
               <div className="mx-auto pb-10 lg:col-10">
                 <h1
                   className="text-center text-h3 font-medium md:text-h2"
                   dangerouslySetInnerHTML={{
-                    __html: caseStudy.frontmatter.information.title,
+                    __html: information.title || title,
                   }}
                 />
               </div>
             )}
             <div className="col-12">
               <div className="row gy-4">
-                <div className="md:col-8 lg:col-9">
-                  <div className="relative size-full overflow-hidden rounded-lg md:rounded-2xl">
-                    {youtubeVideoId ? (
-                      <iframe
-                        loading="lazy"
-                        title="background video"
-                        width={1200}
-                        height={600}
-                        className="size-full min-h-[250px]"
-                        src={`https://www.youtube.com/embed/${youtubeVideoId}?playlist=${youtubeVideoId}&autoplay=0&mute=0&loop=1&color=white&controls=1&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&start=${youtubeVideoStartTime || 0}`}></iframe>
-                    ) : (
-                      <Image
-                        className="size-full object-cover object-left-top md:absolute md:inset-0"
-                        width={850}
-                        height={450}
-                        src={caseStudy.frontmatter.information.image || ''}
-                        alt={caseStudy.frontmatter.information.title}
-                      />
-                    )}
+                {hasMedia && (
+                  <div className={hasDetails ? 'md:col-8 lg:col-9' : 'col-12'}>
+                    <div className="relative size-full overflow-hidden rounded-lg md:rounded-2xl">
+                      {youtubeVideoId ? (
+                        <iframe
+                          loading="lazy"
+                          title="background video"
+                          width={1200}
+                          height={600}
+                          className="size-full min-h-[250px]"
+                          src={`https://www.youtube.com/embed/${youtubeVideoId}?playlist=${youtubeVideoId}&autoplay=0&mute=0&loop=1&color=white&controls=1&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&start=${youtubeVideoStartTime || 0}`}></iframe>
+                      ) : (
+                        <Image
+                          className={
+                            hasDetails
+                              ? 'size-full object-cover object-left-top md:absolute md:inset-0'
+                              : 'h-auto w-full object-cover'
+                          }
+                          width={850}
+                          height={450}
+                          src={information.image}
+                          alt={information.title || title}
+                        />
+                      )}
+                    </div>
                   </div>
-                </div>
-                <div className="md:col-4 lg:col-3">
-                  <div className="space-y-5 divide-y divide-white/10 rounded-xl bg-dark-quaternary p-7 md:p-10">
-                    {stage && (
-                      <div className="">
-                        <p className="mb-2 text-base-sm opacity-80">Company</p>
-                        <p
-                          className="text-h6"
-                          dangerouslySetInnerHTML={{ __html: stage }}
-                        />
-                      </div>
-                    )}
-                    {industry && (
-                      <div className="pt-4">
-                        <p className="mb-2 text-base-sm opacity-80">Industry</p>
-                        <p
-                          className="text-h6"
-                          dangerouslySetInnerHTML={{ __html: industry }}
-                        />
-                      </div>
-                    )}
-                    {location && (
-                      <div className="pt-4">
-                        <p className="mb-2 text-base-sm opacity-80">Location</p>
-                        <p
-                          className="text-h6"
-                          dangerouslySetInnerHTML={{ __html: location }}
-                        />
-                      </div>
-                    )}
-                    {company && (
-                      <div className="pt-4">
-                        <p className="mb-2 text-base-sm opacity-80">
-                          Company Size
-                        </p>
-                        <p
-                          className="text-h6"
-                          dangerouslySetInnerHTML={{ __html: company }}
-                        />
-                      </div>
-                    )}
+                )}
+                {hasDetails && (
+                  <div className={hasMedia ? 'md:col-4 lg:col-3' : 'col-12'}>
+                    <div className="space-y-5 divide-y divide-white/10 rounded-xl bg-dark-quaternary p-7 md:p-10">
+                      {stage && (
+                        <div className="">
+                          <p className="mb-2 text-base-sm opacity-80">
+                            Company
+                          </p>
+                          <p
+                            className="text-h6"
+                            dangerouslySetInnerHTML={{ __html: stage }}
+                          />
+                        </div>
+                      )}
+                      {industry && (
+                        <div className="pt-4">
+                          <p className="mb-2 text-base-sm opacity-80">
+                            Industry
+                          </p>
+                          <p
+                            className="text-h6"
+                            dangerouslySetInnerHTML={{ __html: industry }}
+                          />
+                        </div>
+                      )}
+                      {location && (
+                        <div className="pt-4">
+                          <p className="mb-2 text-base-sm opacity-80">
+                            Location
+                          </p>
+                          <p
+                            className="text-h6"
+                            dangerouslySetInnerHTML={{ __html: location }}
+                          />
+                        </div>
+                      )}
+                      {company && (
+                        <div className="pt-4">
+                          <p className="mb-2 text-base-sm opacity-80">
+                            Company Size
+                          </p>
+                          <p
+                            className="text-h6"
+                            dangerouslySetInnerHTML={{ __html: company }}
+                          />
+                        </div>
+                      )}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </div>
@@ -110,12 +133,8 @@ export default function CaseStudySingle({ caseStudy, mdxContent }) {
           </div>
         </div>
       </section>
-      {caseStudy.frontmatter.gallery && (
-        <Gallery gallery={caseStudy.frontmatter.gallery} />
-      )}
-      {caseStudy.frontmatter.call_to_action && (
-        <CallToAction cta={caseStudy.frontmatter.call_to_action} />
-      )}
+      {gallery?.enable && <Gallery gallery={gallery} />}
+      {call_to_action?.enable && <CallToAction cta={call_to_action} />}
     </Base>
   );
 }
@@ -138,15 +157,12 @@ export async function getStaticProps({ params }) {
   const caseStudy = caseStudies.find(
     (study) => study.slug.toLowerCase() === params.slug.toLowerCase()
   );
-  const cta = await getListPage('content/sections/call-to-action.md');
-  const gallery = await getListPage('content/sections/gallery.md');
+  if (!caseStudy) return { notFound: true };
   const mdxContent = await parseMDX(caseStudy.content);
   return {
     props: {
       caseStudy,
       mdxContent,
-      cta,
-      gallery,
     },
   };
 }
