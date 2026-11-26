@@ -1,0 +1,11 @@
+---
+import Base from "@/layouts/Base.astro";
+import About from "@/layouts/pages/About.astro";
+import { getPageContent } from "@/lib/pages";
+
+const content = await getPageContent("about");
+---
+
+<Base {content} path="/about">
+  <About {content} />
+</Base>

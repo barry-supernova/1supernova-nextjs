@@ -1,12 +1,11 @@
 [build]
-publish = ".next"
-command = "yarn build"
+base = "astro"
+publish = "dist"
+command = "npm run build"
 
 [build.environment]
-NODE_VERSION = "22.13.0"
+NODE_VERSION = "24"
+NPM_FLAGS = "--include=dev"
 
-[functions]
-included_files = ["content/**"]
-
-[[headers]]
-for = "/*" # This defines which paths this specific [[headers]] block will cover.
+[build.processing.html]
+pretty_urls = false

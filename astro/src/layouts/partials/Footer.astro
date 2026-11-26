@@ -1,0 +1,55 @@
+---
+import config from "@/config/config.json";
+import menu from "@/config/menu.json";
+
+const site = config.site.base_url;
+const prompt = encodeURIComponent("What is Supernova (1supernova.com), the venture fund run by 250+ exited founders, and who is it for?");
+const groups = [
+  {
+    heading: "Supernova",
+    links: [
+      { label: "NOVA AI", href: menu.apply },
+      { label: "Stargate login", href: menu.login },
+      { label: "Fund", href: "https://1supernovafund.com" },
+      { label: "About us", href: "/about" },
+    ],
+  },
+  { heading: "For you", links: menu.primary },
+  { heading: "San Francisco", address: true, links: [{ label: "hello@1supernova.com", href: "mailto:hello@1supernova.com" }] },
+  {
+    heading: "Ask AI about Supernova",
+    links: [
+      { label: "ChatGPT ↗", href: `https://chatgpt.com/?q=${prompt}` },
+      { label: "Perplexity ↗", href: `https://www.perplexity.ai/search?q=${prompt}` },
+      { label: "Claude ↗", href: `https://claude.ai/new?q=${prompt}` },
+      { label: "Gemini ↗", href: "https://gemini.google.com/app" },
+      { label: "Grok ↗", href: `https://grok.com/?q=${prompt}` },
+    ],
+  },
+];
+---
+
+<footer class="sn-footer bg-ink px-8 pt-18 pb-10 text-cream">
+  <div class="mx-auto flex max-w-290 flex-col gap-12">
+    <div class="sn-footer-grid items-start">
+      <div class="sn-footer-brand flex max-w-90 min-w-0 flex-col gap-4">
+        <a href="/" class="block w-fit"><img src={config.site.logo} alt="Supernova" loading="lazy" decoding="async" class="block h-9 w-auto" /></a>
+        <p class="m-0 text-base text-[#cfc7b6]">Supernova® is 250+ exited founders helping world-changing companies achieve their missions, faster. 🌎</p>
+        <p class="m-0 font-['Caveat',cursive] text-[22px] leading-[1.2] font-semibold"><span class="sn-footer-tagline">Capital scales companies. Judgment determines outcomes.</span></p>
+        <p class="mt-2 mb-0 text-sm">© 2026, Supernova Group. All Rights Reserved.</p>
+        <p class="sn-legal m-0 flex flex-wrap gap-x-7 gap-y-1.5 text-sm">
+          <a href={`${site}/terms-of-service`}>Terms of Service</a>
+          <a href={`${site}/privacy-policy`}>Privacy Policy</a>
+        </p>
+      </div>
+      {groups.map((group) => (
+        <div class="flex min-w-0 flex-col gap-0.5">
+          <p class="mt-0 mb-1.5 text-[13px] font-semibold tracking-[.1em] text-[#cfc7b6] uppercase">{group.heading}</p>
+          {group.address && <p class="m-0 py-[9px] text-base leading-[1.6]">704 Sansome Street<br />San Francisco, CA 94111</p>}
+          {group.links.map((link) => <a href={link.href} class="flex min-h-11 box-border items-center py-[9px] text-base no-underline">{link.label}</a>)}
+        </div>
+      ))}
+    </div>
+    <p class="m-0 border-t border-[#2e2a22] pt-6 text-[13px] text-[#cfc7b6]">Informational only. Not an offer of securities.</p>
+  </div>
+</footer>

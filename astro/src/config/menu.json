@@ -1,0 +1,45 @@
+{
+  "login": "https://nova.1supernova.com/stargate-portal/login",
+  "apply": "https://nova.1supernova.com/#/apply-with-ai",
+  "primary": [
+    {
+      "id": "seed",
+      "label": "Seed founders",
+      "title": "Put exited founders on your cap table.",
+      "description": "You have the lead and the first million in revenue. We add $250K to $500K at your lead's terms, and 2 to 5 exited founders who pick up the phone.",
+      "href": "/seed-founders",
+      "link": "For seed founders",
+      "extraLink": "See if you qualify",
+      "extraHref": "https://nova.1supernova.com/#/apply-with-ai",
+      "image": "/assets/colossal-nasdaq-9a42f5cf8afc.jpg",
+      "alt": "The Nasdaq tower in Times Square congratulating Colossal on its Series B",
+      "position": "center 72%"
+    },
+    {
+      "id": "growth",
+      "label": "Growth-stage CEOs",
+      "title": "Borrow judgment before the next big call.",
+      "description": "Hiring the exec team. Adding subscription. Raising the B. We match you with exited founders who made the same call and remember what it cost.",
+      "href": "/growth-stage-ceos",
+      "link": "For growth-stage CEOs",
+      "extraLink": "Read the case studies",
+      "extraHref": "/growth-stage-ceos",
+      "image": "/assets/dublin-panel-0695cd80c923.jpg",
+      "alt": "Four founders in conversation on a conference stage",
+      "position": "center 55%"
+    },
+    {
+      "id": "exited",
+      "label": "Exited founders",
+      "title": "Build again, together.",
+      "description": "Set your superpowers, the stage you want to help, and the role you want. Stargate matches you where you can add the most value now. Every role is compensated.",
+      "href": "/exited-founders",
+      "link": "For exited founders",
+      "extraLink": "Book 10 minutes with Barry",
+      "extraHref": "https://calendly.com/stamos",
+      "image": "/assets/stargate-gate-4d58b71dddcb.jpg",
+      "alt": "The Stargate login screen, the private gateway to the Supernova network",
+      "position": "center"
+    }
+  ]
+}

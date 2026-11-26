@@ -1,0 +1,22 @@
+{
+  "name": "1supernova-astro",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.23.4" },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "astro": "7.4.13"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.12",
+    "@tailwindcss/vite": "4.2.4",
+    "tailwindcss": "4.2.4",
+    "typescript": "^6.0.3"
+  }
+}

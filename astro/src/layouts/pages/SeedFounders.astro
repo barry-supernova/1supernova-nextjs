@@ -1,0 +1,722 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Faq from "../components/Faq.astro";
+import "../../styles/pages/seed-founders.css";
+
+interface Props {
+  content: CollectionEntry<"pages">["data"];
+}
+
+const { content } = Astro.props;
+const narrowActionLayout =
+  "max-[420px]:w-full max-[420px]:flex-col max-[420px]:[&>a]:self-stretch max-[420px]:[&>a]:text-center";
+const featureCardLayout = `
+  sn-feat grid grid-cols-[minmax(0,1fr)] items-start gap-6 [overflow-wrap:anywhere]
+  [&>.sn-fig]:w-[min(100%,18rem)] [&>.sn-fig]:justify-self-center
+  min-[641px]:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]
+  min-[641px]:[&>.sn-fig]:w-full min-[641px]:[&>*:last-child]:col-span-full
+  min-[901px]:grid-cols-[minmax(0,1fr)_minmax(0,2fr)_minmax(0,2fr)]
+  min-[901px]:gap-x-12 min-[901px]:gap-y-7 min-[901px]:[&>*:last-child]:col-auto
+`;
+---
+
+<section
+  class="sn-hero box-border flex items-center px-5 pt-[clamp(56px,12vw,76px)] pb-[clamp(64px,15vw,84px)]
+    text-cream max-[640px]:[background-position:center,56%_center] min-[641px]:min-h-[min(660px,100svh)]
+    min-[641px]:px-8 min-[641px]:py-[clamp(72px,11vw,112px)] min-[1025px]:min-h-[780px]
+    min-[1025px]:pt-32 min-[1025px]:pb-34"
+>
+  <div class="max-w-[1160px] w-full mx-auto my-0 relative" style="z-index: 1">
+    <div class="max-w-[720px] flex flex-col gap-[clamp(20px,4.5vw,28px)]">
+      <p
+        class="m-0 text-[14px] font-semibold tracking-[0.08em] uppercase text-[#F5C400]"
+        >{content.hero.eyebrow}</p
+      >
+      <h1
+        class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(36px,5vw,64px)] leading-[1.02] tracking-[-0.03em] text-balance"
+        >{content.hero.title}</h1
+      >
+      <p class="m-0 text-[clamp(17px,3.5vw,21px)] leading-[1.5] text-[#E6DFCF]"
+        >{content.hero.description}</p
+      >
+      {
+        content.hero.cta && (
+          <div
+            class:list={["mt-2 flex flex-wrap items-center", narrowActionLayout]}
+            style="gap: 16px 24px"
+          >
+            <a
+              href={content.hero.cta.href}
+              style="background: rgb(245, 196, 0); color: rgb(20, 18, 14); text-decoration: none; font-weight: 600; font-size: 17px; padding: 17px 28px; border-radius: 6px"
+            >
+              {content.hero.cta.label}
+            </a>
+            {content.hero.cta.note && (
+              <span class="text-[15px]" style="color: rgb(230, 223, 207)">
+                {content.hero.cta.note}
+              </span>
+            )}
+          </div>
+        )
+      }
+    </div>
+  </div>
+  <img
+    loading="lazy"
+    decoding="async"
+    class="sn-burst sn-burst-l"
+    src="/assets/star-lines-4dde23efecf3.png"
+    alt=""
+    aria-hidden="true"
+  />
+  <img
+    loading="lazy"
+    decoding="async"
+    class="sn-burst sn-burst-r"
+    src="/assets/star-lines-4dde23efecf3.png"
+    alt=""
+    aria-hidden="true"
+  />
+</section>
+
+<section style="padding: 56px 32px 64px">
+  <div class="mx-auto flex max-w-[1160px] flex-wrap items-center gap-x-10 gap-y-3 max-[1024px]:justify-center
+    max-[1024px]:gap-x-[25px] max-[1024px]:gap-y-4 max-[640px]:gap-x-5 max-[640px]:[&_img]:max-h-9">
+    <span
+      class="text-[13px] font-semibold tracking-[0.08em] uppercase text-[#5E584C] max-[1024px]:basis-full max-[1024px]:text-center"
+      >We invest alongside</span
+    >
+    <img
+      class="h-[48px] w-auto block"
+      loading="lazy"
+      decoding="async"
+      src="/assets/investor-a16z-eb2c8685a322.png"
+      alt="Andreessen Horowitz (a16z)"
+    />
+    <img
+      class="h-[38px] w-auto block"
+      loading="lazy"
+      decoding="async"
+      src="/assets/investor-draper-8bc5b1c46c68.png"
+      alt="Draper Associates"
+    />
+    <img
+      class="h-[38px] w-auto block"
+      loading="lazy"
+      decoding="async"
+      src="/assets/investor-metis-0879d4e9654f.png"
+      alt="Metis Ventures"
+    />
+    <img
+      class="h-[32px] w-auto block"
+      loading="lazy"
+      decoding="async"
+      src="/assets/investor-sosv-6b8173b0c9fe.png"
+      alt="SOSV"
+    />
+    <span class="flex items-center gap-3">
+      <img
+        class="h-[46px] w-auto block"
+        loading="lazy"
+        decoding="async"
+        src="/assets/investor-exor-3982d9e9aaa2.png"
+        alt=""
+      />
+      <span class="font-display font-semibold text-[20px]">Exor Ventures</span>
+    </span>
+  </div>
+</section>
+
+<section
+  style="background: #FFFFFF; color: #14120E; border-top: 1px solid #E3DCCB; border-bottom: 1px solid #E3DCCB; padding: 104px 32px"
+>
+  <div
+    class="max-w-[1160px] mx-auto my-0 grid items-start"
+    style="grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 40px 64px"
+  >
+    <div class="flex flex-col gap-[32px]">
+      <h2
+        class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[44px] leading-[1.08] tracking-[-0.02em] text-[#14120E]"
+        >Capital is a commodity. Exited founders are rare.</h2
+      >
+      <img
+        loading="lazy"
+        decoding="async"
+        src="/assets/nova-star-bc4e9cecd250.jpg"
+        alt="NOVA, the Supernova AI guide, a glowing line-drawn star. Capital, exited founders, and a scorecard in minutes."
+        style="width: 100%; max-width: 400px; height: auto; border-radius: 16px; display: block"
+      />
+    </div>
+    <div class="flex flex-col gap-[20px] text-[18px] text-[#3A362D]">
+      <p class="m-0"
+        >Supernova Impact is a venture fund with 250+ exited founders. We invest
+        up to $500K alongside your lead, at their terms.</p
+      >
+      <p class="m-0"
+        >Then exited founders come with the money. Your first sales leader, your
+        do or die pivot, your whale enterprise deal: someone in our network have
+        done it before so you can do better and avoid the costly risks that kill
+        most companies.</p
+      >
+      <p
+        style="margin: 0; padding: 4px 0 4px 20px; border-left: 4px solid #F5C400; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: 24px; line-height: 1.25; color: #14120E"
+        >You're borrowing the relationships and judgment from founders <span
+          style="background: linear-gradient(transparent 62%, #F5C400 62%); padding: 0 2px"
+          >who've already paid the tuition</span
+        >, so you don't have to.</p
+      >
+      <div class:list={["mt-3 flex flex-wrap items-center", narrowActionLayout]} style="gap: 16px 24px"
+        ><a
+          href="https://nova.1supernova.com/#/apply-with-ai"
+          style="background: rgb(245, 196, 0); color: rgb(20, 18, 14); text-decoration: none; font-weight: 600; font-size: 17px; padding: 17px 28px; border-radius: 6px"
+          >Apply with NOVA AI →</a
+        ><span class="text-[15px]" style="color: rgb(94, 88, 76)"
+          >Your data is only shared with exited founders you approve.&nbsp;</span
+        ></div
+      >
+    </div>
+  </div>
+  <ol
+    style="max-width: 1160px; margin: 56px auto 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 24px 32px"
+  >
+    <li
+      style="display: flex; flex-direction: column; gap: 6px; border-top: 2px dotted #B9B09A; padding-top: 16px; font-size: 16px; color: #3A362D"
+      ><span
+        class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[32px] leading-[1] text-[#2F8FE0]"
+        >1</span
+      ><b class="text-[18px] text-[#14120E]">Upload your deck</b><span
+        >NOVA AI reads it in minutes.</span
+      ></li
+    >
+    <li
+      style="display: flex; flex-direction: column; gap: 6px; border-top: 2px dotted #B9B09A; padding-top: 16px; font-size: 16px; color: #3A362D"
+      ><span
+        class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[32px] leading-[1]"
+        style="color: rgb(31, 169, 181)">2</span
+      ><b class="text-[18px]" style="color: rgb(20, 18, 14)"
+        >Get your founder scorecard</b
+      ><span>You find out if you qualify for the fund.</span></li
+    >
+    <li
+      style="display: flex; flex-direction: column; gap: 6px; border-top: 2px dotted #B9B09A; padding-top: 16px; font-size: 16px; color: #3A362D"
+      ><span
+        class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[32px] leading-[1]"
+        style="color: rgb(217, 164, 0)">3</span
+      ><b class="text-[18px]" style="color: rgb(20, 18, 14)"
+        >Talk to a Partner</b
+      ><span>If you qualify, you get on a call and enter due diligence.</span
+      ></li
+    >
+    <li
+      style="display: flex; flex-direction: column; gap: 6px; border-top: 2px dotted #B9B09A; padding-top: 16px; font-size: 16px; color: #3A362D"
+      ><span
+        class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[32px] leading-[1] text-[#E0685E]"
+        >4</span
+      ><b class="text-[18px] text-[#14120E]">Get a decision</b><span
+        >In days, not months.</span
+      ></li
+    >
+  </ol>
+</section>
+
+<section style="padding: 104px 32px">
+  <div class="max-w-[1160px] mx-auto my-0 flex flex-col gap-[40px]">
+    <h2
+      class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[44px] leading-[1.08] tracking-[-0.02em]"
+      >Smart capital and exited founders as hands-on operating partners.<br
+      /></h2
+    >
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(min(245px,100%),1fr))] gap-5 min-[641px]:grid-cols-2 min-[1124px]:grid-cols-4">
+      <div
+        style="background: #4DA6F0; color: #14120E; border-radius: 10px; padding: 28px; display: flex; flex-direction: column; gap: 10px"
+      >
+        <span
+          class="text-[13px] font-semibold tracking-[0.08em] uppercase text-[#14120E]"
+          >Capital</span
+        >
+        <h3
+          class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[26px] leading-[1.15] tracking-[-0.02em]"
+          >Up to $500K</h3
+        >
+        <p class="m-0 text-[15px] text-[#3A362D]"
+          >At your lead's terms. No second term sheet to read. We follow on in
+          later rounds.</p
+        >
+      </div>
+      <div
+        style="background: #5ED4DE; color: #14120E; border-radius: 10px; padding: 28px; display: flex; flex-direction: column; gap: 10px"
+      >
+        <span
+          class="text-[13px] font-semibold tracking-[0.08em] uppercase text-[#14120E]"
+          >Operators</span
+        >
+        <h3
+          class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[26px] leading-[1.15] tracking-[-0.02em]"
+          >exited founders</h3
+        >
+        <p class="m-0 text-[15px] text-[#3A362D]"
+          >Embedded exited founder(s) matched to your next milestones. They opt
+          in, so they want to be there.</p
+        >
+      </div>
+      <div
+        style="background: #F2C94C; color: #14120E; border-radius: 10px; padding: 28px; display: flex; flex-direction: column; gap: 10px"
+      >
+        <span
+          class="text-[13px] font-semibold tracking-[0.08em] uppercase text-[#14120E]"
+          >Speed</span
+        >
+        <h3
+          class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[26px] leading-[1.15] tracking-[-0.02em]"
+          >A decision in days</h3
+        >
+        <p class="m-0 text-[15px] text-[#3A362D]"
+          >NOVA AI gives you an answer in minutes. You get a straight one, even
+          when it's no.</p
+        >
+      </div>
+      <div
+        style="background: #EE8E86; color: #14120E; border-radius: 10px; padding: 28px; display: flex; flex-direction: column; gap: 10px"
+      >
+        <span
+          class="text-[13px] font-semibold tracking-[0.08em] uppercase text-[#14120E]"
+          >Alignment</span
+        >
+        <h3
+          class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[26px] leading-[1.15] tracking-[-0.02em]"
+          >Upside earned through service</h3
+        >
+        <p class="m-0 text-[15px] text-[#3A362D]"
+          >Exited founders share upside by helping you win bigger.</p
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding: 104px 32px">
+  <div
+    class="max-w-[1160px] mx-auto my-0 grid items-center"
+    style="grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 40px 64px"
+  >
+    <div class="flex flex-col gap-[16px]">
+      <h2
+        class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[44px] leading-[1.08] tracking-[-0.02em]"
+        >Who we back.</h2
+      >
+      <a
+        href="https://1supernovafund.com"
+        style="align-self: flex-start; margin-top: 8px; background: #F5C400; color: #14120E; text-decoration: none; font-weight: 600; font-size: 17px; padding: 17px 28px; border-radius: 6px"
+        >Learn more →</a
+      >
+      <a
+        class="self-start text-[15px] text-[#5E584C]"
+        href="https://1supernovafund.com"
+        style="text-decoration: underline; text-underline-offset: 4px"
+        >1supernovafund.com</a
+      >
+    </div>
+    <ul
+      class="m-0 flex list-none flex-col p-0 [&>li]:grid [&>li]:grid-cols-[96px_minmax(0,1fr)] [&>li]:gap-5
+        max-[640px]:[&>li]:grid-cols-[minmax(72px,23%)_minmax(0,1fr)] max-[640px]:[&>li]:gap-3.5
+        max-[420px]:[&>li]:grid-cols-1 max-[420px]:[&>li]:gap-1"
+    >
+      <li
+        style="padding: 18px 0; border-top: 1px solid #E3DCCB"
+        ><span class="font-semibold">Stage</span><span
+          class="text-[#3A362D]">Seed or Seed+</span
+        ></li
+      >
+      <li
+        style="padding: 18px 0; border-top: 1px solid #E3DCCB"
+        ><span class="font-semibold">Round</span><span
+          class="text-[#3A362D]">A strong lead investor sets the terms</span
+        ></li
+      >
+      <li
+        style="padding: 18px 0; border-top: 1px solid #E3DCCB"
+        ><span class="font-semibold">Traction</span><span
+          style="color: rgb(58, 54, 45)"
+          >$1M+ in revenue and a clear path to scale</span
+        ></li
+      >
+      <li
+        style="padding: 18px 0; border-top: 1px solid #E3DCCB"
+        ><span class="font-semibold">Founder</span><span
+          class="text-[#3A362D]"
+          >Exited, or elite with clear domain experience</span
+        ></li
+      >
+      <li
+        style="padding: 18px 0; border-top: 1px solid #E3DCCB; border-bottom: 1px solid #E3DCCB"
+        ><span class="font-semibold">Sector</span><a
+          class="text-[#3A362D]"
+          href="https://1supernovafund.com/#manifesto"
+          style="text-decoration: underline; text-underline-offset: 4px"
+          >Healthspan, fintech and trust, sustainability, energy and
+          infrastructure, consumer and food</a
+        ></li
+      >
+      <li
+        style="padding: 18px 0; border-bottom: 1px solid #E3DCCB"
+        ><span class="font-semibold">Mission</span><span
+          class="text-[#3A362D]">Builders advancing human civilization</span
+        ></li
+      >
+    </ul>
+  </div>
+</section>
+
+<section style="padding: 104px 32px">
+  <div class="max-w-[1160px] mx-auto my-0 flex flex-col gap-[32px]">
+    <div
+      class="flex flex-wrap justify-between"
+      style="align-items: flex-end; gap: 16px 32px"
+    >
+      <div class="flex flex-col gap-[14px]">
+        <h2
+          class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[44px] leading-[1.08] tracking-[-0.02em]"
+          >Founders who we invested in.</h2
+        >
+        <p class="m-0 text-[18px] text-[#3A362D]"
+          >A few portfolio companies of Supernova Impact fund.&nbsp;</p
+        >
+      </div>
+      <a
+        class="font-semibold text-[16px]"
+        href="https://1supernovafund.com/#news"
+        style="padding: 12px 0">Read the news →</a
+      >
+    </div>
+    <article
+      style="background: #FFFFFF; border: 1px solid #E3DCCB; border-radius: 10px; padding: 36px"
+      class={featureCardLayout}
+    >
+      <figure class="sn-fig"
+        ><div
+          ><img
+            loading="lazy"
+            decoding="async"
+            class="ph"
+            src="/assets/chris-carson-0a917957f15f.png"
+            alt="Chris Carson"
+          /><span class="lg"
+            ><img
+              loading="lazy"
+              decoding="async"
+              src="/assets/echotwin-logo-white-261d53c6f06c.png"
+              alt="EchoTwin AI"
+            /></span
+          ></div
+        ><figcaption><b>Chris Carson</b>Founder and CEO, EchoTwin AI</figcaption
+        ></figure
+      >
+      <div class="flex flex-col gap-[14px]">
+        <span
+          class="text-[13px] font-semibold tracking-[0.08em] uppercase text-[#5E584C]"
+          >Seed · Infrastructure · First fund investment</span
+        >
+        <h3
+          class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[30px] leading-[1.12] tracking-[-0.02em]"
+          >He built his last company to $600M+. He saved us the last spot in his
+          next one.</h3
+        >
+        <p class="m-0 text-[16px] text-[#3A362D]"
+          >The AI operating system for cities. EchoTwin builds a living model of
+          the city from the vehicles already on its streets. $13M+ raised.</p
+        >
+        <figure
+          style="margin: 10px 0 0; padding-top: 18px; border-top: 3px solid #F5C400; display: flex; flex-direction: column; gap: 10px"
+          ><blockquote
+            class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-medium text-[20px] leading-[1.32]"
+            >“Supernova gives me a bench of founders who have already built and
+            sold companies. When I hit a problem, I call someone who has solved
+            it. That's why I saved them the last spot in our round.”</blockquote
+          ><figcaption
+            class="flex items-center gap-[14px] text-[14px] text-[#5E584C]"
+            ><span
+              ><span class="block font-semibold text-[15px] text-[#14120E]"
+                >Chris Carson</span
+              >Founder and CEO, EchoTwin AI</span
+            ></figcaption
+          ></figure
+        >
+      </div>
+      <div class="flex flex-col">
+        <dl class="m-0 flex flex-col">
+          <div
+            style="padding: 16px 0; border-top: 1px solid #E3DCCB; display: flex; flex-direction: column; gap: 4px"
+            ><dt
+              class="text-[13px] font-semibold tracking-[0.08em] uppercase text-[#5E584C]"
+              >The signal</dt
+            ><dd class="m-0 text-[16px] text-[#3A362D]"
+              >A repeat founder we already knew, who built his last company to a
+              $600M+ valuation, with a first contract signed in Abu Dhabi.</dd
+            ></div
+          >
+          <div
+            style="padding: 16px 0; border-top: 1px solid #E3DCCB; display: flex; flex-direction: column; gap: 4px"
+            ><dt
+              class="text-[13px] font-semibold tracking-[0.08em] uppercase text-[#5E584C]"
+              >The opportunity</dt
+            ><dd class="m-0 text-[16px] text-[#3A362D]"
+              >An off-market seed round from a repeat founder who chose his own
+              investors.</dd
+            ></div
+          >
+          <div
+            style="padding: 16px 0; border-top: 1px solid #E3DCCB; display: flex; flex-direction: column; gap: 4px"
+            ><dt
+              class="text-[13px] font-semibold tracking-[0.08em] uppercase text-[#5E584C]"
+              >The Supernova advantage</dt
+            ><dd class="m-0 text-[16px] text-[#3A362D]"
+              >The relationship. Chris knew Supernova and wanted exited founders
+              on his cap table.</dd
+            ></div
+          >
+          <div
+            style="padding: 16px 0; border-top: 1px solid #E3DCCB; display: flex; flex-direction: column; gap: 4px"
+            ><dt
+              class="text-[13px] font-semibold tracking-[0.08em] uppercase text-[#5E584C]"
+              >The impact</dt
+            ><dd class="m-0 text-[16px] font-semibold text-[#14120E]"
+              >The last check in an off-market round. We're now matching Chris
+              and his CTO with exited AI founders to shape the model roadmap.</dd
+            ></div
+          >
+        </dl>
+      </div>
+    </article>
+    <article
+      style="background: #FFFFFF; border: 1px solid #E3DCCB; border-radius: 10px; padding: 36px"
+      class={featureCardLayout}
+    >
+      <figure class="sn-fig"
+        ><div
+          ><img
+            loading="lazy"
+            decoding="async"
+            class="ph"
+            src="/assets/haa-founders-f8516e5e26f6.png"
+            alt="The founders of the Horowitz Andreessen Academy"
+          /><span class="lg"
+            ><img
+              loading="lazy"
+              decoding="async"
+              src="/assets/haa-logo-white-0f1e9d803e6e.png"
+              alt="Horowitz Andreessen Academy"
+            /></span
+          ></div
+        ><figcaption
+          ><b>Gagan Biyani</b>Founder and CEO, Horowitz Andreessen Academy</figcaption
+        ></figure
+      >
+      <div class="flex flex-col gap-[14px]">
+        <span
+          class="text-[13px] font-semibold tracking-[0.08em] uppercase text-[#5E584C]"
+          >Seed · Human capability · Fund investment</span
+        >
+        <h3
+          class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[30px] leading-[1.12] tracking-[-0.02em]"
+          >The round was nearly full. An exited founder opened the door.</h3
+        >
+        <p class="m-0 text-[16px] text-[#3A362D]"
+          >A San Francisco school for the most ambitious young builders after
+          high school, incubated by a16z and led by Gagan Biyani, co-founder of
+          Udemy. $42M raised.</p
+        >
+      </div>
+      <div class="flex flex-col">
+        <dl class="m-0 flex flex-col">
+          <div
+            style="padding: 16px 0; border-top: 1px solid #E3DCCB; display: flex; flex-direction: column; gap: 4px"
+            ><dt
+              class="text-[13px] font-semibold tracking-[0.08em] uppercase text-[#5E584C]"
+              >The signal</dt
+            ><dd class="m-0 text-[16px] text-[#3A362D]"
+              >a16z incubated the school, put its founders' names on it, and led
+              the $42M round itself.</dd
+            ></div
+          >
+          <div
+            style="padding: 16px 0; border-top: 1px solid #E3DCCB; display: flex; flex-direction: column; gap: 4px"
+            ><dt
+              class="text-[13px] font-semibold tracking-[0.08em] uppercase text-[#5E584C]"
+              >The opportunity</dt
+            ><dd class="m-0 text-[16px] text-[#3A362D]"
+              >An exited founder in our network offered Supernova an allocation
+              in the round.</dd
+            ></div
+          >
+          <div
+            style="padding: 16px 0; border-top: 1px solid #E3DCCB; display: flex; flex-direction: column; gap: 4px"
+            ><dt
+              class="text-[13px] font-semibold tracking-[0.08em] uppercase text-[#5E584C]"
+              >The Supernova advantage</dt
+            ><dd class="m-0 text-[16px] text-[#3A362D]"
+              >Relationships between exited founders. The allocation came
+              through a founder we know and trust.</dd
+            ></div
+          >
+          <div
+            style="padding: 16px 0; border-top: 1px solid #E3DCCB; display: flex; flex-direction: column; gap: 4px"
+            ><dt
+              class="text-[13px] font-semibold tracking-[0.08em] uppercase text-[#5E584C]"
+              >The impact</dt
+            ><dd class="m-0 text-[16px] font-semibold text-[#14120E]"
+              >A place in a $42M round led by a16z. With the check come exited
+              founders.</dd
+            ></div
+          >
+        </dl>
+        <p
+          style="margin: 0; padding-top: 16px; border-top: 1px solid #E3DCCB; font-size: 14px; color: #5E584C"
+          >Angels include the CEOs of Shopify, DoorDash and Y Combinator · First
+          class of about 50 builders, tuition-free</p
+        >
+      </div>
+    </article>
+    <article
+      style="background: #FFFFFF; border: 1px solid #E3DCCB; border-radius: 10px; padding: 36px"
+      class={featureCardLayout}
+    >
+      <figure class="sn-fig"
+        ><div
+          ><img
+            loading="lazy"
+            decoding="async"
+            class="ph"
+            src="/assets/sahan-ranamukhaarachchi-68e30e6f1b96.png"
+            alt="Sahan Ranamukhaarachchi"
+          /><span class="lg"
+            ><img
+              loading="lazy"
+              decoding="async"
+              src="/assets/proton-logo-black-2118dbd16c88.png"
+              alt="Proton Intelligence"
+            /></span
+          ></div
+        ><figcaption
+          ><b>Sahan Ranamukhaarachchi</b>Founder and CEO, Proton Intelligence</figcaption
+        ></figure
+      >
+      <div class="flex flex-col gap-[14px]">
+        <span
+          class="text-[13px] font-semibold tracking-[0.08em] uppercase text-[#5E584C]"
+          >Seed · Healthspan · Fund investment plus operator matching</span
+        >
+        <h3
+          class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[30px] leading-[1.12] tracking-[-0.02em]"
+          >We closed their seed. One week later, they signed their Series A.</h3
+        >
+        <p class="m-0 text-[16px] text-[#3A362D]"
+          >The first wearable for continuous potassium monitoring, built for
+          people with kidney disease and heart failure. Next up: FDA approval
+          and commercialization.</p
+        >
+      </div>
+      <div class="flex flex-col">
+        <dl class="m-0 flex flex-col">
+          <div
+            style="padding: 16px 0; border-top: 1px solid #E3DCCB; display: flex; flex-direction: column; gap: 4px"
+            ><dt
+              class="text-[13px] font-semibold tracking-[0.08em] uppercase text-[#5E584C]"
+              >The signal</dt
+            ><dd class="m-0 text-[16px] text-[#3A362D]"
+              >Science that already works, a first-of-its-kind product for a
+              large patient population, and a founder who had built a team of
+              25.</dd
+            ></div
+          >
+          <div
+            style="padding: 16px 0; border-top: 1px solid #E3DCCB; display: flex; flex-direction: column; gap: 4px"
+            ><dt
+              class="text-[13px] font-semibold tracking-[0.08em] uppercase text-[#5E584C]"
+              >The challenge</dt
+            ><dd class="m-0 text-[16px] text-[#3A362D]"
+              >The science works. Now it has to make its way through FDA
+              approval and commercialization.</dd
+            ></div
+          >
+          <div
+            style="padding: 16px 0; border-top: 1px solid #E3DCCB; display: flex; flex-direction: column; gap: 4px"
+            ><dt
+              class="text-[13px] font-semibold tracking-[0.08em] uppercase text-[#5E584C]"
+              >The Supernova advantage</dt
+            ><dd class="m-0 text-[16px] text-[#3A362D]"
+              >Capital and operators from one source. NOVA AI matches Sahan with
+              exited founders who have already shipped hardware.</dd
+            ></div
+          >
+          <div
+            style="padding: 16px 0; border-top: 1px solid #E3DCCB; display: flex; flex-direction: column; gap: 4px"
+            ><dt
+              class="text-[13px] font-semibold tracking-[0.08em] uppercase text-[#5E584C]"
+              >The impact</dt
+            ><dd class="m-0 text-[16px] font-semibold text-[#14120E]"
+              >The last check in the seed round. One week after we closed it,
+              they signed their Series A.</dd
+            ></div
+          >
+        </dl>
+        <p
+          style="margin: 0; padding-top: 16px; border-top: 1px solid #E3DCCB; font-size: 14px; color: #5E584C"
+          >About $15M raised · Backed by SOSV, EXOR, Draper and Werfen · Sahan
+          Ranamukhaarachchi, Founder and CEO</p
+        >
+      </div>
+    </article>
+
+    <p class="m-0 text-[13px] text-[#5E584C]"
+      >Company-reported figures. Past performance does not predict results.</p
+    >
+  </div>
+</section>
+
+<section
+  class="sn-stars"
+  style="background-color: #000000; color: #FAF5EA; padding: 128px 32px"
+>
+  <div
+    class="max-w-[600px] mx-auto my-0 flex flex-col items-center text-center gap-[32px]"
+  >
+    <h2
+      class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(32px,3.6vw,46px)] leading-[1.05] tracking-[-0.03em]"
+      >Upload your deck.<br />Know in minutes.</h2
+    >
+    <div
+      class:list={["flex flex-wrap items-center justify-center", narrowActionLayout]}
+      style="gap: 16px 28px"
+    >
+      <a
+        href="https://nova.1supernova.com/#/apply-with-ai"
+        style="background: #F5C400; color: #14120E; text-decoration: none; font-weight: 600; font-size: 17px; padding: 17px 28px; border-radius: 6px"
+        >See if you qualify</a
+      >
+      <span class="text-[16px]">Get your free NOVA AI scorecard</span>
+    </div>
+  </div>
+</section>
+
+<section style="padding: 112px 32px">
+  <div
+    class="max-w-[1160px] mx-auto my-0 grid items-start"
+    style="grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: 40px 72px"
+  >
+    <div class="flex flex-col gap-[20px]">
+      <h2
+        class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(36px,4.4vw,56px)] leading-[1.05] tracking-[-0.03em]"
+        >{content.faqTitle}</h2
+      >
+      <p class="m-0 text-[18px] text-[#3A362D]"
+        >Can't find your answer? <a
+          class="font-semibold"
+          href="mailto:hello@1supernova.com">Reach out</a
+        >.</p
+      >
+    </div>
+    <div class="flex flex-col gap-[12px]">
+      <Faq items={content.faq} />
+    </div>
+  </div>
+</section>

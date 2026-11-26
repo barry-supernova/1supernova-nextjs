@@ -1,0 +1,11 @@
+---
+import Base from "@/layouts/Base.astro";
+import GrowthStageCeos from "@/layouts/pages/GrowthStageCeos.astro";
+import { getPageContent } from "@/lib/pages";
+
+const content = await getPageContent("growth-stage-ceos");
+---
+
+<Base {content} path="/growth-stage-ceos">
+  <GrowthStageCeos {content} />
+</Base>

@@ -1,0 +1,1597 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Faq from "../components/Faq.astro";
+import "../../styles/pages/growth-stage-ceos.css";
+
+interface Props {
+  content: CollectionEntry<"pages">["data"];
+}
+
+const { content } = Astro.props;
+const sectionGutter = "px-[clamp(1rem,4vw,2rem)]";
+const sectionSpace = "py-[clamp(3.5rem,9vw,6.5rem)]";
+const wideSectionSpace = "py-[clamp(3.5rem,10vw,7rem)]";
+---
+
+<section class="sn-hero text-cream max-[720px]:[background-position:58%_42%]">
+  <img
+    loading="lazy"
+    decoding="async"
+    class="sn-burst sn-burst-l w-[min(30vw,420px)]"
+    src="/assets/star-lines-4dde23efecf3.png"
+    alt=""
+    aria-hidden="true"
+  />
+  <img
+    loading="lazy"
+    decoding="async"
+    class="sn-burst sn-burst-r w-[min(30vw,420px)]"
+    src="/assets/star-lines-4dde23efecf3.png"
+    alt=""
+    aria-hidden="true"
+  />
+
+  <div class:list={[sectionGutter, "sn-growth-hero-inner flex items-center box-border min-h-[clamp(34rem,64vw,48.75rem)] pt-[clamp(4rem,10.5vw,8rem)] pb-[clamp(4.5rem,11vw,8.5rem)] max-[960px]:bg-[linear-gradient(90deg,#14120ef2,#14120edb_60%,#14120e66)] max-[640px]:min-h-0"]}>
+    <div class="max-w-[1160px] w-full mx-auto my-0 relative" style="z-index: 1">
+      <div class="max-w-[720px] flex flex-col gap-[clamp(18px,3vw,28px)]">
+        <p
+          class="m-0 text-[14px] font-semibold tracking-[0.08em] uppercase text-[#F5C400]"
+          >{content.hero.eyebrow}</p
+        >
+        <h1
+          class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(36px,5vw,64px)] leading-[1.04] tracking-[-0.03em] text-balance"
+          >{content.hero.title}</h1
+        >
+        <p class="m-0 text-[clamp(17px,2.4vw,21px)] leading-[1.5] text-[#E6DFCF]"
+          >{content.hero.description}</p
+        >
+        {
+          content.hero.cta && (
+            <div
+              class="flex flex-wrap items-center gap-x-6 gap-y-4 mt-[8px] max-[640px]:flex-col max-[640px]:items-start"
+            >
+              <a
+                href={content.hero.cta.href}
+                style="background: #F5C400; color: #14120E; text-decoration: none; font-weight: 600; font-size: 17px; padding: 17px 28px; border-radius: 6px"
+              >
+                {content.hero.cta.label}
+              </a>
+              {content.hero.cta.note && (
+                <span class="text-[#FAF5EA] text-[17px]">
+                  {content.hero.cta.note}
+                </span>
+              )}
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<section
+  class:list={[sectionGutter, sectionSpace]}
+  style="background: #FFFFFF; color: #14120E; border-bottom: 1px solid #E3DCCB"
+>
+  <div
+    class="max-w-[1160px] mx-auto my-0 grid items-start grid-cols-[repeat(auto-fit,minmax(min(420px,100%),1fr))] gap-y-[40px] gap-x-[64px]"
+  >
+    <div class="flex flex-col gap-[28px]"
+      ><h2
+        class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(36px,4.4vw,56px)] leading-[1.05] tracking-[-0.03em] text-[#14120E]"
+        >Exited founders just get it. We're your unfair advantage.</h2
+      >
+      <div class="flex flex-wrap items-center" style="gap: 10px 16px"
+        ><img
+          class="h-[56px] w-auto block"
+          loading="lazy"
+          decoding="async"
+          src="/assets/founder-avatars-1d615053384a.png"
+          alt="Four exited founders from the Supernova network"
+        /><span
+          class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[15px] tracking-[0.06em] uppercase"
+          >250+ exited founders. Your unfair advantage.</span
+        ></div
+      >
+      <div class="flex flex-col gap-[10px] mt-[12px]"
+        ><span class="text-[16px] text-[#5E584C]" style="font-style: italic"
+          >Why you need us&nbsp;</span
+        ><div class="sn-why [&_b]:text-[clamp(3.25rem,7vw,4.5rem)] [&_span]:text-[clamp(1.0625rem,2.5vw,1.25rem)]"
+          ><div class="sn-why-i sn-why-first" style="animation-delay: 0s"
+            ><b class="text-[#2F8FE0]">88%</b><span
+              >of VC-backed founders receive $0 at exit</span
+            ><a
+              href="https://www.econ.uzh.ch/en/people/faculty/scheuer/research.html"
+              target="_blank"
+              rel="noopener">Source: Wharton and University of Zurich, 2026</a
+            ></div
+          ><div class="sn-why-i" style="animation-delay: 3s"
+            ><b class="text-[#1FA9B5]">&lt;20%</b><span
+              >is what founders own by Series C</span
+            ><a
+              href="https://carta.com/data/founder-ownership-2026/"
+              target="_blank"
+              rel="noopener">Source: Carta, 2026</a
+            ></div
+          ><div class="sn-why-i" style="animation-delay: 6s"
+            ><b class="text-[#D9A400]">50%</b><span
+              >of founding CEOs are fired or forced out</span
+            ><a
+              href="https://hbr.org/2008/02/the-founders-dilemma"
+              target="_blank"
+              rel="noopener">Source: Noam Wasserman, HBR</a
+            ></div
+          ><div class="sn-why-i" style="animation-delay: 9s"
+            ><b class="text-[#E0685E]">&lt;1%</b><span
+              >of entrepreneurs exit</span
+            ></div
+          ><div class="sn-why-i" style="animation-delay: 12s"
+            ><b class="text-[#A14FBF]">70%</b><span
+              >of VC-backed startups fail</span
+            ><a
+              href="https://www.fastcompany.com/3003827/why-most-venture-backed-companies-fail"
+              target="_blank"
+              rel="noopener">Source: Shikhar Ghosh, HBS</a
+            ></div
+          ><div class="sn-why-i" style="animation-delay: 15s"
+            ><b class="text-[#2F8FE0]">9%</b><span
+              >of Series A companies make it to Series B</span
+            ><a
+              href="https://angelcapitalassociation.org/blog/getting-from-series-a-to-series-b-is-a-tall-task/"
+              target="_blank"
+              rel="noopener">Source: Carta, 2024</a
+            ></div
+          ><div class="sn-why-i" style="animation-delay: 18s"
+            ><b class="text-[#1FA9B5]">83%</b><span
+              >of founders live with chronic stress</span
+            ><a
+              href="https://sifted.eu/articles/founders-mental-health-2025"
+              target="_blank"
+              rel="noopener">Source: Sifted, 2025</a
+            ></div
+          ><div class="sn-why-i" style="animation-delay: 21s"
+            ><b class="text-[#D9A400]">72%</b><span
+              >of founders struggle with their mental health</span
+            ><a
+              href="https://www.startupsnapshot.com/research/the-untold-toll-the-impact-of-stress-on-the-well-being-of-startup-founders-and-ceos/"
+              target="_blank"
+              rel="noopener">Source: Startup Snapshot, 2023</a
+            ></div
+          ><div class="sn-why-i" style="animation-delay: 24s"
+            ><b class="text-[#E0685E]">50%</b><span
+              >of founders experience insomnia</span
+            ><a
+              href="https://sifted.eu/articles/founders-mental-health-2025"
+              target="_blank"
+              rel="noopener">Source: Sifted, 2025</a
+            ></div
+          ><div class="sn-why-i" style="animation-delay: 27s"
+            ><b class="text-[#A14FBF]">70%</b><span
+              >of unicorns are built by repeat founders</span
+            ><a
+              href="https://alitamaseb.medium.com/land-of-the-super-founders-a-data-driven-approach-to-uncover-the-secrets-of-billion-dollar-a69ebe3f0f45"
+              target="_blank"
+              rel="noopener">Source: Ali Tamaseb, Super Founders</a
+            ></div
+          ><div class="sn-why-i" style="animation-delay: 30s"
+            ><b class="text-[#2F8FE0]">75%</b><span
+              >of founders regret selling</span
+            ><a
+              href="https://exit-planning-institute.org/hubfs/Member%20Center%20Resources/2023%20National%20State%20of%20Owner%20Readiness%20Report.pdf"
+              target="_blank"
+              rel="noopener">Source: Exit Planning Institute, 2023</a
+            ></div
+          ><div class="sn-why-i" style="animation-delay: 33s"
+            ><b class="text-[#1FA9B5]">93%</b><span
+              >of VCs have never built a company</span
+            ><a
+              href="https://www.nber.org/system/files/working_papers/w29907/w29907.pdf"
+              target="_blank"
+              rel="noopener">Source: Gompers and Mukharlyamov, NBER, 2022</a
+            ></div
+          ></div
+        ></div
+      >
+    </div>
+    <div class="flex flex-col gap-[20px] text-[18px] text-[#3A362D]">
+      <p class="m-0"
+        >Scaling is a game of high-stakes decisions. Companies fail because the
+        wrong choices compound at inflection points.</p
+      >
+      <p class="m-0"
+        >That's why exited founders matter. Your board has opinions. Your
+        investors have a position. Neither has done your job. We have.</p
+      >
+      <p class="m-0"
+        >At Supernova, founders gain operators, not spectators. We embed and
+        activate to accelerate critical milestones. We get in the game with you.</p
+      >
+      <p
+        style="margin: 4px 0; padding: 4px 0 4px 20px; border-left: 4px solid #F5C400; font-weight: 600; font-size: 19px; line-height: 1.5; color: #14120E"
+        ><span class="block mb-[12px]"
+          >You're borrowing the relationships and <span
+            style="background: linear-gradient(transparent 58%, #F5C400 58%); padding: 0 2px"
+            >judgment</span
+          > from founders who've already paid the tuition, so you don't have to.</span
+        ><span
+          >We lived the consequences of hyper-growth, near-death quarters, board
+          pressure, and exits. Now we pay it forward. Supernova gives you the
+          rarest resource:
+        </span><span
+          style="background: linear-gradient(transparent 58%, #F5C400 58%); padding: 0 2px"
+          >wisdom</span
+        ><span>, when it matters most.</span></p
+      >
+      <p class="m-0"
+        >The next generation of iconic companies will be built by leaders
+        evolving as fast as the markets around them and collaborating with
+        relationships that bring an unfair advantage.<br /><br />Time to get to
+        work.</p
+      >
+    </div>
+  </div>
+</section>
+
+<section class:list={[sectionGutter, sectionSpace]}>
+  <div
+    class="max-w-[1160px] mx-auto my-0 grid items-center grid-cols-[repeat(auto-fit,minmax(min(420px,100%),1fr))] gap-y-[40px] gap-x-[64px]"
+  >
+    <div class="flex flex-col gap-[16px]">
+      <h2
+        class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[44px] leading-[1.08] tracking-[-0.02em]"
+        >Who we work with.</h2
+      >
+    </div>
+    <ul
+      style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column"
+    >
+      <li
+        style="display: flex; gap: 20px; padding: 18px 0; border-top: 1px solid #E3DCCB"
+        ><span class="font-semibold min-w-[110px]">Stage</span><span
+          class="text-[#3A362D]">Bootstrapped, or Series A to C</span
+        ></li
+      >
+      <li
+        style="display: flex; gap: 20px; padding: 18px 0; border-top: 1px solid #E3DCCB"
+        ><span class="font-semibold min-w-[110px]">Traction</span><span
+          class="text-[#3A362D]">$5M-30M+ in revenue and scaling up</span
+        ></li
+      >
+      <li
+        style="display: flex; gap: 20px; padding: 18px 0; border-top: 1px solid #E3DCCB; border-bottom: 1px solid #E3DCCB"
+        ><span class="font-semibold min-w-[110px]">Founder</span><span
+          class="text-[#3A362D]"
+          >Still the CEO, and open to coaching. No know-it-alls.</span
+        ></li
+      >
+      <li
+        style="display: flex; gap: 20px; padding: 18px 0; border-bottom: 1px solid #E3DCCB"
+        ><span class="font-semibold min-w-[110px]">Moment</span><span
+          class="text-[#3A362D]"
+          >A high-stakes decision in the next 6 to 12 months: a raise, a key
+          hire, a new business model or an exit</span
+        ></li
+      >
+      <li
+        style="display: flex; gap: 20px; padding: 18px 0; border-bottom: 1px solid #E3DCCB"
+        ><span class="font-semibold min-w-[110px]">Commitment</span><span
+          class="text-[#3A362D]"
+          >Ready to compensate exited founders with equity or fees</span
+        ></li
+      >
+      <li
+        style="display: flex; gap: 20px; padding: 18px 0; border-bottom: 1px solid #E3DCCB"
+        ><span class="font-semibold min-w-[110px]">Team</span><span
+          class="text-[#3A362D]"
+          >A leadership team that will work with exited founders</span
+        ></li
+      >
+      <li
+        style="display: flex; gap: 20px; padding: 18px 0; border-bottom: 1px solid #E3DCCB"
+        ><span class="font-semibold min-w-[110px]">Mission</span><span
+          class="text-[#3A362D]"
+          >Building something that makes the world better</span
+        ></li
+      >
+    </ul>
+  </div>
+</section>
+
+<section class:list={[sectionGutter, sectionSpace]} style="background: #000000; color: #FAF5EA">
+  <div
+    class="max-w-[1160px] mx-auto my-0 grid items-center grid-cols-[repeat(auto-fit,minmax(min(420px,100%),1fr))] gap-y-[48px] gap-x-[72px]"
+  >
+    <div class="flex flex-col gap-[24px]">
+      <span
+        class="text-[14px] font-semibold tracking-[0.08em] uppercase text-[#F5C400]"
+        >HOW IT WORKS</span
+      >
+      <h2
+        class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(36px,4.4vw,56px)] leading-[1.05] tracking-[-0.03em]"
+        >Matched with exited founders in minutes.</h2
+      >
+      <p class="m-0 text-[19px] text-[#E6DFCF]"
+        >Our north star is time. So we built NOVA AI. Tell NOVA your biggest
+        challenge. NOVA finds the exited founders who have already solved it.</p
+      >
+      <ol
+        class="m-0 mt-2 p-0 list-none grid grid-cols-[repeat(auto-fit,minmax(min(110px,100%),1fr))] gap-x-5 gap-y-4"
+      >
+        <li
+          style="display: flex; flex-direction: column; gap: 4px; border-top: 2px solid #F5C400; padding-top: 12px"
+          ><span class="text-[13px] font-semibold text-[#F5C400]">01</span><span
+            class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[19px] leading-[1.2]"
+            >Match in minutes</span
+          ></li
+        >
+        <li
+          style="display: flex; flex-direction: column; gap: 4px; border-top: 2px solid #F5C400; padding-top: 12px"
+          ><span class="text-[13px] font-semibold text-[#F5C400]">02</span><span
+            class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[19px] leading-[1.2]"
+            >Approve who you meet</span
+          ></li
+        >
+        <li
+          style="display: flex; flex-direction: column; gap: 4px; border-top: 2px solid #F5C400; padding-top: 12px"
+          ><span class="text-[13px] font-semibold text-[#F5C400]">03</span><span
+            class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[19px] leading-[1.2]"
+            >Get on the phone</span
+          ></li
+        >
+        <li
+          style="display: flex; flex-direction: column; gap: 4px; border-top: 2px solid #F5C400; padding-top: 12px"
+          ><span class="text-[13px] font-semibold text-[#F5C400]">04</span><span
+            class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[19px] leading-[1.2]"
+            >Get to work</span
+          ></li
+        >
+      </ol>
+      <a
+        href="https://nova.1supernova.com/#/apply-with-ai"
+        style="align-self: flex-start; margin-top: 8px; background: #F5C400; color: #14120E; text-decoration: none; font-weight: 600; font-size: 17px; padding: 17px 28px; border-radius: 6px"
+        >Get matched in minutes →</a
+      >
+      <p class="m-0 text-[14px] leading-[1.5] text-[#CFC7B6]"
+        >Your data stays private. Supernova only shares it with the exited
+        founders you select, so they are briefed before they speak with you.</p
+      >
+    </div>
+    <img
+      loading="lazy"
+      decoding="async"
+      src="/assets/nova-star-bc4e9cecd250.jpg"
+      alt="NOVA, the Supernova AI guide, a glowing line-drawn star. Capital, exited founders, and a scorecard in minutes."
+      style="width: 100%; max-width: 560px; height: auto; border-radius: 16px; display: block; justify-self: center"
+    />
+  </div>
+</section>
+
+<section
+  class:list={[sectionGutter, "py-[clamp(4rem,12vw,9.5rem)] text-cream"]}
+  style="background: linear-gradient(rgba(10, 9, 13, 0.76), rgba(10, 9, 13, 0.76)), #0A090D url(/assets/team-call-009bbac21e68.jpg) center / cover no-repeat"
+>
+  <div
+    class="max-w-[860px] mx-auto my-0 flex flex-col items-center text-center gap-[20px]"
+  >
+    <span
+      class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[13px] tracking-[0.24em] uppercase text-[#F5C400]"
+      >SUPERNOVA IN ACTION</span
+    >
+    <h2
+      class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(36px,4.4vw,56px)] leading-[1.05] tracking-[-0.03em] text-balance"
+      >This is what building together looks like.</h2
+    >
+    <p class="m-0 text-[19px] text-[#E6DFCF]"
+      >A growth-stage company's leadership team in a working session with
+      their Supernova exited founders.</p
+    >
+  </div>
+</section>
+
+<section class:list={[sectionGutter, sectionSpace]}>
+  <div class="max-w-[1160px] mx-auto my-0 flex flex-col gap-[20px]">
+    <div class="flex flex-col gap-[14px] mb-[24px]">
+      <h2
+        class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[44px] leading-[1.08] tracking-[-0.02em]"
+        >We show up at the inflection points where failure is not an option.</h2
+      >
+      <p class="m-0 text-[18px] text-[#3A362D]"
+        >Five moments where a mistake is expensive and avoidable. Here is what
+        happened when we showed up.</p
+      >
+    </div>
+    <div class="sn-row grid-cols-[repeat(auto-fit,minmax(min(28rem,100%),1fr))]">
+      <div class="sn-mo [--sn-card-padding:clamp(1rem,3vw,2rem)] p-(--sn-card-padding)"
+        ><b>01</b><h3>Scaling to oversized outcomes</h3><b>The moment</b><p
+          >Revenue is growing faster than your experience, and decisions are
+          getting harder to reverse.</p
+        ><p class="sn-help"
+          >We put a founder beside you who scaled through the same jump, so you
+          make the big calls once.</p
+        ><div class="sn-voice gap-[clamp(0.75rem,2vw,1.125rem)] pt-[clamp(0.875rem,3vw,1.75rem)] [&>img]:h-[clamp(7.5rem,18vw,12.5rem)] max-[640px]:[&>img]:h-[clamp(5.5rem,20vw,9.5rem)] max-[640px]:[&>img]:max-w-[35%]"
+          ><img
+            loading="lazy"
+            decoding="async"
+            src="/assets/ashley-black-7dcc7e0f6f93.png"
+            alt="Ashley Black, Founder of Ashley Black"
+          /><blockquote
+            >"It's been hard to find real partners who I trust. Supernova's
+            exited founders just get it."<cite
+              >Ashley Black, Founder and CEO</cite
+            ></blockquote
+          ></div
+        ></div
+      >
+      <div class="sn-case p-[clamp(1rem,3vw,2rem)]"
+        ><img
+          class="h-[52px]"
+          loading="lazy"
+          decoding="async"
+          src="/assets/ashley-logo-ab15e4d2b779.png"
+          alt="Ashley Black"
+        /><small>Case study · Ashley Black</small><h4
+          >$200M+ in lifetime sales. Now it's time to reach mass markets and
+          impact more lives.</h4
+        ><p
+          >Direct-to-consumer fascia care tools, and NeXcia, the company's first
+          motorized device. Founder-led.</p
+        ><p
+          ><strong>The challenge</strong>Take a consumer device down a
+          regulatory and clinical path nobody on the team had run before.</p
+        ><p
+          ><strong>The Supernova advantage</strong>A precise match. A four-time
+          exited founder with medtech experience and university research ties,
+          found for this one problem.</p
+        ><p
+          ><strong>The impact</strong>A regulatory roadmap and a product data
+          plan for NeXcia, built by an exited founder working inside the team
+          within five months.</p
+        ></div
+      >
+    </div>
+    <div class="sn-row grid-cols-[repeat(auto-fit,minmax(min(28rem,100%),1fr))]">
+      <div class="sn-mo [--sn-card-padding:clamp(1rem,3vw,2rem)] p-(--sn-card-padding)"
+        ><b>02</b><h3>Leveling up your leadership team</h3><b>The moment</b><p
+          >Every executive is running a function bigger than any they have run
+          before, and you can no longer coach each of them yourself.</p
+        ><p class="sn-help"
+          >We put an exited founder or operator beside each executive, working
+          on that function's priorities.</p
+        ></div
+      >
+      <div class="sn-case p-[clamp(1rem,3vw,2rem)]"
+        ><img
+          loading="lazy"
+          decoding="async"
+          src="/assets/baubap-logo-white-818f3ac2ba76.png"
+          alt="Baubap"
+        /><small>Case study · Baubap</small><h4
+          >Every executive got a mentor who had done their job at scale.</h4
+        ><p
+          >App-based microloans for people in Mexico who are shut out of
+          traditional banking. A Y Combinator company.</p
+        ><p
+          ><strong>The challenge</strong>Skill up the whole leadership team at
+          once, beyond the CEO.</p
+        ><p
+          ><strong>The Supernova advantage</strong>Depth of network. Enough
+          exited founders and operators to match six functions at the same time,
+          with Baubap's own team choosing the lineup.</p
+        ><p
+          ><strong>The impact</strong>Six executives, each working with an
+          exited founder or operator on fundraising, engineering, product,
+          marketing, people or risk. The team also left with a fundraising plan
+          and investor introductions.</p
+        ></div
+      >
+    </div>
+    <div class="sn-row grid-cols-[repeat(auto-fit,minmax(min(28rem,100%),1fr))]">
+      <div class="sn-mo [--sn-card-padding:clamp(1rem,3vw,2rem)] p-(--sn-card-padding)"
+        ><b>03</b><h3>Filling a key seat without a search</h3><b>The moment</b
+        ><p
+          >You need a proven executive now, and a hire that looks right on paper
+          and fails in practice costs you a year.</p
+        ><p class="sn-help"
+          >Exited founders you already trust step in, each working in a zone of
+          genius.</p
+        ><div class="sn-voice gap-[clamp(0.75rem,2vw,1.125rem)] pt-[clamp(0.875rem,3vw,1.75rem)] [&>img]:h-[clamp(7.5rem,18vw,12.5rem)] max-[640px]:[&>img]:h-[clamp(5.5rem,20vw,9.5rem)] max-[640px]:[&>img]:max-w-[35%]"
+          ><img
+            loading="lazy"
+            decoding="async"
+            src="/assets/leo-rastogi-30b74ea4dfad.png"
+            alt="Dr. Leo Rastogi, Founder of SoulSpring"
+          /><blockquote
+            >“I have built and exited three companies, so I know what the right
+            people are worth. I needed a CMO and help on the raise, from people
+            I trusted. Supernova had them, and they did the work.”<cite
+              >Dr. Leo Rastogi, Founder, SoulSpring</cite
+            ></blockquote
+          ></div
+        ></div
+      >
+      <div class="sn-case p-[clamp(1rem,3vw,2rem)]"
+        ><img
+          class="h-[34px]"
+          loading="lazy"
+          decoding="async"
+          src="/assets/soulspring-logo-295d4912967b.png"
+          alt="Soulspring"
+        /><small>Case study · SoulSpring</small><h4
+          >He had exited three times. He wanted Superstars he trusted.</h4
+        ><p
+          >Physician-led healthspan clinics rooted in Swiss Biological Medicine,
+          across the U.S., Europe and Mexico.</p
+        ><p
+          ><strong>The challenge</strong>Find a CMO and a fundraising pro who
+          were proven in their zones of genius, shared his values and would
+          execute the strategy.</p
+        ><p
+          ><strong>The Supernova advantage</strong>People a founder already
+          trusts. Exited founders who care about impact as much as profit.</p
+        ><p
+          ><strong>The impact</strong>A CMO and a fundraising lead at work from
+          day one, with no search. SoulSpring now serves 9,000+ clients a year
+          and has partnered with WorldHotels Group.</p
+        ></div
+      >
+    </div>
+    <div class="sn-row grid-cols-[repeat(auto-fit,minmax(min(28rem,100%),1fr))]">
+      <div class="sn-mo [--sn-card-padding:clamp(1rem,3vw,2rem)] p-(--sn-card-padding)"
+        ><b>04</b><h3>Raising your next round</h3><b>The moment</b><p
+          >Timing a Series B, C or D, and telling a story investors will
+          underwrite.</p
+        ><p class="sn-help"
+          >Founders who have raised at your stage sharpen the story, rework the
+          deck and open doors to investors.</p
+        ><div class="sn-voice gap-[clamp(0.75rem,2vw,1.125rem)] pt-[clamp(0.875rem,3vw,1.75rem)] [&>img]:h-[clamp(7.5rem,18vw,12.5rem)] max-[640px]:[&>img]:h-[clamp(5.5rem,20vw,9.5rem)] max-[640px]:[&>img]:max-w-[35%]"
+          ><img
+            class="w-[274px] h-[188px]"
+            loading="lazy"
+            decoding="async"
+            src="/assets/apollo-founders-9d6ccf15603f.png"
+            alt="The Apollo Neuro co-founders"
+          /><blockquote
+            >“Scaling a company is hard. Supernova is an answer to our prayers.
+            They bring the bench of exited founders who just get it.”<cite
+              >Kathryn Fantauzzi, CEO and Co-Founder, Apollo Neuro</cite
+            ></blockquote
+          ></div
+        ></div
+      >
+      <div class="sn-case p-[clamp(1rem,3vw,2rem)]"
+        ><img
+          loading="lazy"
+          decoding="async"
+          src="/assets/apollo-logo-white-9128f5593c7c.png"
+          alt="Apollo Neuro"
+        /><small>Case study · Apollo Neuro</small><h4
+          >They scaled to $10M alone. The next chapter needed people who had
+          done it.</h4
+        ><p
+          >A wearable that uses gentle vibration and AI to improve sleep, stress
+          and focus. 150,000+ customers. Series A, $35M raised.</p
+        ><p
+          ><strong>The challenge</strong>Turn a $10M hardware business into a
+          recurring-revenue company and get it ready for its next raise, without
+          a full executive bench.</p
+        ><p
+          ><strong>The Supernova advantage</strong>Operators who had solved this
+          exact problem. Tonal's founder built subscription on top of hardware.
+          The Beats executives scaled consumer hardware to a $3B exit.</p
+        ><p
+          ><strong>The impact</strong>Subscription attach rate rose from 20% to
+          90%, and subscription revenue grew 50% month over month for six
+          months.</p
+        ></div
+      >
+    </div>
+    <div class="sn-row grid-cols-[repeat(auto-fit,minmax(min(28rem,100%),1fr))]">
+      <div class="sn-mo [--sn-card-padding:clamp(1rem,3vw,2rem)] p-(--sn-card-padding)"
+        ><b>05</b><h3>Bringing in world-class advisors and investors</h3><b
+          >The moment</b
+        ><p
+          >The mission is big and the stakes just jumped. You need the best
+          people at the table, fast.</p
+        ><p class="sn-help"
+          >Exited founders open their networks and bring the right advisors and
+          investors to you.</p
+        ><div class="sn-voice gap-[clamp(0.75rem,2vw,1.125rem)] pt-[clamp(0.875rem,3vw,1.75rem)] [&>img]:h-[clamp(7.5rem,18vw,12.5rem)] max-[640px]:[&>img]:h-[clamp(5.5rem,20vw,9.5rem)] max-[640px]:[&>img]:max-w-[35%]"
+          ><img
+            loading="lazy"
+            decoding="async"
+            src="/assets/ben-lamm-d2cb45645cb0.png"
+            alt="Ben Lamm, CEO and Co-founder of Colossal Biosciences"
+          /><blockquote
+            >“They advise me. I advise others. That's the Supernova effect! When
+            exited founders team up results happen faster.”<cite
+              >Ben Lamm, CEO and Co-founder, Colossal Biosciences</cite
+            ></blockquote
+          ></div
+        ></div
+      >
+      <div class="sn-case p-[clamp(1rem,3vw,2rem)]"
+        ><img
+          loading="lazy"
+          decoding="async"
+          src="/assets/colossal-logo-white-a7fd490c702d.png"
+          alt="Colossal"
+        /><small>Case study · Colossal</small><h4
+          >Seed to decacorn in under four years.</h4
+        ><p
+          >A de-extinction and species preservation company built on AI,
+          computational biology and genetic engineering. $600M+ raised.</p
+        ><p
+          ><strong>The challenge</strong>A brand-new company with a moonshot
+          mission needed its first advisors and its first round of capital.</p
+        ><p
+          ><strong>The Supernova advantage</strong>Exited founders building
+          together from day one, which brought the right advisors and investors
+          to the table faster.</p
+        ><p
+          ><strong>The impact</strong>Barry Stamos joined as founding advisor,
+          recruited Peter Diamandis to the advisory board and introduced
+          investors who joined the first round. Colossal is now valued at
+          $10.2B.</p
+        ></div
+      >
+    </div>
+    <p class="text-[13px] text-[#5E584C]" style="margin: 8px 0 0"
+      >Company-reported figures. Past performance does not predict results.</p
+    >
+  </div>
+</section>
+
+<section
+  class:list={[sectionGutter, wideSectionSpace]}
+  style="position: relative; overflow: hidden; background: #FFFFFF; border-top: 1px solid #E3DCCB; border-bottom: 1px solid #E3DCCB"
+>
+  <img
+    class="absolute left-0 h-auto pointer-events-none top-1/2 w-[min(34vw,440px)] -translate-x-[38%] -translate-y-1/2"
+    loading="lazy"
+    decoding="async"
+    src="/assets/ring-lines-26c73d2f4368.png"
+    alt=""
+    aria-hidden="true"
+  />
+  <figure
+    class="relative max-w-[940px] mx-auto my-0 flex flex-col items-center text-center gap-[28px]"
+  >
+    <span
+      class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[96px] leading-[0.6] text-[#F5C400] h-[44px]"
+      aria-hidden="true">“</span
+    >
+    <blockquote
+      class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(28px,3.8vw,48px)] leading-[1.12] tracking-[-0.02em] text-balance"
+      >I recommend Supernova to my investments because I know they're a force
+      multiplier.</blockquote
+    >
+    <figcaption
+      class="flex flex-col gap-[6px] text-[13px] tracking-[0.12em] uppercase text-[#5E584C]"
+      ><span class="font-semibold text-[#14120E]">Daniel Dubois</span><span
+        >2x exited founder. Partner, Side Door Ventures</span
+      ></figcaption
+    >
+  </figure>
+</section>
+
+<section class:list={[sectionGutter, wideSectionSpace]} style="background: #111111; color: #FAF5EA">
+  <div class="max-w-[1160px] mx-auto my-0 flex flex-col gap-[clamp(24px,5vw,48px)]">
+    <div class="flex flex-col items-center text-center gap-[18px]">
+      <span
+        class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[13px] tracking-[0.24em] uppercase text-[#F5C400]"
+        >The data</span
+      >
+      <h2
+        class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(36px,4.4vw,56px)] leading-[1.05] tracking-[-0.03em]"
+        >Proof that this matters.</h2
+      >
+      <p class="m-0 text-[19px] text-[#E6DFCF]"
+        >The odds are stacked against every founder. Exited founders are how you
+        defy them.</p
+      >
+    </div>
+    <div class="flex flex-wrap justify-center gap-x-3 gap-y-2 max-[640px]:grid max-[640px]:grid-cols-2 max-[640px]:w-full max-[640px]:max-w-[22rem] max-[640px]:mx-auto">
+      <button
+        type="button"
+        data-stat="0"
+        style="position: relative; background: none; border: 1px solid #3A3A3A; border-radius: 999px; color: #FAF5EA; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 20px; min-height: 44px; cursor: pointer"
+        >The odds<span
+          class="absolute h-[2px] bg-[#F5C400]"
+          data-stat-ind="0"
+          style="left: 18px; right: 18px; bottom: 8px"></span></button
+      >
+      <button
+        type="button"
+        data-stat="1"
+        style="position: relative; background: none; border: 1px solid #3A3A3A; border-radius: 999px; color: #FAF5EA; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 20px; min-height: 44px; cursor: pointer"
+        >The cost<span
+          class="absolute h-[2px] bg-[#F5C400]"
+          data-stat-ind="1"
+          hidden
+          style="left: 18px; right: 18px; bottom: 8px"></span></button
+      >
+      <button
+        type="button"
+        data-stat="2"
+        style="position: relative; background: none; border: 1px solid #3A3A3A; border-radius: 999px; color: #FAF5EA; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 20px; min-height: 44px; cursor: pointer"
+        >The toll<span
+          class="absolute h-[2px] bg-[#F5C400]"
+          data-stat-ind="2"
+          hidden
+          style="left: 18px; right: 18px; bottom: 8px"></span></button
+      >
+      <button
+        type="button"
+        data-stat="3"
+        style="position: relative; background: none; border: 1px solid #3A3A3A; border-radius: 999px; color: #FAF5EA; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 20px; min-height: 44px; cursor: pointer"
+        >The edge<span
+          class="absolute h-[2px] bg-[#F5C400]"
+          data-stat-ind="3"
+          hidden
+          style="left: 18px; right: 18px; bottom: 8px"></span></button
+      >
+    </div>
+    <div class="grid grid-cols-3 gap-[clamp(0.75rem,2vw,1.25rem)] max-[720px]:grid-cols-1">
+      <div class="contents" data-stats></div><template id="sn-stat-card"
+        ><article class="sn-growth-stat-card flex flex-col items-center gap-[clamp(0.75rem,2.5vw,2rem)] px-[clamp(0.875rem,2.4vw,1.75rem)] py-[clamp(1.25rem,3.6vw,2.75rem)] text-center max-[720px]:grid max-[720px]:grid-cols-[auto_minmax(0,1fr)] max-[720px]:content-center max-[720px]:gap-x-4 max-[720px]:gap-y-1.5 max-[720px]:text-start"
+          ><div class="relative grid place-items-center w-[clamp(7rem,15vw,11.25rem)] aspect-square text-[clamp(1.875rem,4vw,2.75rem)] max-[720px]:row-span-2 max-[720px]:w-[clamp(5.5rem,17vw,7rem)]"
+            ><div class="sn-ring" style="background: [[ring]]"></div><span
+              class="relative font-display font-semibold leading-[1] tracking-[-0.02em]"
+              style="color: [[color]]">[[num]]</span
+            ></div
+          ><p class="m-0 text-[clamp(1rem,2vw,1.1875rem)] leading-[1.4] text-[#E6DFCF] max-[720px]:self-end max-[720px]:last:self-center">[[label]]</p
+          ><!--src-->
+          <a
+            class="font-mono text-xs tracking-[0.08em] uppercase text-[#B4AC9B] max-[720px]:self-start"
+            href="[[url]]"
+            target="_blank"
+            rel="noopener"
+            style="text-decoration: underline; text-underline-offset: 3px"
+            >Source: [[src]]</a
+          ><!--/src--></article
+        ></template
+      >
+    </div>
+    <p
+      class="m-0 text-center [font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[11px] tracking-[0.12em] uppercase text-[#8F8878]"
+      >Figures as published on 1supernova.com. 88% figure: Azevedo, Scheuer,
+      Smetters and Yang, 2025.</p
+    >
+  </div>
+</section>
+
+<section class="sn-growth-nps" style="background: #111111; color: #FAF5EA">
+  <img
+    class="block w-full max-w-[1312px] h-auto mx-auto my-0 max-[640px]:hidden"
+    loading="lazy"
+    decoding="async"
+    src="/assets/nps-wisdom-1fc727d7bbca.png"
+    alt="We help you make million dollar decisions. Wisdom makes a difference. With a 90+ Net Promoter Score, Supernova is the highest rated Exited-Founders-as-a-Service. Chart: other advisors score 17, Supernova scores 90+. Source: Advisor Benchmark Survey."
+  />
+  <div class:list={[sectionGutter, "hidden max-[640px]:grid gap-4 max-w-[30rem] mx-auto py-14"]}>
+    <h2 class="m-0 font-display font-semibold leading-tight">Wisdom Makes a Difference</h2>
+    <p class="m-0 text-[#E6DFCF]">With a 90+ Net Promoter Score, Supernova is the highest rated Exited-Founders-as-a-Service.</p>
+    <dl class="m-0 grid gap-4">
+      <div>
+        <dt>Supernova</dt>
+        <dd class="m-0 sn-growth-nps-score sn-growth-nps-supernova w-[90%]">90+</dd>
+      </div>
+      <div>
+        <dt>Other advisors</dt>
+        <dd class="m-0 sn-growth-nps-score sn-growth-nps-other w-[max(17%,2.5rem)]">17</dd>
+      </div>
+    </dl>
+    <p class="m-0 text-sm text-[#CFC7B6]">Source: Advisor Benchmark Survey</p>
+  </div>
+</section>
+
+<section class:list={[sectionGutter, wideSectionSpace]}>
+  <div class="max-w-[1160px] mx-auto my-0 flex flex-col gap-[clamp(20px,5vw,48px)]">
+    <div class="flex flex-col gap-[18px] max-w-[820px]">
+      <span
+        class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] tracking-[0.12em] uppercase text-[#5E584C]"
+        >Our difference</span
+      >
+      <h2 id="advisor-comparison-title"
+        class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(36px,4.4vw,56px)] leading-[1.05] tracking-[-0.03em]"
+        >The evolution of the advisor.</h2
+      >
+      <p class="m-0 text-[19px] text-[#3A362D]"
+        >Boards are boring. We are white-knight operator partners.</p
+      >
+    </div>
+    <div>
+      <p id="advisor-comparison-hint" class="hidden m-0 mb-3 text-sm text-[#5e584c] max-[720px]:block">Scroll sideways to see both columns.</p>
+      <div class="sn-growth-comparison" role="region" aria-labelledby="advisor-comparison-title" aria-describedby="advisor-comparison-hint" tabindex="0">
+        <div class="sn-growth-comparison-body">
+        <div
+          class="grid gap-[8px] items-stretch"
+          style="grid-template-columns: minmax(110px, 0.55fr) minmax(0, 1fr) minmax(0, 1fr)"
+        >
+          <span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] tracking-[0.14em] uppercase text-[#5E584C]"
+            style="padding: 18px 4px; align-self: end">Dimension</span
+          >
+          <div
+            style="background: #F6D5D2; border-radius: 10px 10px 4px 4px; padding: 18px 22px; display: flex; flex-direction: column; gap: 4px"
+            ><span
+              class="text-[12px] tracking-[0.14em] uppercase"
+              style='font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; color: rgb(154, 59, 51)'
+              >Past</span
+            ><span
+              class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[24px] leading-[1.1]"
+              style="color: rgb(20, 18, 14)"
+              >Traditional boards and advisors</span
+            ></div
+          >
+          <div
+            style="background: linear-gradient(90deg, #4DA6F0 0%, #5ED4DE 28%, #F2C94C 55%, #EE8E86 80%, #B35FCB 100%); border-radius: 10px 10px 4px 4px; padding: 18px 22px; display: flex; flex-direction: column; gap: 4px"
+            ><span
+              class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] tracking-[0.14em] uppercase text-[#14120E]"
+              >Future</span
+            ><span
+              class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[24px] leading-[1.1] text-[#14120E]"
+              >Supernova</span
+            ></div
+          >
+        </div>
+        <div
+          class="grid gap-[8px] items-stretch"
+          style="grid-template-columns: minmax(110px, 0.55fr) minmax(0, 1fr) minmax(0, 1fr)"
+          ><span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] tracking-[0.14em] uppercase text-[#5E584C]"
+            style="padding: 18px 4px; align-self: center">Cadence</span
+          ><span
+            style="background: #FBEAE8; border-radius: 4px; padding: 18px 22px; font-size: 17px; color: #5E584C; display: flex; align-items: center"
+            >Quarterly observers</span
+          ><span
+            style="background: #14120E; border-radius: 4px; padding: 18px 22px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: 18px; line-height: 1.25; color: #FAF5EA; display: flex; align-items: center"
+            >Real-time operating partners</span
+          ></div
+        >
+        <div
+          class="grid gap-[8px] items-stretch"
+          style="grid-template-columns: minmax(110px, 0.55fr) minmax(0, 1fr) minmax(0, 1fr)"
+          ><span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] tracking-[0.14em] uppercase text-[#5E584C]"
+            style="padding: 18px 4px; align-self: center">Advice</span
+          ><span
+            style="background: #FBEAE8; border-radius: 4px; padding: 18px 22px; font-size: 17px; color: #5E584C; display: flex; align-items: center"
+            >Theoretical advice</span
+          ><span
+            style="background: #14120E; border-radius: 4px; padding: 18px 22px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: 18px; line-height: 1.25; color: #FAF5EA; display: flex; align-items: center"
+            >Pattern recognition from exits</span
+          ></div
+        >
+        <div
+          class="grid gap-[8px] items-stretch"
+          style="grid-template-columns: minmax(110px, 0.55fr) minmax(0, 1fr) minmax(0, 1fr)"
+          ><span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] tracking-[0.14em] uppercase text-[#5E584C]"
+            style="padding: 18px 4px; align-self: center">Focus</span
+          ><span
+            style="background: #FBEAE8; border-radius: 4px; padding: 18px 22px; font-size: 17px; color: #5E584C; display: flex; align-items: center"
+            >Governance</span
+          ><span
+            style="background: #14120E; border-radius: 4px; padding: 18px 22px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: 18px; line-height: 1.25; color: #FAF5EA; display: flex; align-items: center"
+            >Growth acceleration</span
+          ></div
+        >
+        <div
+          class="grid gap-[8px] items-stretch"
+          style="grid-template-columns: minmax(110px, 0.55fr) minmax(0, 1fr) minmax(0, 1fr)"
+          ><span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] tracking-[0.14em] uppercase text-[#5E584C]"
+            style="padding: 18px 4px; align-self: center">Style</span
+          ><span
+            style="background: #FBEAE8; border-radius: 4px; padding: 18px 22px; font-size: 17px; color: #5E584C; display: flex; align-items: center"
+            >Passive oversight</span
+          ><span
+            style="background: #14120E; border-radius: 4px; padding: 18px 22px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: 18px; line-height: 1.25; color: #FAF5EA; display: flex; align-items: center"
+            >Hands-on execution</span
+          ></div
+        >
+        <div
+          class="grid gap-[8px] items-stretch"
+          style="grid-template-columns: minmax(110px, 0.55fr) minmax(0, 1fr) minmax(0, 1fr)"
+          ><span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] tracking-[0.14em] uppercase text-[#5E584C]"
+            style="padding: 18px 4px; align-self: center">Output</span
+          ><span
+            style="background: #FBEAE8; border-radius: 4px; padding: 18px 22px; font-size: 17px; color: #5E584C; display: flex; align-items: center"
+            >Status updates</span
+          ><span
+            style="background: #14120E; border-radius: 4px; padding: 18px 22px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: 18px; line-height: 1.25; color: #FAF5EA; display: flex; align-items: center"
+            >Milestone achievement</span
+          ></div
+        >
+        <div
+          class="grid gap-[8px] items-stretch"
+          style="grid-template-columns: minmax(110px, 0.55fr) minmax(0, 1fr) minmax(0, 1fr)"
+          ><span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] tracking-[0.14em] uppercase text-[#5E584C]"
+            style="padding: 18px 4px; align-self: center">Experience</span
+          ><span
+            style="background: #FBEAE8; border-radius: 4px; padding: 18px 22px; font-size: 17px; color: #5E584C; display: flex; align-items: center"
+            >Advice from people who haven't lived it</span
+          ><span
+            style="background: #14120E; border-radius: 4px; padding: 18px 22px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: 18px; line-height: 1.25; color: #FAF5EA; display: flex; align-items: center"
+            >Exited founders who have</span
+          ></div
+        >
+        <div
+          class="grid gap-[8px] items-stretch"
+          style="grid-template-columns: minmax(110px, 0.55fr) minmax(0, 1fr) minmax(0, 1fr)"
+          ><span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] tracking-[0.14em] uppercase text-[#5E584C]"
+            style="padding: 18px 4px; align-self: center">Speed</span
+          ><span
+            style="background: #FBEAE8; border-radius: 4px; padding: 18px 22px; font-size: 17px; color: #5E584C; display: flex; align-items: center"
+            >Months to find the right help</span
+          ><span
+            style="background: #14120E; border-radius: 4px; padding: 18px 22px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: 18px; line-height: 1.25; color: #FAF5EA; display: flex; align-items: center"
+            >Matched in minutes by NOVA AI</span
+          ></div
+        >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class:list={[sectionGutter, wideSectionSpace]} style="border-top: 1px solid #E3DCCB">
+  <div
+    class="max-w-[1160px] mx-auto my-0 grid items-center grid-cols-[repeat(auto-fit,minmax(min(420px,100%),1fr))] gap-y-[40px] gap-x-[64px]"
+  >
+    <div class="flex flex-col gap-[14px]">
+      <a
+        href="https://www.youtube.com/@connortomkies"
+        aria-label="Watch on YouTube"
+        style="position: relative; display: block; border-radius: 12px; overflow: hidden; background: #14120E"
+      >
+        <img
+          class="block w-full object-cover"
+          loading="lazy"
+          decoding="async"
+          src="/assets/video-thumb-c629dc78b6ea.jpg"
+          alt="Video thumbnail: Scaling Startups to Zebras, Unicorns and Decacorns, with Barry Stamos"
+          style="aspect-ratio: 16 / 9"
+        />
+        <span
+          aria-hidden="true"
+          style="position: absolute; left: 50%; top: 50%; translate: -50% -50%; width: 68px; height: 48px; border-radius: 12px; background: rgba(20, 18, 14, 0.82); color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 20px"
+          >▶</span
+        >
+      </a>
+      <div class="flex flex-col gap-[4px]">
+        <span class="font-semibold text-[18px] leading-[1.3] text-[#14120E]"
+          >Scaling Startups to Zebras, Unicorns &amp; Decacorns with Barry
+          Stamos</span
+        >
+        <span class="text-[14px] text-[#5E584C]"
+          >Connor Tomkies · 44K views · 1 year ago</span
+        >
+      </div>
+    </div>
+    <div class="flex flex-col gap-[20px]">
+      <span
+        class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] tracking-[0.12em] uppercase text-[#5E584C]"
+        >Watch / Made It with Connor Tomkies</span
+      >
+      <h2
+        class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(32px,3.8vw,46px)] leading-[1.1] tracking-[-0.02em]"
+        >Scaling startups to zebras, unicorns and decacorns.</h2
+      >
+      <p class="m-0 text-[19px] text-[#3A362D]"
+        >Barry Stamos on leaving corporate to build startups, the exits that
+        followed, and why exited founders now back founders together through
+        Supernova.</p
+      >
+      <a
+        class="self-start font-semibold text-[16px]"
+        href="https://www.youtube.com/@connortomkies"
+        style="padding: 12px 0">Watch on YouTube →</a
+      >
+    </div>
+  </div>
+</section>
+
+<section
+  class:list={[sectionGutter, wideSectionSpace]}
+  style="background: #FFFFFF; color: #14120E; border-top: 1px solid #E3DCCB"
+>
+  <div class="max-w-[1160px] mx-auto my-0 flex flex-col gap-[48px]">
+    <div
+      class="grid grid-cols-[repeat(auto-fit,minmax(min(420px,100%),1fr))] gap-y-[24px] gap-x-[64px] items-end"
+    >
+      <div class="flex flex-col gap-[18px]">
+        <span
+          class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] tracking-[0.12em] uppercase text-[#5E584C]"
+          >The bench</span
+        >
+        <h2
+          class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(36px,4.4vw,56px)] leading-[1.05] tracking-[-0.03em]"
+          >250+ exited founders. Vetted and ready to serve.</h2
+        >
+      </div>
+      <p class="m-0 text-[18px] text-[#3A362D]"
+        >Every one of them has built, scaled and sold. NOVA AI matches you to
+        the ones who have solved your problem.</p
+      >
+    </div>
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(min(12.5rem,100%),1fr))] gap-x-2.5 gap-y-[clamp(1.25rem,3vw,2.25rem)] [overflow-wrap:anywhere] max-[640px]:grid-cols-2">
+      <article style="display: flex; flex-direction: column; gap: 8px"
+        ><img
+          loading="lazy"
+          decoding="async"
+          class="sn-face"
+          src="/assets/barry-stamos-be3434c5bd8b.png"
+          alt="Barry Stamos"
+          style="aspect-ratio: 1 / 1; width: 100%; object-fit: cover; object-position: center top; border-radius: 6px; display: block"
+        /><div
+          class="px-3.5 pt-3 pb-3.5 max-[640px]:px-[clamp(0.625rem,2.2vw,0.875rem)]"
+          style="flex: 1; background: #EFE8D8; border-radius: 4px; display: flex; flex-direction: column; gap: 6px"
+          ><span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] font-medium text-[13px] tracking-[0.12em] uppercase"
+            >Barry Stamos</span
+          ><span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] leading-[1.45] tracking-[0.1em] uppercase text-[#5E584C]"
+            >3x exited founder. CEO, Supernova</span
+          ><a
+            class="self-start mt-auto pt-[6px] block"
+            href="https://www.linkedin.com/search/results/people/?keywords=Barry%20Stamos"
+            target="_blank"
+            rel="noopener"
+            aria-label="Barry Stamos on LinkedIn"
+            ><svg
+              class="block"
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              ><rect width="24" height="24" rx="4" fill="#14120E"></rect><rect
+                x="5"
+                y="9.500"
+                width="3"
+                height="9"
+                fill="#FFFFFF"></rect><circle
+                cx="6.500"
+                cy="6.200"
+                r="1.800"
+                fill="#FFFFFF"></circle><path
+                d="M10.500 9.500h2.900v1.300c.500-.900 1.600-1.600 3.100-1.600 2.700 0 3.500 1.700 3.500 4.300v5h-3v-4.500c0-1.200-.300-2.100-1.500-2.100s-2 .800-2 2.200v4.400h-3z"
+                fill="#FFFFFF"></path></svg
+            ></a
+          ></div
+        ></article
+      >
+      <article style="display: flex; flex-direction: column; gap: 8px"
+        ><img
+          loading="lazy"
+          decoding="async"
+          class="sn-face"
+          src="/assets/aly-orady-24ab59751d9c.png"
+          alt="Aly Orady"
+          style="aspect-ratio: 1 / 1; width: 100%; object-fit: cover; object-position: center top; border-radius: 6px; display: block"
+        /><div
+          class="px-3.5 pt-3 pb-3.5 max-[640px]:px-[clamp(0.625rem,2.2vw,0.875rem)]"
+          style="flex: 1; background: #EFE8D8; border-radius: 4px; display: flex; flex-direction: column; gap: 6px"
+          ><span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] font-medium text-[13px] tracking-[0.12em] uppercase"
+            >Aly Orady</span
+          ><span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] leading-[1.45] tracking-[0.1em] uppercase text-[#5E584C]"
+            >Founder &amp; former CEO, Tonal</span
+          ><a
+            class="self-start mt-auto pt-[6px] block"
+            href="https://www.linkedin.com/in/aorady"
+            target="_blank"
+            rel="noopener"
+            aria-label="Aly Orady on LinkedIn"
+            ><svg
+              class="block"
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              ><rect width="24" height="24" rx="4" fill="#14120E"></rect><rect
+                x="5"
+                y="9.500"
+                width="3"
+                height="9"
+                fill="#FFFFFF"></rect><circle
+                cx="6.500"
+                cy="6.200"
+                r="1.800"
+                fill="#FFFFFF"></circle><path
+                d="M10.500 9.500h2.900v1.300c.500-.900 1.600-1.600 3.100-1.600 2.700 0 3.500 1.700 3.500 4.300v5h-3v-4.500c0-1.200-.300-2.100-1.500-2.100s-2 .800-2 2.200v4.400h-3z"
+                fill="#FFFFFF"></path></svg
+            ></a
+          ></div
+        ></article
+      >
+      <article style="display: flex; flex-direction: column; gap: 8px"
+        ><img
+          loading="lazy"
+          decoding="async"
+          class="sn-face"
+          src="/assets/dave-asprey-d96da04f2280.png"
+          alt="Dave Asprey"
+          style="aspect-ratio: 1 / 1; width: 100%; object-fit: cover; object-position: center top; border-radius: 6px; display: block"
+        /><div
+          class="px-3.5 pt-3 pb-3.5 max-[640px]:px-[clamp(0.625rem,2.2vw,0.875rem)]"
+          style="flex: 1; background: #EFE8D8; border-radius: 4px; display: flex; flex-direction: column; gap: 6px"
+          ><span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] font-medium text-[13px] tracking-[0.12em] uppercase"
+            >Dave Asprey</span
+          ><span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] leading-[1.45] tracking-[0.1em] uppercase text-[#5E584C]"
+            >Founder, Bulletproof. Co-founder, Basis (acquired by Intel)</span
+          ><a
+            class="self-start mt-auto pt-[6px] block"
+            href="https://www.linkedin.com/in/asprey/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Dave Asprey on LinkedIn"
+            ><svg
+              class="block"
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              ><rect width="24" height="24" rx="4" fill="#14120E"></rect><rect
+                x="5"
+                y="9.500"
+                width="3"
+                height="9"
+                fill="#FFFFFF"></rect><circle
+                cx="6.500"
+                cy="6.200"
+                r="1.800"
+                fill="#FFFFFF"></circle><path
+                d="M10.500 9.500h2.900v1.300c.500-.900 1.600-1.600 3.100-1.600 2.700 0 3.500 1.700 3.500 4.300v5h-3v-4.500c0-1.200-.300-2.100-1.500-2.100s-2 .800-2 2.200v4.400h-3z"
+                fill="#FFFFFF"></path></svg
+            ></a
+          ></div
+        ></article
+      >
+      <article style="display: flex; flex-direction: column; gap: 8px"
+        ><img
+          loading="lazy"
+          decoding="async"
+          class="sn-face"
+          src="/assets/daehee-park-69fa3b040573.png"
+          alt="Daehee Park"
+          style="aspect-ratio: 1 / 1; width: 100%; object-fit: cover; object-position: center top; border-radius: 6px; display: block"
+        /><div
+          class="px-3.5 pt-3 pb-3.5 max-[640px]:px-[clamp(0.625rem,2.2vw,0.875rem)]"
+          style="flex: 1; background: #EFE8D8; border-radius: 4px; display: flex; flex-direction: column; gap: 6px"
+          ><span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] font-medium text-[13px] tracking-[0.12em] uppercase"
+            >Daehee Park</span
+          ><span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] leading-[1.45] tracking-[0.1em] uppercase text-[#5E584C]"
+            >Co-founder, Tuft &amp; Needle</span
+          ><a
+            class="self-start mt-auto pt-[6px] block"
+            href="https://www.linkedin.com/search/results/people/?keywords=Daehee%20Park"
+            target="_blank"
+            rel="noopener"
+            aria-label="Daehee Park on LinkedIn"
+            ><svg
+              class="block"
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              ><rect width="24" height="24" rx="4" fill="#14120E"></rect><rect
+                x="5"
+                y="9.500"
+                width="3"
+                height="9"
+                fill="#FFFFFF"></rect><circle
+                cx="6.500"
+                cy="6.200"
+                r="1.800"
+                fill="#FFFFFF"></circle><path
+                d="M10.500 9.500h2.900v1.300c.500-.900 1.600-1.600 3.100-1.600 2.700 0 3.500 1.700 3.500 4.300v5h-3v-4.500c0-1.200-.300-2.100-1.500-2.100s-2 .800-2 2.200v4.400h-3z"
+                fill="#FFFFFF"></path></svg
+            ></a
+          ></div
+        ></article
+      >
+      <article style="display: flex; flex-direction: column; gap: 8px"
+        ><img
+          loading="lazy"
+          decoding="async"
+          class="sn-face"
+          src="/assets/det-ansinn-ef8a470364d8.png"
+          alt="Det Ansinn"
+          style="aspect-ratio: 1 / 1; width: 100%; object-fit: cover; object-position: center top; border-radius: 6px; display: block"
+        /><div
+          class="px-3.5 pt-3 pb-3.5 max-[640px]:px-[clamp(0.625rem,2.2vw,0.875rem)]"
+          style="flex: 1; background: #EFE8D8; border-radius: 4px; display: flex; flex-direction: column; gap: 6px"
+          ><span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] font-medium text-[13px] tracking-[0.12em] uppercase"
+            >Det Ansinn</span
+          ><span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] leading-[1.45] tracking-[0.1em] uppercase text-[#5E584C]"
+            >Exited founder, medtech operator</span
+          ><a
+            class="self-start mt-auto pt-[6px] block"
+            href="https://www.linkedin.com/search/results/people/?keywords=Det%20Ansinn"
+            target="_blank"
+            rel="noopener"
+            aria-label="Det Ansinn on LinkedIn"
+            ><svg
+              class="block"
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              ><rect width="24" height="24" rx="4" fill="#14120E"></rect><rect
+                x="5"
+                y="9.500"
+                width="3"
+                height="9"
+                fill="#FFFFFF"></rect><circle
+                cx="6.500"
+                cy="6.200"
+                r="1.800"
+                fill="#FFFFFF"></circle><path
+                d="M10.500 9.500h2.900v1.300c.500-.900 1.600-1.600 3.100-1.600 2.700 0 3.500 1.700 3.500 4.300v5h-3v-4.500c0-1.200-.300-2.100-1.500-2.100s-2 .800-2 2.200v4.400h-3z"
+                fill="#FFFFFF"></path></svg
+            ></a
+          ></div
+        ></article
+      >
+      <article style="display: flex; flex-direction: column; gap: 8px"
+        ><img
+          loading="lazy"
+          decoding="async"
+          class="sn-face"
+          src="/assets/ben-lamm-d2cb45645cb0.png"
+          alt="Ben Lamm"
+          style="aspect-ratio: 1 / 1; width: 100%; object-fit: cover; object-position: center top; border-radius: 6px; display: block"
+        /><div
+          class="px-3.5 pt-3 pb-3.5 max-[640px]:px-[clamp(0.625rem,2.2vw,0.875rem)]"
+          style="flex: 1; background: #EFE8D8; border-radius: 4px; display: flex; flex-direction: column; gap: 6px"
+          ><span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] font-medium text-[13px] tracking-[0.12em] uppercase"
+            >Ben Lamm</span
+          ><span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] leading-[1.45] tracking-[0.1em] uppercase text-[#5E584C]"
+            >6x exited founder. CEO, Colossal</span
+          ><a
+            class="self-start mt-auto pt-[6px] block"
+            href="https://www.linkedin.com/in/benlamm"
+            target="_blank"
+            rel="noopener"
+            aria-label="Ben Lamm on LinkedIn"
+            ><svg
+              class="block"
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              ><rect width="24" height="24" rx="4" fill="#14120E"></rect><rect
+                x="5"
+                y="9.500"
+                width="3"
+                height="9"
+                fill="#FFFFFF"></rect><circle
+                cx="6.500"
+                cy="6.200"
+                r="1.800"
+                fill="#FFFFFF"></circle><path
+                d="M10.500 9.500h2.900v1.300c.500-.900 1.600-1.600 3.100-1.600 2.700 0 3.500 1.700 3.500 4.300v5h-3v-4.500c0-1.200-.300-2.100-1.500-2.100s-2 .800-2 2.200v4.400h-3z"
+                fill="#FFFFFF"></path></svg
+            ></a
+          ></div
+        ></article
+      >
+      <article style="display: flex; flex-direction: column; gap: 8px"
+        ><img
+          loading="lazy"
+          decoding="async"
+          class="sn-face"
+          src="/assets/daniel-dubois-112b5685348c.png"
+          alt="Daniel Dubois"
+          style="aspect-ratio: 1 / 1; width: 100%; object-fit: cover; object-position: center top; border-radius: 6px; display: block"
+        /><div
+          class="px-3.5 pt-3 pb-3.5 max-[640px]:px-[clamp(0.625rem,2.2vw,0.875rem)]"
+          style="flex: 1; background: #EFE8D8; border-radius: 4px; display: flex; flex-direction: column; gap: 6px"
+          ><span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] font-medium text-[13px] tracking-[0.12em] uppercase"
+            >Daniel Dubois</span
+          ><span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] leading-[1.45] tracking-[0.1em] uppercase text-[#5E584C]"
+            >2x exited founder</span
+          ><a
+            class="self-start mt-auto pt-[6px] block"
+            href="https://www.linkedin.com/search/results/people/?keywords=Daniel%20Dubois"
+            target="_blank"
+            rel="noopener"
+            aria-label="Daniel Dubois on LinkedIn"
+            ><svg
+              class="block"
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              ><rect width="24" height="24" rx="4" fill="#14120E"></rect><rect
+                x="5"
+                y="9.500"
+                width="3"
+                height="9"
+                fill="#FFFFFF"></rect><circle
+                cx="6.500"
+                cy="6.200"
+                r="1.800"
+                fill="#FFFFFF"></circle><path
+                d="M10.500 9.500h2.900v1.300c.500-.900 1.600-1.600 3.100-1.600 2.700 0 3.500 1.700 3.500 4.300v5h-3v-4.500c0-1.200-.300-2.100-1.500-2.100s-2 .800-2 2.200v4.400h-3z"
+                fill="#FFFFFF"></path></svg
+            ></a
+          ></div
+        ></article
+      >
+      <article style="display: flex; flex-direction: column; gap: 8px"
+        ><img
+          loading="lazy"
+          decoding="async"
+          class="sn-face"
+          src="/assets/lindsay-nahmiache-204c79607f73.png"
+          alt="Lindsay Nahmiache"
+          style="aspect-ratio: 1 / 1; width: 100%; object-fit: cover; object-position: center top; border-radius: 6px; display: block"
+        /><div
+          class="px-3.5 pt-3 pb-3.5 max-[640px]:px-[clamp(0.625rem,2.2vw,0.875rem)]"
+          style="flex: 1; background: #EFE8D8; border-radius: 4px; display: flex; flex-direction: column; gap: 6px"
+          ><span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] font-medium text-[13px] tracking-[0.12em] uppercase"
+            >Lindsay Nahmiache</span
+          ><span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] leading-[1.45] tracking-[0.1em] uppercase text-[#5E584C]"
+            >Founder, Jive (exited)</span
+          ><a
+            class="self-start mt-auto pt-[6px] block"
+            href="https://www.linkedin.com/search/results/people/?keywords=Lindsay%20Nahmiache"
+            target="_blank"
+            rel="noopener"
+            aria-label="Lindsay Nahmiache on LinkedIn"
+            ><svg
+              class="block"
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              ><rect width="24" height="24" rx="4" fill="#14120E"></rect><rect
+                x="5"
+                y="9.500"
+                width="3"
+                height="9"
+                fill="#FFFFFF"></rect><circle
+                cx="6.500"
+                cy="6.200"
+                r="1.800"
+                fill="#FFFFFF"></circle><path
+                d="M10.500 9.500h2.900v1.300c.500-.900 1.600-1.600 3.100-1.600 2.700 0 3.500 1.700 3.500 4.300v5h-3v-4.500c0-1.200-.300-2.100-1.500-2.100s-2 .800-2 2.200v4.400h-3z"
+                fill="#FFFFFF"></path></svg
+            ></a
+          ></div
+        ></article
+      >
+      <article style="display: flex; flex-direction: column; gap: 8px"
+        ><img
+          loading="lazy"
+          decoding="async"
+          class="sn-face"
+          src="/assets/scott-weller-05907f555f33.png"
+          alt="Scott Weller"
+          style="aspect-ratio: 1 / 1; width: 100%; object-fit: cover; object-position: center top; border-radius: 6px; display: block"
+        /><div
+          class="px-3.5 pt-3 pb-3.5 max-[640px]:px-[clamp(0.625rem,2.2vw,0.875rem)]"
+          style="flex: 1; background: #EFE8D8; border-radius: 4px; display: flex; flex-direction: column; gap: 6px"
+          ><span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] font-medium text-[13px] tracking-[0.12em] uppercase"
+            >Scott Weller</span
+          ><span
+            class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] leading-[1.45] tracking-[0.1em] uppercase text-[#5E584C]"
+            >Exited founder. CTO, EnFi</span
+          ><a
+            class="self-start mt-auto pt-[6px] block"
+            href="https://www.linkedin.com/search/results/people/?keywords=Scott%20Weller"
+            target="_blank"
+            rel="noopener"
+            aria-label="Scott Weller on LinkedIn"
+            ><svg
+              class="block"
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              ><rect width="24" height="24" rx="4" fill="#14120E"></rect><rect
+                x="5"
+                y="9.500"
+                width="3"
+                height="9"
+                fill="#FFFFFF"></rect><circle
+                cx="6.500"
+                cy="6.200"
+                r="1.800"
+                fill="#FFFFFF"></circle><path
+                d="M10.500 9.500h2.900v1.300c.500-.900 1.600-1.600 3.100-1.600 2.700 0 3.500 1.700 3.500 4.300v5h-3v-4.500c0-1.200-.300-2.100-1.500-2.100s-2 .800-2 2.200v4.400h-3z"
+                fill="#FFFFFF"></path></svg
+            ></a
+          ></div
+        ></article
+      >
+      <article style="display: flex; flex-direction: column; gap: 8px"
+        ><div
+          style="aspect-ratio: 1 / 1; border: 1px dashed #B9B09A; border-radius: 6px; box-sizing: border-box; display: flex; align-items: center; justify-content: center"
+          ><img
+            class="w-[84px] h-auto block"
+            loading="lazy"
+            decoding="async"
+            src="/assets/supernova-star-dc51ceae2f9e.png"
+            alt="Supernova"
+          /></div
+        ><div class="flex flex-col gap-[6px] px-3.5 pt-3 pb-3.5 max-[640px]:px-[clamp(0.625rem,2.2vw,0.875rem)]"
+          ><span
+            class="sn-count"
+            style='align-self: flex-start; font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 600; font-size: 28px; line-height: 1.15; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: rgb(20, 18, 14); background: linear-gradient(transparent 52%, rgb(245, 196, 0) 52%); padding: 0px 4px'
+            >240+ more</span
+          ><span
+            class="text-[12px] leading-[1.45] tracking-[0.1em] uppercase"
+            style='font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; color: rgb(94, 88, 76)'
+            >Vetted and ready to serve FELLOW FOUNDERS</span
+          ></div
+        ></article
+      >
+    </div>
+    <div class="flex justify-center"
+      ><a
+        href="https://nova.1supernova.com/#/apply-with-ai"
+        style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-weight: 500; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #14120E; text-decoration: none; border-bottom: 2px solid #F5C400; padding: 14px 0 8px"
+        >See if you qualify →</a
+      ></div
+    >
+  </div>
+</section>
+
+<section
+  class:list={[sectionGutter, "sn-stars py-[clamp(4rem,11vw,8rem)]"]}
+  style="background-color: #000000; color: #FAF5EA"
+>
+  <div
+    class="max-w-[600px] mx-auto my-0 flex flex-col items-center text-center gap-[32px]"
+  >
+    <h2
+      class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(32px,3.6vw,46px)] leading-[1.05] tracking-[-0.03em]"
+      >Capital scales companies. Judgment determines outcomes.</h2
+    >
+    <div
+      class="flex flex-wrap items-center justify-center"
+      style="gap: 16px 28px"
+    >
+      <a
+        href="https://nova.1supernova.com/#/apply-with-ai"
+        style="background: #F5C400; color: #14120E; text-decoration: none; font-weight: 600; font-size: 17px; padding: 17px 28px; border-radius: 6px"
+        >See if you qualify</a
+      >
+      <span class="text-[16px]">Get your free NOVA AI scorecard</span>
+    </div>
+  </div>
+</section>
+
+<section class:list={[sectionGutter, wideSectionSpace]}>
+  <div
+    class="max-w-[1160px] mx-auto my-0 grid items-start grid-cols-[repeat(auto-fit,minmax(min(380px,100%),1fr))] gap-y-[40px] gap-x-[72px]"
+  >
+    <div class="flex flex-col gap-[20px]">
+      <h2
+        class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(36px,4.4vw,56px)] leading-[1.05] tracking-[-0.03em]"
+        >{content.faqTitle}</h2
+      >
+      <p class="m-0 text-[18px] text-[#3A362D]"
+        >Can't find your answer? <a
+          class="font-semibold"
+          href="mailto:hello@1supernova.com">Reach out</a
+        >.</p
+      >
+    </div>
+    <div class="flex flex-col gap-[12px]">
+      <Faq items={content.faq} />
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  window.SN_STATS = [
+    [
+      ["<1%", 1, "of entrepreneurs exit"],
+      [
+        "70%",
+        70,
+        "of VC-backed startups fail",
+        "Shikhar Ghosh, HBS",
+        "https://www.fastcompany.com/3003827/why-most-venture-backed-companies-fail",
+      ],
+      [
+        "9%",
+        9,
+        "of Series A companies make it to Series B",
+        "Carta, 2024",
+        "https://angelcapitalassociation.org/blog/getting-from-series-a-to-series-b-is-a-tall-task/",
+      ],
+    ],
+    [
+      [
+        "88%",
+        88,
+        "of VC-backed founders receive $0 at exit",
+        "Wharton and University of Zurich, 2026",
+        "https://www.econ.uzh.ch/en/people/faculty/scheuer/research.html",
+      ],
+      [
+        "<20%",
+        20,
+        "is what founders own by Series C",
+        "Carta, 2026",
+        "https://carta.com/data/founder-ownership-2026/",
+      ],
+      [
+        "50%",
+        50,
+        "of founding CEOs are fired or forced out",
+        "Noam Wasserman, HBR",
+        "https://hbr.org/2008/02/the-founders-dilemma",
+      ],
+    ],
+    [
+      [
+        "83%",
+        83,
+        "of founders live with chronic stress",
+        "Sifted, 2025",
+        "https://sifted.eu/articles/founders-mental-health-2025",
+      ],
+      [
+        "72%",
+        72,
+        "of founders struggle with their mental health",
+        "Startup Snapshot, 2023",
+        "https://www.startupsnapshot.com/research/the-untold-toll-the-impact-of-stress-on-the-well-being-of-startup-founders-and-ceos/",
+      ],
+      [
+        "50%",
+        50,
+        "of founders experience insomnia",
+        "Sifted, 2025",
+        "https://sifted.eu/articles/founders-mental-health-2025",
+      ],
+    ],
+    [
+      [
+        "70%",
+        70,
+        "of unicorns are built by repeat founders",
+        "Ali Tamaseb, Super Founders",
+        "https://alitamaseb.medium.com/land-of-the-super-founders-a-data-driven-approach-to-uncover-the-secrets-of-billion-dollar-a69ebe3f0f45",
+      ],
+      [
+        "75%",
+        75,
+        "of founders regret selling",
+        "Exit Planning Institute, 2023",
+        "https://exit-planning-institute.org/hubfs/Member%20Center%20Resources/2023%20National%20State%20of%20Owner%20Readiness%20Report.pdf",
+      ],
+      [
+        "93%",
+        93,
+        "of VCs have never built a company",
+        "Gompers and Mukharlyamov, NBER, 2022",
+        "https://www.nber.org/system/files/working_papers/w29907/w29907.pdf",
+      ],
+    ],
+  ];
+</script>

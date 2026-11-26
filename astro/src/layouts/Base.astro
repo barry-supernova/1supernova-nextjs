@@ -1,0 +1,86 @@
+---
+import type { CollectionEntry } from "astro:content";
+import config from "@/config/config.json";
+import Footer from "@/partials/Footer.astro";
+import Header from "@/partials/Header.astro";
+import "@/styles/main.css";
+
+interface Props {
+  content: CollectionEntry<"pages">["data"];
+  path: string;
+}
+
+const { content, path } = Astro.props;
+const { title, description, image, faq } = content;
+const canonical = new URL(path, config.site.base_url);
+const socialImage = new URL(image, canonical);
+const structuredData = [];
+
+if (path === "/") {
+  structuredData.push(
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Supernova",
+      url: canonical.href,
+      logo: new URL(config.site.favicon, canonical).href,
+      description,
+      founder: ["Barry Stamos", "Christopher Staley"].map((name) => ({ "@type": "Person", name })),
+    },
+    { "@context": "https://schema.org", "@type": "WebSite", name: "Supernova", url: canonical.href },
+  );
+}
+
+if (faq.length) {
+  structuredData.push({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map(({ question, answer }) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: { "@type": "Answer", text: answer },
+    })),
+  });
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical.href} />
+    <meta name="robots" content={config.preview || path === "/404" ? "noindex, nofollow" : "index, follow"} />
+    <meta name="theme-color" content="#0a090d" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={config.site.title} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical.href} />
+    <meta property="og:image" content={socialImage.href} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage.href} />
+    <link rel="icon" type="image/png" href={config.site.favicon} />
+    <link rel="apple-touch-icon" href={config.site.favicon} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" />
+    {structuredData.map((data) => <script is:inline type="application/ld+json" set:html={JSON.stringify(data).replace(/</g, "\\u003c")} />)}
+  </head>
+  <body>
+    <div class="bg-cream font-sans text-[17px] leading-[1.55] text-ink">
+      <Header />
+      <main id="main-content" data-page={path}>
+        <slot />
+      </main>
+      <Footer />
+    </div>
+    <script>
+      import "@/scripts/site.js";
+    </script>
+  </body>
+</html>

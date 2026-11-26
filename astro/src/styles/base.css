@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  background: #14120e;
+}
+
+@layer base {
+  a {
+    color: #14120e;
+  }
+
+  a:hover {
+    color: #5e584c;
+  }
+}
+
+header nav button {
+  color: #faf5ea;
+}
+
+header nav button[data-current] {
+  box-shadow: inset 0 -2px 0 #f5c400;
+}
+
+.sn-header .sn-desktop-login,
+.sn-footer a {
+  color: #faf5ea;
+}
+
+.sn-header .sn-desktop-login:hover,
+.sn-footer a:hover {
+  color: #f5c400;
+}
+
+.sn-footer .sn-legal a {
+  color: #cfc7b6;
+}
+
+.sn-footer-tagline {
+  background: linear-gradient(90deg, #4da6f0 0%, #5ed4de 24%, #f2c94c 50%, #f0a07a 76%, #b562c8 100%);
+  background-clip: text;
+  color: transparent;
+}

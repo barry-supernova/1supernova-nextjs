@@ -1,0 +1,155 @@
+@layer components {
+  img {
+    filter: grayscale(1);
+    transition: filter 0.3s ease;
+  }
+  img:hover,
+  a:hover img,
+  article:hover img,
+  figure:hover img {
+    filter: none;
+  }
+  .sn-burst,
+  img[src*="bc4e9cecd"],
+  img[src*="26c73d2f"],
+  img[src*="dfb34823"],
+  img[src*="dc51ceae"],
+  img[src*="1fc727d7"],
+  img[src*="4d58b71d"],
+  img[src*="47a55872"],
+  img[src*="13ac9638"] {
+    filter: none;
+  }
+  a {
+    color: #14120e;
+  }
+  a:hover {
+    color: #5e584c;
+  }
+  .sn-hero {
+    position: relative;
+    overflow: hidden;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(20, 18, 14, 0.95) 0%,
+        rgba(20, 18, 14, 0.84) 42%,
+        rgba(20, 18, 14, 0.2) 100%
+      ),
+      #14120e url(/assets/thrive-crowd-c23b88e47f75.jpg) center 60% / cover
+        no-repeat;
+  }
+  .sn-hero > div {
+    position: relative;
+    z-index: 1;
+  }
+  article.sn-feat {
+    background: #4da6f0 !important;
+    border-color: transparent !important;
+  }
+  article.sn-feat ~ article.sn-feat {
+    background: #5ed4de !important;
+  }
+  article.sn-feat ~ article.sn-feat ~ article.sn-feat {
+    background: #f2c94c !important;
+  }
+  .sn-feat span,
+  .sn-feat dt,
+  .sn-feat dd,
+  .sn-feat p,
+  .sn-feat figcaption {
+    color: #14120e !important;
+  }
+  .sn-feat dl > div,
+  .sn-feat dl + p {
+    border-top-color: rgba(20, 18, 14, 0.3) !important;
+  }
+  .sn-feat figure[style] {
+    border-top-color: #14120e !important;
+  }
+  .sn-fig {
+    margin: 0;
+  }
+  .sn-fig div {
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+    border-bottom: 2px solid #14120e;
+  }
+  .sn-fig .ph {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    object-position: center bottom;
+    padding-top: 32px;
+    box-sizing: border-box;
+  }
+  .sn-fig .lg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0;
+    background: none;
+    max-width: 100%;
+  }
+  .sn-fig .lg img {
+    display: block;
+    height: 20px;
+    width: auto;
+    object-fit: contain;
+    object-position: left center;
+    filter: brightness(0) !important;
+  }
+  .sn-fig figcaption {
+    padding-top: 12px;
+    font-size: 13px;
+    line-height: 1.35;
+    color: #5e584c;
+  }
+  .sn-fig b {
+    display: block;
+    font-size: 15px;
+    color: #14120e;
+  }
+  .sn-face {
+    filter: grayscale(1);
+    transition: filter 0.3s ease;
+  }
+  article:hover .sn-face {
+    filter: none;
+  }
+  .sn-burst {
+    position: absolute;
+    top: 50%;
+    height: auto;
+    pointer-events: none;
+  }
+  .sn-burst-l {
+    left: 0;
+    width: min(30vw, 420px);
+    translate: -50% -50%;
+    animation: sn-spin-l 60s linear infinite;
+  }
+  .sn-burst-r {
+    right: 0;
+    width: min(30vw, 420px);
+    translate: 50% -50%;
+    rotate: 40deg;
+    animation: sn-spin-r 60s linear infinite;
+  }
+  @keyframes sn-spin-l {
+    to {
+      rotate: 360deg;
+    }
+  }
+  @keyframes sn-spin-r {
+    to {
+      rotate: -320deg;
+    }
+  }
+  .sn-stars {
+    background: #000000 url(/assets/stars-bg-eaa20be39313.jpg) center / cover
+      no-repeat;
+  }
+}

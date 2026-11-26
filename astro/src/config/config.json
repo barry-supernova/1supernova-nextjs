@@ -1,0 +1,9 @@
+{
+  "site": {
+    "title": "Supernova",
+    "base_url": "https://1supernova.com",
+    "favicon": "/assets/supernova-star-dfb348239f2e.png",
+    "logo": "/assets/logo-white-13ac96383e8c.png"
+  },
+  "preview": false
+}

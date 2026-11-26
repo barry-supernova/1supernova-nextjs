@@ -1,0 +1,885 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Faq from "../components/Faq.astro";
+import "../../styles/pages/about.css";
+
+interface Props {
+  content: CollectionEntry<"pages">["data"];
+}
+
+const { content } = Astro.props;
+const splitLayout = "mx-auto grid max-w-[1160px] grid-cols-[repeat(auto-fit,minmax(min(380px,100%),1fr))] gap-x-[clamp(28px,6vw,72px)] gap-y-[clamp(24px,5vw,48px)]";
+const factValue = "sn-about-fact-value text-[clamp(27px,6vw,40px)]";
+const leadershipGrid = "sn-lead grid grid-cols-[repeat(auto-fill,minmax(min(120px,100%),1fr))] gap-x-[clamp(8px,1.25vw,14px)] gap-y-7 max-[640px]:grid-cols-3 max-[420px]:grid-cols-2";
+---
+
+<section class="sn-hero sn-about-hero box-border flex min-h-[clamp(460px,66vw,620px)] items-center px-[clamp(20px,4vw,32px)] pt-[clamp(64px,10vw,128px)] pb-[clamp(72px,11vw,136px)] text-cream max-[640px]:min-h-0 max-[640px]:bg-cover">
+  <video
+    class="max-[640px]:inset-0 max-[640px]:h-full max-[640px]:w-full max-[640px]:[translate:none] max-[640px]:[mask-image:none]"
+    data-hero-video
+    src="/assets/about-hero-0d731ac84ba9.mp4"
+    poster="/assets/about-hero-poster-31abac7184e0.jpg"
+    autoplay=""
+    muted=""
+    loop=""
+    playsinline=""
+    aria-hidden="true"></video>
+  <span class="sn-shade" aria-hidden="true"></span>
+  <div
+    class="max-w-[860px] w-full min-w-0 mx-auto my-0 relative flex flex-col items-center text-center gap-[clamp(16px,3vw,28px)]"
+    style="z-index: 1"
+  >
+    <p
+      class="m-0 text-[14px] font-semibold tracking-[0.08em] uppercase text-[#F5C400]"
+      >{content.hero.eyebrow}</p
+    >
+    <h1
+      class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(34px,4.6vw,58px)] leading-[1.06] tracking-[-0.03em] text-balance"
+      >{content.hero.title}</h1
+    >
+    <p class="m-0 text-[clamp(17px,2.6vw,21px)] leading-[1.5] text-[#E6DFCF]"
+      >{content.hero.description}</p
+    >
+  </div>
+  <img
+    loading="lazy"
+    decoding="async"
+    class="sn-burst sn-burst-l"
+    src="/assets/star-lines-4dde23efecf3.png"
+    alt=""
+    aria-hidden="true"
+  />
+  <img
+    loading="lazy"
+    decoding="async"
+    class="sn-burst sn-burst-r"
+    src="/assets/star-lines-4dde23efecf3.png"
+    alt=""
+    aria-hidden="true"
+  />
+</section>
+
+<section style="padding: 112px 32px">
+  <div
+    class:list={[splitLayout, "items-center"]}
+  >
+    <div class="flex flex-col gap-[22px]">
+      <span
+        class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] tracking-[0.12em] uppercase text-[#5E584C]"
+        >Our story</span
+      >
+      <h2
+        class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(36px,4.4vw,56px)] leading-[1.05] tracking-[-0.03em]"
+        >It comes down to who's in the room.</h2
+      >
+      <p class="m-0 text-[19px] text-[#3A362D]"
+        >Barry Stamos and Christopher Staley are serial founders and investors.
+        They built Supernova on one observation: the difference between a
+        company that scales and one that stalls almost always comes down to
+        who's in the room.</p
+      >
+      <p class="m-0 text-[19px] text-[#3A362D]"
+        >So they filled the room. 250+ exited founders have joined to deploy
+        their capital, experience and networks.</p
+      >
+      <p class="m-0 text-[19px] text-[#3A362D]"
+        >The world's biggest challenges get solved when founders build
+        together.&nbsp;</p
+      >
+    </div>
+    <img
+      loading="lazy"
+      decoding="async"
+      src="/assets/allgood-hires-0534a08acb7f.jpg"
+      alt="Supernova founders on a panel in front of a wall that reads It's all good"
+      style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; display: block"
+    />
+  </div>
+</section>
+
+<section class="bg-ink px-[clamp(20px,4vw,32px)] text-cream">
+  <div class="sn-about-facts mx-auto grid max-w-[1160px] grid-cols-4 gap-x-[clamp(12px,3vw,24px)] gap-y-[clamp(22px,4vw,36px)] py-[clamp(32px,6vw,64px)] max-[800px]:grid-cols-2 [&>div]:ps-[clamp(10px,2vw,20px)]">
+    <div><span
+        class:list={[factValue, "text-[#F0C84B]"]}
+        >250+</span
+      ><span class="text-[14px] text-[#CFC7B6]">exited founders</span></div
+    >
+    <div><span
+        class:list={[factValue, "text-[#B562C8]"]}
+        >33</span
+      ><span class="text-[14px] text-[#CFC7B6]">portfolio companies</span></div
+    >
+    <div><span
+        class:list={[factValue, "text-[#7FD6B2]"]}
+        >$100B+</span
+      ><span class="text-[14px] text-[#CFC7B6]">collective exit value</span
+      ></div
+    >
+    <div><span
+        class:list={[factValue, "text-[#F0A07A]"]}
+        >&lt;1%</span
+      ><span class="text-[14px] text-[#CFC7B6]"
+        >of entrepreneurs exit. We're built from that group.</span
+      ></div
+    >
+  </div>
+</section>
+
+<section
+  style="background: #FFFFFF; border-top: 1px solid #E3DCCB; border-bottom: 1px solid #E3DCCB; padding: 112px 32px"
+>
+  <div class="max-w-[1160px] mx-auto my-0 flex flex-col gap-[56px]">
+    <div class="flex flex-col gap-[18px]">
+      <span
+        class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] tracking-[0.12em] uppercase text-[#5E584C]"
+        >What we stand for</span
+      >
+      <h2
+        class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(36px,4.4vw,56px)] leading-[1.05] tracking-[-0.03em]"
+        >Make more. Give more. Impact more.</h2
+      >
+    </div>
+    <ol
+      style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr)); gap: 40px 28px"
+    >
+      <li
+        style="display: flex; flex-direction: column; gap: 10px; border-top: 2px dotted #B9B09A; padding-top: 20px"
+        ><span
+          class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[56px] leading-[1] tracking-[-0.03em] text-[#2F8FE0]"
+          >1</span
+        ><span
+          class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[24px] leading-[1.15]"
+          >Humanity</span
+        ><span class="text-[16px] text-[#3A362D]"
+          >We back founders building businesses the world needs.</span
+        ></li
+      >
+      <li
+        style="display: flex; flex-direction: column; gap: 10px; border-top: 2px dotted #B9B09A; padding-top: 20px"
+        ><span
+          class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[56px] leading-[1] tracking-[-0.03em] text-[#1FA9B5]"
+          >2</span
+        ><span
+          class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[24px] leading-[1.15]"
+          >Intentionality</span
+        ><span class="text-[16px] text-[#3A362D]"
+          >Every match, intro and investment is deliberate. We don't move fast
+          and break things.</span
+        ></li
+      >
+      <li
+        style="display: flex; flex-direction: column; gap: 10px; border-top: 2px dotted #B9B09A; padding-top: 20px"
+        ><span
+          class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[56px] leading-[1] tracking-[-0.03em] text-[#D9A400]"
+          >3</span
+        ><span
+          class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[24px] leading-[1.15]"
+          >Collaboration</span
+        ><span class="text-[16px] text-[#3A362D]"
+          >Exited founders pool what they know. Nobody here is competing.</span
+        ></li
+      >
+      <li
+        style="display: flex; flex-direction: column; gap: 10px; border-top: 2px dotted #B9B09A; padding-top: 20px"
+        ><span
+          class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[56px] leading-[1] tracking-[-0.03em] text-[#E0685E]"
+          >4</span
+        ><span
+          class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[24px] leading-[1.15]"
+          >Optimism</span
+        ><span class="text-[16px] text-[#3A362D]"
+          >We lead with positive intent and bet on problems most people haven't
+          noticed yet.</span
+        ></li
+      >
+      <li
+        style="display: flex; flex-direction: column; gap: 10px; border-top: 2px dotted #B9B09A; padding-top: 20px"
+        ><span
+          class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[56px] leading-[1] tracking-[-0.03em] text-[#A14FBF]"
+          >5</span
+        ><span
+          class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[24px] leading-[1.15]"
+          >Evolution</span
+        ><span class="text-[16px] text-[#3A362D]"
+          >We grow alongside our companies and carry what we learn to the next
+          one.</span
+        ></li
+      >
+    </ol>
+  </div>
+</section>
+
+<section style="padding: 112px 32px">
+  <div
+    class:list={[splitLayout, "items-start"]}
+  >
+    <div class="flex flex-col gap-[22px]">
+      <span
+        class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] tracking-[0.12em] uppercase text-[#5E584C]"
+        >Why Supernova exists</span
+      >
+      <h2
+        class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(36px,4.4vw,56px)] leading-[1.05] tracking-[-0.03em]"
+        >We speed up the founder's vision from the only seat that truly
+        understands it. As founders ourselves.</h2
+      >
+    </div>
+    <div class="flex flex-col">
+      <div
+        style="padding: 24px 0; border-top: 2px dotted #B9B09A; display: flex; flex-direction: column; gap: 8px"
+        ><h3
+          class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[24px] leading-[1.2]"
+          >Founders build the future.</h3
+        ><p class="m-0 text-[17px] text-[#3A362D]"
+          >They carry heavy missions, and too often they carry them alone.</p
+        ></div
+      >
+      <div
+        style="padding: 24px 0; border-top: 2px dotted #B9B09A; display: flex; flex-direction: column; gap: 8px"
+        ><h3
+          class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[24px] leading-[1.2]"
+          >Traditional support has failed scaleups.</h3
+        ><p class="m-0 text-[17px] text-[#3A362D]"
+          >Accelerators stop at the early stage. Boards and advisors are often
+          distant or unaccountable.</p
+        ></div
+      >
+      <div
+        style="padding: 24px 0; border-top: 2px dotted #B9B09A; display: flex; flex-direction: column; gap: 8px"
+        ><h3
+          class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[24px] leading-[1.2]"
+          >AI is the new frontier.</h3
+        ><p class="m-0 text-[17px] text-[#3A362D]"
+          >The founders who've been through it should guide the next wave.</p
+        ></div
+      >
+      <div
+        style="padding: 24px 0; border-top: 2px dotted #B9B09A; display: flex; flex-direction: column; gap: 8px"
+        ><h3
+          class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[24px] leading-[1.2]"
+          >Exited founders have lived it.</h3
+        ><p class="m-0 text-[17px] text-[#3A362D]"
+          >Hypergrowth, near-death quarters, board pressure and exits. Fewer
+          than 1% of entrepreneurs exit. Supernova is built from that 1%.</p
+        ></div
+      >
+    </div>
+  </div>
+</section>
+
+<section style="background: #000000; color: #FAF5EA; padding: 112px 32px">
+  <div
+    class:list={[splitLayout, "items-center"]}
+  >
+    <div class="flex flex-col gap-[22px]">
+      <span
+        class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] tracking-[0.12em] uppercase text-[#F5C400]"
+        >NOVA AI</span
+      >
+      <h2
+        class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(36px,4.4vw,56px)] leading-[1.05] tracking-[-0.03em]"
+        >AI powers our network. Time is our north star.</h2
+      >
+      <p class="m-0 text-[19px] text-[#E6DFCF]"
+        >Time is the one thing a founder can't get back. So we built NOVA AI to
+        run the network at founder speed.</p
+      >
+      <p class="m-0 text-[19px] text-[#E6DFCF]"
+        >NOVA reads your deck, scores where you stand and matches you with
+        exited founders and capital. Minutes, not months.</p
+      >
+      <div class="flex flex-col mt-[8px]">
+        <div
+          style="padding: 18px 0; border-top: 2px dotted rgba(250, 245, 234, 0.4); display: flex; flex-direction: column; gap: 4px"
+          ><span
+            class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[21px] leading-[1.2] text-[#5ED4DE]"
+            >Scorecard in minutes</span
+          ><span class="text-[16px] text-[#E6DFCF]"
+            >Upload your deck. NOVA scores where you stand and what to improve.</span
+          ></div
+        >
+        <div
+          style="padding: 18px 0; border-top: 2px dotted rgba(250, 245, 234, 0.4); display: flex; flex-direction: column; gap: 4px"
+          ><span
+            class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[21px] leading-[1.2] text-[#F2C94C]"
+            >Matched to exited founders and capital</span
+          ><span class="text-[16px] text-[#E6DFCF]"
+            >NOVA finds the founders who have already solved your problem.</span
+          ></div
+        >
+        <div
+          style="padding: 18px 0; border-top: 2px dotted rgba(250, 245, 234, 0.4); display: flex; flex-direction: column; gap: 4px"
+          ><span
+            class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[21px] leading-[1.2] text-[#EE8E86]"
+            >You approve. They opt in.</span
+          ><span class="text-[16px] text-[#E6DFCF]"
+            >Then we get you on the phone and get to work.</span
+          ></div
+        >
+      </div>
+      <div class="flex flex-wrap items-center mt-[8px]" style="gap: 16px 24px"
+        ><a
+          href="https://nova.1supernova.com/#/apply-with-ai"
+          style="background: #F5C400; color: #14120E; text-decoration: none; font-weight: 600; font-size: 17px; padding: 17px 28px; border-radius: 6px"
+          >Apply →</a
+        ><span class="text-[15px] text-[#E6DFCF]"
+          >Get your free NOVA AI scorecard</span
+        ></div
+      >
+    </div>
+    <img
+      loading="lazy"
+      decoding="async"
+      src="/assets/nova-star-bc4e9cecd250.jpg"
+      alt="NOVA, the Supernova AI guide, a glowing line-drawn star. Capital, exited founders, and a scorecard in minutes."
+      style="width: 100%; max-width: 560px; height: auto; border-radius: 16px; display: block; justify-self: center"
+    />
+  </div>
+</section>
+
+<section style="padding: 112px 32px">
+  <div class:list={[splitLayout, "items-center"]}>
+    <div class="sn-col">
+      <span class="sn-ey">Our philosophy</span>
+      <h2 class="sn-h2 text-[clamp(34px,4.2vw,52px)]"
+        >Companies reach their milestones faster when exited founders invest and
+        build alongside them.</h2
+      >
+      <p class="m-0 text-[19px] text-[#3A362D]"
+        >Once we invest, we embed exited founders as force multipliers. NOVA AI
+        scores companies and matches them to our operators to accelerate speed
+        to value.</p
+      >
+      <a
+        href="/growth-stage-ceos"
+        style="align-self: flex-start; font-weight: 600; font-size: 17px; padding: 12px 0; border-bottom: 2px solid #14120E; text-decoration: none"
+        >The experience →</a
+      >
+    </div>
+    <div class="sn-col items-center">
+      <p class="sn-hand text-[clamp(30px,3.4vw,40px)]"
+        >What if the world's top founders joined forces <br />to build together?</p
+      >
+      <canvas
+        class="w-full max-w-[442px] aspect-square block"
+        data-globe
+        aria-label="Exited founders teaming up around the companies we back"
+      ></canvas>
+      <span class="sn-ey text-center"
+        >250+ exited founders, building together</span
+      >
+    </div>
+  </div>
+  <div class="sn-nums grid grid-cols-[repeat(auto-fit,minmax(min(220px,100%),1fr))] max-[800px]:grid-cols-2 max-[640px]:gap-x-4 max-[640px]:gap-y-6 max-[640px]:pt-7 [&_b]:text-[clamp(30px,5vw,44px)]">
+    <div><b>250+</b>exited founders onboarded and ready to serve</div>
+    <div><b>2 to 5</b>exited founders inside every company we back</div>
+    <div
+      ><span class="block mb-[6px]">We invest up to</span><b>$500K</b>per
+      company</div
+    >
+    <div><b>NOVA AI</b>matches you to our network and partner ecosystem</div>
+  </div>
+</section>
+
+<section style="background: #0A090D; color: #FAF5EA; padding: 112px 32px 104px">
+  <div class="max-w-[1160px] mx-auto my-0 flex flex-col gap-[48px]">
+    <div class="sn-col gap-[18px]">
+      <span class="sn-ey text-[#F5C400]">Leadership team</span>
+      <h2 class="sn-h2 text-[26px] leading-[1.2] tracking-[-0.01em]"
+        >One team on a mission of mass collaboration.</h2
+      >
+    </div>
+    <div class={leadershipGrid}>
+      <figure
+        ><img
+          class="bg-[#2A2830] object-top"
+          loading="lazy"
+          decoding="async"
+          src="/assets/barry-stamos-be3434c5bd8b.png"
+          alt="Barry Stamos"
+        /><figcaption>Barry Stamos<span>Manifestor</span></figcaption></figure
+      >
+      <figure
+        ><img
+          class="bg-[#35323C] object-top"
+          loading="lazy"
+          decoding="async"
+          src="/assets/christopher-staley-2feee2aa10d0.png"
+          alt="Christopher Staley"
+        /><figcaption>Christopher Staley<span>Projector</span></figcaption
+        ></figure
+      >
+      <figure
+        ><img
+          class="bg-[#2A2830] object-top"
+          loading="lazy"
+          decoding="async"
+          src="/assets/daniel-dubois-112b5685348c.png"
+          alt="Daniel Dubois"
+        /><figcaption>Daniel Dubois<span>Reflector</span></figcaption></figure
+      >
+      <figure
+        ><img
+          class="bg-[#35323C] object-top"
+          loading="lazy"
+          decoding="async"
+          src="/assets/jeff-lundal-189d42e156e8.png"
+          alt="Jeff Lundal"
+        /><figcaption>Jeff Lundal</figcaption></figure
+      >
+      <figure
+        ><img
+          class="bg-[#2A2830] object-top"
+          loading="lazy"
+          decoding="async"
+          src="/assets/mehedi-shariff-17e38d6d51c2.png"
+          alt="Mehedi Shariff"
+        /><figcaption>Mehedi Shariff<span>Infrastructure</span></figcaption
+        ></figure
+      >
+      <figure
+        ><img
+          class="bg-[#35323C] object-top"
+          loading="lazy"
+          decoding="async"
+          src="/assets/jose-david-angaritar-29fa18750efc.png"
+          alt="Jose David Angaritar"
+        /><figcaption>Jose David Angaritar<span>Engineer</span></figcaption
+        ></figure
+      >
+    </div>
+    <div class="sn-col gap-[18px] mt-[16px]"
+      ><span class="sn-ey text-[#F5C400]">ADVISORY TEAM</span><h2
+        class="sn-h2 text-[26px] leading-[1.2] tracking-[-0.01em]"
+        >We practice what we preach and lean on our own trusted counsel.</h2
+      ></div
+    >
+    <div class={leadershipGrid}>
+      <figure
+        ><img
+          class="bg-[#2A2830] object-top"
+          loading="lazy"
+          decoding="async"
+          src="/assets/tim-chang-074579b96085.png"
+          alt="Tim Chang"
+        /><figcaption>Tim Chang<span>Guide</span></figcaption></figure
+      >
+      <figure
+        ><img
+          class="bg-[#35323C] object-top"
+          loading="lazy"
+          decoding="async"
+          src="/assets/jt-marino-0d6c0cb7d52c.png"
+          alt="JT Marino"
+        /><figcaption>JT Marino<span>Value Architect</span></figcaption></figure
+      >
+      <figure
+        ><img
+          class="bg-[#2A2830] object-top"
+          loading="lazy"
+          decoding="async"
+          src="/assets/ben-lamm-d2cb45645cb0.png"
+          alt="Ben Lamm"
+        /><figcaption>Ben Lamm<span>Counsel</span></figcaption></figure
+      >
+      <figure
+        ><img
+          class="bg-[#35323C] object-top"
+          loading="lazy"
+          decoding="async"
+          src="/assets/lindsay-nahmiache-204c79607f73.png"
+          alt="Lindsay Nahmiache"
+        /><figcaption>Lindsay Nahmiache</figcaption></figure
+      >
+      <figure
+        ><img
+          class="bg-[#2A2830] object-top"
+          loading="lazy"
+          decoding="async"
+          src="/assets/lorenzo-de-leo-457236d86740.png"
+          alt="Lorenzo De Leo"
+        /><figcaption>Lorenzo De Leo<span>Builder</span></figcaption></figure
+      >
+      <figure
+        ><img
+          class="bg-[#35323C] object-top"
+          loading="lazy"
+          decoding="async"
+          src="/assets/ed-henrich-ea889673f217.png"
+          alt="Ed Henrich"
+        /><figcaption>Ed Henrich</figcaption></figure
+      >
+      <figure
+        ><div class="ph next">?</div><figcaption>Who's next?</figcaption
+        ></figure
+      >
+    </div>
+  </div>
+</section>
+
+<section style="padding: 112px 32px">
+  <div class="sn-about-purpose gap-[clamp(28px,5vw,56px)] px-[clamp(18px,4vw,48px)] pt-[clamp(36px,6vw,72px)] pb-[clamp(32px,5vw,56px)]">
+    <div
+      class="grid"
+      style="grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 48px 40px"
+    >
+      <div class="flex flex-col items-center text-center gap-[24px]">
+        <svg width="84" height="84" viewBox="0 0 72 72" aria-hidden="true"
+          ><defs
+            ><linearGradient
+              id="vmp1"
+              x1="8"
+              y1="12"
+              x2="64"
+              y2="60"
+              gradientUnits="userSpaceOnUse"
+              ><stop offset="0" stop-color="#4DC3F0"></stop><stop
+                offset="0.5"
+                stop-color="#F2C94C"></stop><stop
+                offset="1"
+                stop-color="#EE8E86"></stop></linearGradient
+            ></defs
+          ><path
+            d="M36 62C10 42 6 28 14 18c8-9 19-5 22 4 3-9 14-13 22-4 8 10 4 24-22 44z"
+            fill="url(#vmp1)"></path></svg
+        >
+        <span
+          class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] tracking-[0.2em] uppercase text-[#F5C400]"
+          >Our vision</span
+        >
+        <p class="m-0 text-[clamp(17px,2.8vw,20px)] leading-[1.5]"
+          >To guide the world's brightest founders and scale their dreams for a
+          Supernova of impact.</p
+        >
+      </div>
+      <div class="flex flex-col items-center text-center gap-[24px]">
+        <svg width="84" height="84" viewBox="0 0 72 72" aria-hidden="true"
+          ><defs
+            ><linearGradient
+              id="vmp2"
+              x1="6"
+              y1="6"
+              x2="66"
+              y2="66"
+              gradientUnits="userSpaceOnUse"
+              ><stop offset="0" stop-color="#4DC3F0"></stop><stop
+                offset="0.5"
+                stop-color="#F2C94C"></stop><stop
+                offset="1"
+                stop-color="#EE8E86"></stop></linearGradient
+            ></defs
+          ><g fill="url(#vmp2)"
+            ><circle cx="36" cy="9" r="6"></circle><ellipse
+              cx="36"
+              cy="21"
+              rx="9"
+              ry="5"></ellipse><circle cx="57" cy="19" r="6"></circle><ellipse
+              cx="57"
+              cy="31"
+              rx="9"
+              ry="5"></ellipse><circle cx="57" cy="45" r="6"></circle><ellipse
+              cx="57"
+              cy="57"
+              rx="9"
+              ry="5"></ellipse><circle cx="36" cy="53" r="6"></circle><ellipse
+              cx="36"
+              cy="65"
+              rx="9"
+              ry="5"></ellipse><circle cx="15" cy="45" r="6"></circle><ellipse
+              cx="15"
+              cy="57"
+              rx="9"
+              ry="5"></ellipse><circle cx="15" cy="19" r="6"></circle><ellipse
+              cx="15"
+              cy="31"
+              rx="9"
+              ry="5"></ellipse></g
+          ></svg
+        >
+        <span
+          class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] tracking-[0.2em] uppercase text-[#F5C400]"
+          >Our mission</span
+        >
+        <p class="m-0 text-[clamp(17px,2.8vw,20px)] leading-[1.5]"
+          >To back world-changing companies with exited founders to achieve
+          their missions, faster.</p
+        >
+      </div>
+      <div class="flex flex-col items-center text-center gap-[24px]">
+        <svg width="84" height="84" viewBox="0 0 72 72" aria-hidden="true"
+          ><defs
+            ><linearGradient
+              id="vmp3"
+              x1="6"
+              y1="66"
+              x2="66"
+              y2="6"
+              gradientUnits="userSpaceOnUse"
+              ><stop offset="0" stop-color="#4DC3F0"></stop><stop
+                offset="0.5"
+                stop-color="#F2C94C"></stop><stop
+                offset="1"
+                stop-color="#EE8E86"></stop></linearGradient
+            ></defs
+          ><g fill="url(#vmp3)"
+            ><rect x="10" y="50" width="12" height="16" rx="6"></rect><rect
+              x="30"
+              y="40"
+              width="12"
+              height="26"
+              rx="6"></rect><rect x="50" y="30" width="12" height="36" rx="6"
+            ></rect></g
+          ><path
+            d="M8 36c18-2 34-10 50-26m-12-2h13v13"
+            fill="none"
+            stroke="url(#vmp3)"
+            stroke-width="5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path></svg
+        >
+        <span
+          class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] tracking-[0.2em] uppercase text-[#F5C400]"
+          >Our purpose</span
+        >
+        <p class="m-0 text-[clamp(17px,2.8vw,20px)] leading-[1.5]"
+          >To accelerate the realization of the founder's vision, from the only
+          perspective that truly understands, as founders ourselves.</p
+        >
+      </div>
+    </div>
+    <p
+      class="text-[clamp(22px,2.6vw,30px)]"
+      style="margin: 0; padding-top: 40px; border-top: 2px dotted rgba(250, 245, 234, 0.4); text-align: center; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; line-height: 1.25; letter-spacing: -0.01em; background: linear-gradient(90deg, #4DC3F0 0%, #7FD6B2 30%, #F2C94C 55%, #F0A07A 78%, #EE8E86 100%); -webkit-background-clip: text; background-clip: text; color: transparent"
+      >We are a conscious cooperative of founders invested in each other's
+      success.</p
+    >
+  </div>
+</section>
+
+<section
+  class="sn-stars"
+  style="background-color: #000000; color: #FAF5EA; padding: 128px 32px"
+>
+  <div
+    class="max-w-[600px] mx-auto my-0 flex flex-col items-center text-center gap-[32px]"
+  >
+    <h2
+      class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(32px,3.6vw,46px)] leading-[1.05] tracking-[-0.03em]"
+      >Capital scales companies. Judgment determines outcomes.</h2
+    >
+    <div
+      class="flex flex-wrap items-center justify-center"
+      style="gap: 16px 28px"
+    >
+      <a
+        href="https://nova.1supernova.com/#/apply-with-ai"
+        style="background: #F5C400; color: #14120E; text-decoration: none; font-weight: 600; font-size: 17px; padding: 17px 28px; border-radius: 6px"
+        >See if you qualify</a
+      >
+      <a
+        class="text-[#FAF5EA] font-semibold text-[16px]"
+        href="/exited-founders"
+        style="padding: 12px 0">Exited founder? Join us →</a
+      >
+    </div>
+  </div>
+</section>
+
+<section style="padding: 112px 32px">
+  <div
+    class="max-w-[1160px] mx-auto my-0 grid items-start"
+    style="grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: 40px 72px"
+  >
+    <div class="flex flex-col gap-[20px]">
+      <h2
+        class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(36px,4.4vw,56px)] leading-[1.05] tracking-[-0.03em]"
+        >{content.faqTitle}</h2
+      >
+      <p class="m-0 text-[18px] text-[#3A362D]"
+        >Can't find your answer? <a
+          class="font-semibold"
+          href="mailto:hello@1supernova.com">Reach out</a
+        >.</p
+      >
+    </div>
+    <div class="flex flex-col gap-[12px]">
+      <Faq items={content.faq} />
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (function () {
+    var self = { _cv: document.querySelector("[data-globe]") };
+    var base = "https://1supernovafund.com/img/";
+    var sprite = new Image();
+    sprite.src = "/assets/faces-sprite-766a6ceacd75.jpg";
+    var earth = new Image();
+    earth.src = base + "earth.webp";
+    var star = new Image();
+    star.src = "/assets/star-lines-4dde23efecf3.png";
+    var N = 30;
+    var t0 = performance.now();
+    function ease(x) {
+      return x < 0 ? 0 : x > 1 ? 1 : x * x * (3 - 2 * x);
+    }
+    function draw(now) {
+      self._raf = requestAnimationFrame(draw);
+      var c = self._cv;
+      if (!c) {
+        return;
+      }
+      var dpr = Math.min(2, window.devicePixelRatio || 1);
+      var W = Math.round(c.clientWidth * dpr),
+        H = Math.round(c.clientHeight * dpr);
+      if (!W || !H) {
+        return;
+      }
+      if (c.width !== W || c.height !== H) {
+        c.width = W;
+        c.height = H;
+      }
+      var ctx = c.getContext("2d");
+      var t = (now - t0) / 1000,
+        cyc = t % 12;
+      var k = ease(cyc < 1.5 ? 0 : (cyc - 1.5) / 2.5);
+      if (cyc > 9) {
+        k = ease(1 - (cyc - 9) / 2);
+      }
+      if (cyc > 11) {
+        k = 0;
+      }
+      ctx.clearRect(0, 0, W, H);
+      var cx = W / 2,
+        cy = H / 2,
+        R = Math.min(W, H) * 0.4,
+        ER = Math.max(1, R - 16 * dpr);
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(cx, cy, ER * 1.04, 0, 6.2832);
+      ctx.clip();
+      if (earth.complete && earth.naturalWidth) {
+        var sc = ER / (earth.naturalWidth * 0.44),
+          ew = earth.naturalWidth * sc;
+        ctx.drawImage(earth, cx - ew / 2, cy - ew / 2, ew, ew);
+      } else {
+        var g0 = ctx.createRadialGradient(
+          cx - ER * 0.3,
+          cy - ER * 0.35,
+          ER * 0.1,
+          cx,
+          cy,
+          ER * 1.05,
+        );
+        g0.addColorStop(0, "#6FB7F2");
+        g0.addColorStop(0.6, "#2B6CB8");
+        g0.addColorStop(1, "#123A6B");
+        ctx.fillStyle = g0;
+        ctx.fillRect(cx - ER * 1.1, cy - ER * 1.1, ER * 2.2, ER * 2.2);
+      }
+      ctx.restore();
+      var halo = ctx.createRadialGradient(cx, cy, ER * 0.98, cx, cy, ER * 1.18);
+      halo.addColorStop(0, "rgba(90,180,255,.22)");
+      halo.addColorStop(1, "rgba(90,180,255,0)");
+      ctx.fillStyle = halo;
+      ctx.beginPath();
+      ctx.arc(cx, cy, ER * 1.18, 0, 6.2832);
+      ctx.fill();
+      if (star.complete && star.naturalWidth) {
+        var ms = Math.min(W, H) * (0.4 + 0.08 * k);
+        ctx.save();
+        ctx.globalAlpha = 0.1 + 0.18 * k;
+        ctx.translate(cx, cy);
+        ctx.rotate(t * 0.05);
+        ctx.drawImage(star, -ms, -ms, ms * 2, ms * 2);
+        ctx.restore();
+      }
+      var CO = [{ x: cx, y: cy }];
+      for (var a = 0; a < 5; a++) {
+        var an = -Math.PI / 2 + (a * 2 * Math.PI) / 5;
+        CO.push({
+          x: cx + Math.cos(an) * R * 0.62,
+          y: cy + Math.sin(an) * R * 0.62,
+        });
+      }
+      CO.forEach(function (co) {
+        if (k > 0.05) {
+          ctx.beginPath();
+          ctx.arc(co.x, co.y, 54 * dpr, 0, 6.2832);
+          ctx.strokeStyle = "rgba(184,134,11," + 0.35 * k + ")";
+          ctx.lineWidth = dpr;
+          ctx.stroke();
+        }
+        var g = ctx.createRadialGradient(co.x, co.y, 0, co.x, co.y, 48 * dpr);
+        g.addColorStop(0, "rgba(246,195,74," + (0.15 + 0.45 * k) + ")");
+        g.addColorStop(1, "rgba(246,195,74,0)");
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.arc(co.x, co.y, 48 * dpr, 0, 6.2832);
+        ctx.fill();
+        ctx.fillStyle = "#F5B82E";
+        ctx.beginPath();
+        ctx.arc(co.x, co.y, (5 + 3 * k) * dpr, 0, 6.2832);
+        ctx.fill();
+        ctx.strokeStyle = "#fff";
+        ctx.lineWidth = 2 * dpr;
+        ctx.stroke();
+      });
+      for (var j = 0; j < N; j++) {
+        var co2 = CO[j % 6],
+          kk = Math.floor(j / 6);
+        var ang = (kk / 5) * 2 * Math.PI + t * 0.15 + (j % 6) * 1.3;
+        var tx = co2.x + Math.cos(ang) * 36 * dpr,
+          ty = co2.y + Math.sin(ang) * 36 * dpr;
+        var oa = (j / N) * 2 * Math.PI + t * 0.04;
+        var ox = cx + Math.cos(oa) * R,
+          oy = cy + Math.sin(oa) * R;
+        var fx = ox + (tx - ox) * k,
+          fy = oy + (ty - oy) * k,
+          fr = 17 * dpr,
+          fi = j % 16,
+          sq = sprite.naturalWidth / 4;
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(fx, fy, fr, 0, 6.2832);
+        ctx.closePath();
+        ctx.clip();
+        if (sprite.complete && sprite.naturalWidth) {
+          ctx.drawImage(
+            sprite,
+            (fi % 4) * sq,
+            Math.floor(fi / 4) * sq,
+            sq,
+            sq,
+            fx - fr,
+            fy - fr,
+            fr * 2,
+            fr * 2,
+          );
+        } else {
+          ctx.fillStyle = "#F1D9A6";
+          ctx.fillRect(fx - fr, fy - fr, fr * 2, fr * 2);
+        }
+        ctx.restore();
+        ctx.beginPath();
+        ctx.arc(fx, fy, fr, 0, 6.2832);
+        ctx.strokeStyle = "#fff";
+        ctx.lineWidth = 2 * dpr;
+        ctx.stroke();
+      }
+    }
+    self._raf = requestAnimationFrame(draw);
+    var v = document.querySelector("[data-hero-video]");
+    if (v) {
+      v.muted = true;
+      v.loop = true;
+      v.playsInline = true;
+      var p = v.play();
+      if (p && p.catch) {
+        p.catch(function () {
+          return null;
+        });
+      }
+    }
+  })();
+</script>

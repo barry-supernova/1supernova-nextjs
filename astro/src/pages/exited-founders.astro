@@ -1,0 +1,11 @@
+---
+import Base from "@/layouts/Base.astro";
+import ExitedFounders from "@/layouts/pages/ExitedFounders.astro";
+import { getPageContent } from "@/lib/pages";
+
+const content = await getPageContent("exited-founders");
+---
+
+<Base {content} path="/exited-founders">
+  <ExitedFounders {content} />
+</Base>

@@ -1,0 +1,11 @@
+---
+import Base from "@/layouts/Base.astro";
+import Home from "@/layouts/pages/Home.astro";
+import { getPageContent } from "@/lib/pages";
+
+const content = await getPageContent("index");
+---
+
+<Base {content} path="/">
+  <Home {content} />
+</Base>

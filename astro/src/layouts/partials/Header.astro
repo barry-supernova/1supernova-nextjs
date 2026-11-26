@@ -1,0 +1,67 @@
+---
+import config from "@/config/config.json";
+import menu from "@/config/menu.json";
+
+const path = Astro.url.pathname.replace(/\.html$/, "").replace(/\/$/, "") || "/";
+---
+
+<header data-menu-root class="sn-header relative z-5 border-b border-[#2e2a22] bg-[#0a090d]">
+  <div class="sn-header-inner mx-auto flex max-w-290 items-center justify-between gap-x-8 px-8 py-[18px]">
+    <a href="/" class="sn-header-logo flex min-h-11 items-center">
+      <img src={config.site.logo} alt="Supernova" class="block h-[34px] w-auto" />
+    </a>
+    <nav aria-label="Main" class="sn-desktop-nav flex flex-wrap items-center gap-x-1.5 gap-y-1">
+      {menu.primary.map((item) => (
+        <button
+          type="button"
+          aria-expanded="false"
+          aria-controls={`menu-${item.id}`}
+          data-open={item.id}
+          data-current={path === item.href ? "true" : undefined}
+          class="flex min-h-11 cursor-pointer items-center gap-2 border-0 bg-transparent px-3.5 py-3 font-sans text-[15px] font-medium"
+        >
+          {item.label}
+          <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5 6 8l3.5-3.5" /></svg>
+        </button>
+      ))}
+    </nav>
+    <div class="sn-header-actions flex items-center gap-x-5">
+      <a href={menu.login} class="sn-desktop-login px-1 py-3 text-[15px] font-medium no-underline">Login</a>
+      <a href={menu.apply} class="sn-header-cta rounded-md bg-gold px-5 py-[13px] text-[15px] font-semibold no-underline">Get started →</a>
+      <details class="sn-mobile-nav group/mobile" data-mobile-menu>
+        <summary class="sn-mobile-nav-toggle">
+          <span class="sr-only">Menu</span>
+          <span aria-hidden="true" class="relative block h-4 w-5">
+            <span class="absolute inset-x-0 top-0 h-0.5 rounded-full bg-current group-open/mobile:translate-y-[7px] group-open/mobile:rotate-45"></span>
+            <span class="absolute inset-x-0 top-[7px] h-0.5 rounded-full bg-current group-open/mobile:opacity-0"></span>
+            <span class="absolute inset-x-0 bottom-0 h-0.5 rounded-full bg-current group-open/mobile:-translate-y-[7px] group-open/mobile:-rotate-45"></span>
+          </span>
+        </summary>
+        <nav class="sn-mobile-nav-panel" aria-label="Main">
+          {menu.primary.map((item) => (
+            <a href={item.href} aria-current={path === item.href ? "page" : undefined}>{item.label}</a>
+          ))}
+          <a href="/about" aria-current={path === "/about" ? "page" : undefined}>About us</a>
+          <a href={menu.login}>Login</a>
+        </nav>
+      </details>
+    </div>
+  </div>
+  {menu.primary.map((item) => (
+    <div id={`menu-${item.id}`} data-menu={item.id} hidden>
+      <div class="sn-menu-panel absolute inset-x-0 top-full border-y border-[#e3dccb] bg-cream shadow-[0_28px_48px_rgba(20,18,14,.22)]">
+        <div class="sn-menu-inner mx-auto grid max-w-290 grid-cols-[repeat(auto-fit,minmax(min(380px,100%),1fr))] items-center gap-x-14 gap-y-7 px-8 pt-9 pb-11">
+          <div class="flex flex-col gap-4">
+            <h3 class="m-0 font-display text-4xl leading-[1.08] font-semibold tracking-[-.02em]">{item.title}</h3>
+            <p class="m-0 text-[17px] text-[#3a362d]">{item.description}</p>
+            <div class="flex flex-wrap items-center gap-x-7 gap-y-1">
+              <a href={item.href} aria-current={path === item.href ? "page" : undefined} class="py-2.5 text-base font-semibold">{item.link} →</a>
+              <a href={item.extraHref} class="py-2.5 text-base font-semibold">{item.extraLink} →</a>
+            </div>
+          </div>
+          <img src={item.image} alt={item.alt} loading="lazy" decoding="async" class="block h-70 w-full rounded-[10px] object-cover" style={{ objectPosition: item.position }} />
+        </div>
+      </div>
+    </div>
+  ))}
+</header>

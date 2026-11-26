@@ -1,0 +1,126 @@
+@layer components {
+  img {
+    filter: grayscale(1);
+    transition: filter 0.3s ease;
+  }
+  img:hover,
+  a:hover img,
+  article:hover img,
+  figure:hover img {
+    filter: none;
+  }
+  .sn-burst,
+  img[src*="bc4e9cecd"],
+  img[src*="26c73d2f"],
+  img[src*="dfb34823"],
+  img[src*="dc51ceae"],
+  img[src*="1fc727d7"],
+  img[src*="4d58b71d"],
+  img[src*="47a55872"],
+  img[src*="13ac9638"] {
+    filter: none;
+  }
+  a {
+    color: #14120e;
+  }
+  a:hover {
+    color: #5e584c;
+  }
+  .sn-exited-hero {
+    position: relative;
+    overflow: hidden;
+    background: #14120e url(/assets/allgood-hires-0534a08acb7f.jpg) center 45% /
+      cover no-repeat;
+  }
+  .sn-exited-hero-inner {
+    background: linear-gradient(
+      90deg,
+      rgba(20, 18, 14, 0.94),
+      rgba(20, 18, 14, 0.8) 45%,
+      rgba(20, 18, 14, 0.25)
+    );
+  }
+  .sn-exited-hero-inner > div {
+    position: relative;
+    z-index: 1;
+  }
+  .sn-exited-founder-grid article {
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+  .sn-exited-founder-grid a {
+    display: inline-flex;
+    align-items: center;
+    min-inline-size: 44px;
+    min-block-size: 44px;
+  }
+  .sn-exited-stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    background: #1a1a1a;
+    border: 1px solid #2b2b2b;
+    border-radius: 24px;
+    text-align: center;
+  }
+  .sn-face {
+    filter: grayscale(1);
+    transition: filter 0.3s ease;
+  }
+  article:hover .sn-face {
+    filter: none;
+  }
+  .sn-burst {
+    position: absolute;
+    top: 50%;
+    height: auto;
+    pointer-events: none;
+  }
+  .sn-burst-l {
+    left: 0;
+    width: min(30vw, 420px);
+    translate: -50% -50%;
+    animation: sn-spin-l 60s linear infinite;
+  }
+  .sn-burst-r {
+    right: 0;
+    width: min(30vw, 420px);
+    translate: 50% -50%;
+    rotate: 40deg;
+    animation: sn-spin-r 60s linear infinite;
+  }
+  @keyframes sn-spin-l {
+    to {
+      rotate: 360deg;
+    }
+  }
+  @keyframes sn-spin-r {
+    to {
+      rotate: -320deg;
+    }
+  }
+  .sn-stars {
+    background: #000000 url(/assets/stars-bg-eaa20be39313.jpg) center / cover
+      no-repeat;
+  }
+  .sn-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    -webkit-mask: radial-gradient(
+      farthest-side,
+      transparent calc(100% - 11px),
+      #000 calc(100% - 10px)
+    );
+    mask: radial-gradient(
+      farthest-side,
+      transparent calc(100% - 11px),
+      #000 calc(100% - 10px)
+    );
+  }
+  .sn-face {
+    background: #e7dfcc;
+  }
+
+}

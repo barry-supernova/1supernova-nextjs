@@ -1,0 +1,12 @@
+---
+import { Content, frontmatter } from "@/content/legal/privacy-policy.md";
+import LegalPage from "@/layouts/LegalPage.astro";
+---
+
+<LegalPage
+  title={frontmatter.title}
+  description={frontmatter.description}
+  path="/privacy-policy"
+>
+  <Content />
+</LegalPage>

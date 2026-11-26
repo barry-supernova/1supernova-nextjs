@@ -1,0 +1,12 @@
+---
+import { Content, frontmatter } from "@/content/legal/terms-of-service.md";
+import LegalPage from "@/layouts/LegalPage.astro";
+---
+
+<LegalPage
+  title={frontmatter.title}
+  description={frontmatter.description}
+  path="/terms-of-service"
+>
+  <Content />
+</LegalPage>

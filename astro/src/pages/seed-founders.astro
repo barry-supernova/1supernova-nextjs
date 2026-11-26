@@ -1,0 +1,11 @@
+---
+import Base from "@/layouts/Base.astro";
+import SeedFounders from "@/layouts/pages/SeedFounders.astro";
+import { getPageContent } from "@/lib/pages";
+
+const content = await getPageContent("seed-founders");
+---
+
+<Base {content} path="/seed-founders">
+  <SeedFounders {content} />
+</Base>
