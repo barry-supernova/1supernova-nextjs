@@ -5,7 +5,7 @@ image: "/assets/founders-group-ce8d035494c8.jpg"
 hero:
   eyebrow: "For seed founders"
   title: "Put exited founders on your cap table."
-  description: "You have a strong lead and $1M in revenue. We invest up to $500K on your lead's terms and deploy exited founders to help accelerate key milestones."
+  description: "You have a strong lead and revenue traction. We invest up to $500K on your lead's terms and deploy exited founders to help accelerate key milestones."
   cta:
     label: "Apply to the fund"
     href: "https://nova.1supernova.com/#/apply-with-ai"
