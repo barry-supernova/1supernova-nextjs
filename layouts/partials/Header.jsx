@@ -44,6 +44,10 @@ const Header = () => {
     }
     setHeight();
     window.addEventListener('resize', setHeight);
+
+    return () => {
+      window.removeEventListener('resize', setHeight);
+    };
   }, [toggleNavbar]);
 
   return (

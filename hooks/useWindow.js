@@ -16,7 +16,11 @@ const useWindow = (size) => {
       setWindowSize(width);
     }
     viewport();
-    window.onresize = viewport;
+    window.addEventListener("resize", viewport);
+
+    return () => {
+      window.removeEventListener("resize", viewport);
+    };
   }, []);
 
   return windowSize;

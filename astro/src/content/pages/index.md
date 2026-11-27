@@ -4,7 +4,9 @@ description: "Supernova is 250+ exited founders who invest in and work alongside
 image: "/assets/founders-group-ce8d035494c8.jpg"
 hero:
   eyebrow: "Exited founders building together"
-  title: "Build with exited founders who've built, scaled and sold."
+  title: |-
+    Build with exited founders
+    who back your seed
   description: "In the age of AI, relationships are your only unfair advantage. We are 250+ exited founders serving as investors and hands-on operating partners for founders building a better future."
   cta:
     label: "See if you qualify"

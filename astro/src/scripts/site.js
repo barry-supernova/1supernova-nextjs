@@ -92,6 +92,34 @@
 
   var hasIO = typeof IntersectionObserver !== 'undefined';
 
+  /* Homepage metrics: count up once on entry, preserving the rendered format.
+     Keep final values when JS/observers are unavailable or motion is reduced. */
+  if (hasIO && !reduce) {
+    var metricObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) { return; }
+        var el = entry.target;
+        metricObserver.unobserve(el);
+        var finalText = el.textContent;
+        var parts = finalText.match(/^(\D*)(\d+)(.*)$/);
+        if (!parts) { return; }
+        var target = Number(parts[2]);
+        var start = performance.now();
+        var frame = function (now) {
+          var progress = Math.min(1, (now - start) / 3000);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = progress === 1 ? finalText : parts[1] + Math.round(target * eased) + parts[3];
+          if (progress < 1) { requestAnimationFrame(frame); }
+        };
+        el.textContent = parts[1] + '0' + parts[3];
+        requestAnimationFrame(frame);
+      });
+    }, { threshold: 0.6 });
+    document.querySelectorAll('[data-stat-count]').forEach(function (el) {
+      metricObserver.observe(el);
+    });
+  }
+
   /* 3. "240+ more" counts up over six seconds when it scrolls into view */
   var counters = document.querySelectorAll('.sn-count');
   for (var c = 0; c < counters.length; c++) {

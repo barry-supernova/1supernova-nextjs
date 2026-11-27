@@ -25,7 +25,7 @@ const narrowActionLayout =
         >{content.hero.eyebrow}</p
       >
       <h1
-        class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(38px,5.2vw,68px)] leading-[1.02] tracking-[-0.03em] text-balance"
+        class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(38px,5.2vw,68px)] leading-[1.02] tracking-[-0.03em] whitespace-pre-line text-balance"
         >{content.hero.title}</h1
       >
       <p class="m-0 text-[clamp(17px,3.5vw,21px)] leading-[1.5] text-[#E6DFCF]"
@@ -83,7 +83,7 @@ const narrowActionLayout =
     >
       <a
         href="/seed-founders"
-        style="background: #4DA6F0; color: #14120E; border-radius: 10px"
+        style="--audience-color: #4DA6F0; color: #14120E; border-radius: 10px"
       >
         <svg
           class="block"
@@ -146,11 +146,11 @@ const narrowActionLayout =
           their terms, and exited founders come with us to help you achieve
           critical milestones.</span
         >
-        <span class="font-semibold text-[16px]">I am a top startup →</span>
+        <span class="sn-audience-button font-semibold text-[16px]">I am a top startup →</span>
       </a>
       <a
         href="/growth-stage-ceos"
-        style="background: #5ED4DE; color: #14120E; border-radius: 10px"
+        style="--audience-color: #5ED4DE; color: #14120E; border-radius: 10px"
       >
         <svg
           class="block"
@@ -248,11 +248,11 @@ const narrowActionLayout =
           match you with an exited founder who has solved your biggest challenge
           today.</span
         >
-        <span class="font-semibold text-[16px]">I am a growth-stage CEO →</span>
+        <span class="sn-audience-button font-semibold text-[16px]">I am a growth-stage CEO →</span>
       </a>
       <a
         href="/exited-founders"
-        style="background: #F2C94C; color: #14120E; border-radius: 10px"
+        style="--audience-color: #F2C94C; color: #14120E; border-radius: 10px"
       >
         <img
           class="w-[58px] h-[56px] block"
@@ -275,7 +275,7 @@ const narrowActionLayout =
           needs you in their corner. Supernova is where exited founders build
           together.</span
         >
-        <span class="font-semibold text-[16px]">I am an exited founder →</span>
+        <span class="sn-audience-button font-semibold text-[16px]">I am an exited founder →</span>
       </a>
     </div>
   </div>
@@ -289,29 +289,28 @@ const narrowActionLayout =
   >
     <div><span
         class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(28px,6vw,40px)] leading-[1] text-[#F0C84B]"
-        >250+</span
+        ><span class="sr-only">250+</span><span data-stat-count aria-hidden="true">250+</span></span
       ><span class="text-[14px] text-[#CFC7B6]">exited founders</span></div
     >
     <div><span
-        class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(28px,6vw,40px)] leading-[1] text-[#B562C8]"
-        >33</span
+        class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(28px,6vw,40px)] leading-[1] text-[#F0C84B]"
+        ><span class="sr-only">33</span><span data-stat-count aria-hidden="true">33</span></span
       ><span class="text-[14px] text-[#CFC7B6]">portfolio companies</span></div
     >
     <div><span
-        class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(28px,6vw,40px)] leading-[1]"
-        style="color: rgb(240, 160, 122)">$500K</span
+        class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(28px,6vw,40px)] leading-[1] text-[#F0C84B]"><span class="sr-only">$500K</span><span data-stat-count aria-hidden="true">$500K</span></span
       ><span class="text-[14px]" style="color: rgb(207, 199, 182)"
         >seed round check size</span
       ></div
     >
     <div><span
-        class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(28px,6vw,40px)] leading-[1] text-[#5BC4E6]"
-        >92</span
+        class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(28px,6vw,40px)] leading-[1] text-[#F0C84B]"
+        ><span class="sr-only">92</span><span data-stat-count aria-hidden="true">92</span></span
       ><span class="text-[14px] text-[#CFC7B6]">NPS from founders</span></div
     >
     <div><span
-        class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(28px,6vw,40px)] leading-[1] text-[#7FD6B2]"
-        >$100B+</span
+        class="[font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(28px,6vw,40px)] leading-[1] text-[#F0C84B]"
+        ><span class="sr-only">$100B+</span><span data-stat-count aria-hidden="true">$100B+</span></span
       ><span class="text-[14px] text-[#CFC7B6]">collective exit value</span
       ></div
     >
@@ -331,7 +330,7 @@ const narrowActionLayout =
       <h2
         class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(32px,3.8vw,46px)] leading-[1.1] tracking-[-0.02em]"
         >Most startup advice comes from people who haven't lived the
-        consequences. Exited founders have.</h2
+        consequences. <span class="underline decoration-gold decoration-[3px] underline-offset-[6px]">Exited founders have.</span></h2
       >
     </div>
     <div class="flex flex-col gap-[20px] min-[977px]:pt-[34px]">
@@ -385,8 +384,8 @@ const narrowActionLayout =
       >How can we help?</h2
     >
     <p class="m-0 text-[20px] leading-[1.5] text-[#E6DFCF]"
-      >Bring the decision you haven't made before. We'll bring the exited
-      founders who already have.</p
+      ><span class="block">Bring the decision you haven't made before.</span>
+      <span class="block">We'll bring the exited founders who already have.</span></p
     >
     <a
       href="https://nova.1supernova.com/#/apply-with-ai"
@@ -478,7 +477,7 @@ const narrowActionLayout =
       <div class="flex flex-col gap-[22px]"
         ><span
           class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] tracking-[0.12em] uppercase text-[#5E584C]"
-          >Proof / Seven companies</span
+          >Portfolio</span
         ><h2
           class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(44px,6.4vw,88px)] leading-[0.96] tracking-[-0.045em]"
           >Companies we've backed.</h2
@@ -486,14 +485,13 @@ const narrowActionLayout =
       >
       <p
         style="margin: 0; font-size: 19px; line-height: 1.5; color: #3A362D; justify-self: end"
-        >We back world-changing companies with capital and exited founders to go
-        the distance.</p
+        >We back world-changing companies.</p
       >
     </div>
     <div class="flex flex-col gap-[28px]">
       <div
         style="display: flex; justify-content: space-between; gap: 16px; padding-bottom: 14px; border-bottom: 1px solid #14120E; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #14120E"
-        ><span>01 / SEED Investments from our fund</span><span>Seed</span></div
+        ><span>01 / SEED Investments from our fund</span><span>Seed round</span></div
       >
       <div
         class="grid"
@@ -691,7 +689,7 @@ const narrowActionLayout =
           style="display: flex; flex-direction: column; gap: 6px; justify-self: end; text-align: right"
           ><span
             class="text-[clamp(48px,6vw,84px)] max-[641px]:text-[2.75rem]"
-            style='font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 600; line-height: 0.95; letter-spacing: -0.04em; color: rgb(161, 79, 191)'
+            style='font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 600; line-height: 0.95; letter-spacing: -0.04em; color: var(--color-gold)'
             >$10.2B</span
           ><span
             class="text-[12px] tracking-[0.12em] uppercase"
@@ -745,7 +743,7 @@ const narrowActionLayout =
           style="display: flex; flex-direction: column; gap: 6px; justify-self: end; text-align: right"
           ><span
             class="text-[clamp(48px,6vw,84px)] max-[641px]:text-[2.75rem]"
-            style="font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; line-height: 0.95; letter-spacing: -0.04em; color: #1F9E78"
+            style="font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; line-height: 0.95; letter-spacing: -0.04em; color: #000000"
             >9 in 10</span
           ><span
             class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] tracking-[0.12em] uppercase text-[#5E584C]"
@@ -799,7 +797,7 @@ const narrowActionLayout =
           style="display: flex; flex-direction: column; gap: 6px; justify-self: end; text-align: right"
           ><span
             class="text-[clamp(48px,6vw,84px)] max-[641px]:text-[2.75rem]"
-            style="font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; line-height: 0.95; letter-spacing: -0.04em; color: #E57A45"
+            style="font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; line-height: 0.95; letter-spacing: -0.04em; color: #000000"
             >6</span
           ><span
             class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] tracking-[0.12em] uppercase text-[#5E584C]"
@@ -853,7 +851,7 @@ const narrowActionLayout =
           style="display: flex; flex-direction: column; gap: 6px; justify-self: end; text-align: right"
           ><span
             class="text-[clamp(48px,6vw,84px)] max-[641px]:text-[2.75rem]"
-            style="font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; line-height: 0.95; letter-spacing: -0.04em; color: #2F8FE0"
+            style="font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; line-height: 0.95; letter-spacing: -0.04em; color: #000000"
             >3</span
           ><span
             class="[font-family:'IBM_Plex_Mono',ui-monospace,Menlo,monospace] text-[12px] tracking-[0.12em] uppercase text-[#5E584C]"
@@ -1340,7 +1338,8 @@ const narrowActionLayout =
   >
     <h2
       class="m-0 [font-family:'Space_Grotesk',system-ui,sans-serif] font-semibold text-[clamp(32px,3.6vw,46px)] leading-[1.05] tracking-[-0.03em]"
-      >Capital scales companies. Judgment determines outcomes.</h2
+      ><span class="block">Capital scales companies.</span>
+      <span class="block">Judgment determines outcomes.</span></h2
     >
     <div
       class:list={["flex flex-wrap items-center justify-center", narrowActionLayout]}

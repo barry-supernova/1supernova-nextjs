@@ -32,9 +32,9 @@
     background:
       linear-gradient(
         90deg,
-        rgba(20, 18, 14, 0.94) 0%,
-        rgba(20, 18, 14, 0.82) 42%,
-        rgba(20, 18, 14, 0.2) 100%
+        rgba(20, 18, 14, 0.74) 0%,
+        rgba(20, 18, 14, 0.62) 42%,
+        rgba(20, 18, 14, 0) 100%
       ),
       #14120e url(/assets/founders-group-ce8d035494c8.jpg) center 62% / cover
         no-repeat;
@@ -110,6 +110,7 @@
     position: absolute;
     inset: 0;
     z-index: 1;
+    pointer-events: none;
   }
   .sn-pill {
     position: absolute;
@@ -224,14 +225,17 @@
     padding: 32px;
     min-height: 260px;
     text-decoration: none;
-    transition:
-      background-color 0.2s ease,
-      box-shadow 0.2s ease;
+    background: #ffffff;
   }
-  .sn-home-audiences > a:hover {
-    background: #ffffff !important;
-    color: #14120e !important;
-    box-shadow: 0 10px 30px rgba(20, 18, 14, 0.12);
+  .sn-audience-button {
+    align-self: flex-start;
+    margin-top: 16px;
+    color: var(--audience-color);
+    text-underline-offset: 4px;
+  }
+  .sn-home-audiences > a:hover .sn-audience-button,
+  .sn-home-audiences > a:focus-visible .sn-audience-button {
+    text-decoration: underline;
   }
   .sn-tile:not([style*="order"]) .sn-photo {
     padding-top: 50px;
