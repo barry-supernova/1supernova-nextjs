@@ -6,6 +6,8 @@ command = "npm run build"
 [build.environment]
 NODE_VERSION = "24"
 NPM_FLAGS = "--include=dev"
+# This project now publishes static Astro output; skip the legacy UI-installed Next.js plugin.
+NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
 [build.processing.html]
 pretty_urls = false
